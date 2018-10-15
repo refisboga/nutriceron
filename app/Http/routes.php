@@ -57,7 +57,7 @@ Route::get('/reportemaestros','curso@reportemaestros');
 Route::get('/eliminam/{idm}','curso@eliminam')->name('eliminam');
 
 
-
+Route::get('/reportedos','curso@reportedos');
 
 
 
