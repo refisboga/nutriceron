@@ -12,70 +12,11 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('sistema.main');
 });
 
-Route::get('/hola', function () {
-    $mensaje = "hola mundo";
-    echo "Tic 72 $mensaje";
-});
-Route::get('/hola', function () {
-    $mensaje = "hola mundo";
-    echo "Tic 72 $mensaje";
+Route::get('/registrate', function(){
+    return view('sistema.reg_usuario');
 });
 
-Route::get('/produccion/almacen', function () {
-    $productos  = "cocacolas";
-    $existencias = 10;
-    if($existencias >=5)
-    {
-     echo "El producto $productos hay muchas";
-    }
-    else
-    {
-     echo "El producto $productos hay pocas";
-    }
- 
-});
-
-
-Route::get('/pagos/{cant}/{costo}', 
-function ($cant,$costo) {
-    $total = $cant * $costo;
-    echo "el total es ". $total;
-   
-});
-
-
-Route::get('/areat/{base}/{altura}','curso@areatriangulo');
-Route::get('/nomi/{dias}','curso@nomina');
-Route::get('/mandilon/{cant}/{costo}','curso@mandado');
-
-Route::get('/altama','curso@altamaestros');
-Route::POST('/guardamaestro','curso@guardamaestro')->name('guardamaestro');
-Route::get('/reportemaestros','curso@reportemaestros');
-Route::get('/eliminam/{idm}','curso@eliminam')->name('eliminam');
-
-
-Route::get('/reportedos','curso@reportedos');
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Route::POST('/registrar','usuario@registrar');
