@@ -25,6 +25,5 @@ class usuario extends Controller
 		$user->municipio_fk=3;
 		$user->estado_fk=1;		
 		$user->save();
-		return("hola");
 	}
 }

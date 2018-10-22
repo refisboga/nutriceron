@@ -25,10 +25,10 @@
 
 						<ul class="nav navbar-nav navbar-right">
         					<li class="dropdown">
-          						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">INICIAR <span class="glyphicon glyphicon-user"></span></a>
+          						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span> INICIAR</a>
           						<ul class="dropdown-menu">
             						<li><a href="#">INGRESA</a></li>
-            						<li><a href="#">REG&Iacute;STRATE</a></li>
+            						<li><a href="{{url('registrate')}}">REG&Iacute;STRATE</a></li>
           						</ul>
         					</li>
       					</ul>
