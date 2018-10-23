@@ -25,7 +25,7 @@
 
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="{{url('registrate')}}"><span class="glyphicon glyphicon-user"></span> REGISTRATE</a></li>
-					<li><a href="#"><span class="glyphicon glyphicon-log-in"></span> INGRESAR</a></li>
+					<li><a href="{{url('login')}}"><span class="glyphicon glyphicon-log-in"></span> INGRESAR</a></li>
 				</ul>
 			</div>
 		</nav>

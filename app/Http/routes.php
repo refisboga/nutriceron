@@ -18,5 +18,9 @@ Route::get('/', function () {
 Route::get('/registrate', function(){
     return view('sistema.reg_usuario');
 });
-
 Route::POST('/registrar','usuario@registrar');
+
+Route::get('/login', function(){
+    return view('sistema.login');
+});
+Route::POST('/checklogin','usuario@login');
