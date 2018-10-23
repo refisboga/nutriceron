@@ -22,7 +22,7 @@
 					<a href="{{url('/')}}" class="navbar-brand">Nutriceron</a>
 				</div>
 				<ul class="nav navbar-nav">
-					<li class="active"><a href="{{url('/home')}}"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+					<li><a href="{{url('/home')}}"><span class="glyphicon glyphicon-home"></span> Home</a></li>
 					<li><a href="{{url('citas')}}"><span class="glyphicon glyphicon-calendar"></span> Citas</a></li>
 					<li><a href="#"><span class="glyphicon glyphicon-cutlery"></span> Dietas</a></li>
 					<li><a href="#"><span class="glyphicon glyphicon-heart"></span> Pre-Diagn&oacute;stico</a></li>

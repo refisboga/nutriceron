@@ -29,4 +29,4 @@ Route::get('/login', function(){
 });
 Route::POST('/checklogin','usuario@login');
 
-Route::get('/citas','doctor@citas');
+Route::get('/citas','c_citas@consultarcitas');
