@@ -15,6 +15,10 @@ Route::get('/', function () {
     return view('sistema.main');
 });
 
+Route::get('/home', function(){
+	return view('sistema.nav_admin');
+});
+
 Route::get('/registrate', function(){
     return view('sistema.reg_usuario');
 });
@@ -24,3 +28,5 @@ Route::get('/login', function(){
     return view('sistema.login');
 });
 Route::POST('/checklogin','usuario@login');
+
+Route::get('/citas','doctor@citas');

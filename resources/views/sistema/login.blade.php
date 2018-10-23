@@ -1,4 +1,4 @@
-@extends('sistema.head_login')
+@extends('sistema.nav_login')
 @section('contenido')
 <body>
 	<div class="container">
