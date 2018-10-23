@@ -7,9 +7,6 @@
 	<form action="{{url('registrar')}}" method="POST" enctype="multipart/form-data">
 	{{csrf_field()}}
 	
-		@if($errors->first('nom'))
-		<i>{{$errors->first('nom')}}</i>
-		@endif<br>
 		<div class="input-group">
 			<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
 			<input type="text" name="nom" placeholder="Nombre (s)" class="form-control" pattern="[A-Z][A-Z,a-z, ,á,é,í,ó,ú,Ñ,ñ]*" title="Ejemplo: Pedro" autofocus required>
