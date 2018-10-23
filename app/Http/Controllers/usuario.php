@@ -10,10 +10,11 @@ use App\pacientes;
 class usuario extends Controller
 {
     public function registrar(Request $request){
+		
 		$user=new pacientes;
 		$user->id_pac=null;
-		$user->nombre=$request->nom;
-		$user->ap_pat=$request->ap;
+		$nombre=$request->nom;
+		$ap_pat=$request->ap;
 		$user->ap_mat=$request->am;
 		$user->correo=$request->email;
 		$user->pass=$request->pass;
