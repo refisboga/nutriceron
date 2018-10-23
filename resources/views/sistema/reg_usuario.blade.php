@@ -1,21 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>Bootstrap Example</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="{{asset('css/style_user.css')}}"/>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-<body>
+@extends('sistema.main')
 
+@section('contenido')
 <legend>Reg&iacute;strate</legend>
 
 <div class="container">
 	<form action="{{url('registrar')}}" method="POST" enctype="multipart/form-data">
 	{{csrf_field()}}
+	
+		@if($errors->first('nom'))
+		<i>{{$errors->first('nom')}}</i>
+		@endif<br>
 		<div class="input-group">
 			<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
 			<input type="text" name="nom" placeholder="Nombre (s)" class="form-control" pattern="[A-Z][A-Z,a-z, ,á,é,í,ó,ú,Ñ,ñ]*" title="Ejemplo: Pedro" autofocus required>
@@ -33,7 +27,7 @@
 		
 		<div class="input-group">
 			<span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-			<input type="text" name="email" placeholder="e-mail" class="form-control" pattern="^[a-zA-Z0-9.!#$%&*+/=_-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z]+)+$" title="Ejemplo: ejemplo@ejemplo.com" required>
+			<input type="text" name="email" placeholder="e-mail" class="form-control" pattern="^[a-zA-Z0-9.!#$%&*+/=_-]+@[a-zA-Z0-9]+(?:\.[a-zA-Z]+)+$" title="Ejemplo: ejemplo@ejemplo.com" required>
 		</div>
 		
 		<div class="input-group">
@@ -64,7 +58,23 @@
 		
 		<div class="input-group">
 			<span class="input-group-addon"><i class="glyphicon glyphicon-gift"></i></span>
-			<input type="text" name="fn" placeholder="Fecha de Nacimiento" class="form-control" title="Ejemplo:"required >
+			<input type="text" name="dia" placeholder="Dia" class="form-control" pattern="[0-9]{2}+ title="Ejemplo: 03" required >
+			<select name="mes" class="form-control" required>
+				<option value="" disabled selected>Mes</option>
+				<option value="01">Enero</option>
+				<option value="02">Febrero</option>
+				<option value="03">Marzo</option>
+				<option value="04">Abril</option>
+				<option value="05">Mayo</option>
+				<option value="06">Junio</option>
+				<option value="07">Julio</option>
+				<option value="08">Agosto</option>
+				<option value="09">Septiembre</option>
+				<option value="10">Octubre</option>
+				<option value="11">Noviembre</option>
+				<option value="12">Diciembre</option>
+			</select>
+			<input type="text" name="anio" placeholder="Año" class="form-control" pattern="[0-9]{4}+" title="Ejemplo: 2001" required >
 		</div>
 		
 		<div>
@@ -73,7 +83,5 @@
 		</div>
 	</form>
   <br>
-
 </div>
-</body>
-</html>
+@stop
