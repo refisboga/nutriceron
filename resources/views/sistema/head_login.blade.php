@@ -11,6 +11,19 @@
 	  <script src="http://code.jquery.com/jquery-latest.js"></script>
 	</head>
 	<body>
+		<nav class="navbar navbar-default">
+			<div class="container-fluid">
+				<div class="navbar_default">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-1">
+						<span class="sr-only">MENU</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a href="{{url('/')}}" class="navbar-brand">Nutriceron</a>
+				</div>
+			</div>
+		</nav>
 		@yield('contenido');
 	</body>
 </html>
