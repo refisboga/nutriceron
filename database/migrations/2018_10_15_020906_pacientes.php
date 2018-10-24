@@ -28,11 +28,6 @@ class Pacientes extends Migration
             $table->integer('num_int');
             $table->integer('num_ext');
             $table->string('colonia');
-            $table->integer('municipio_fk')->unsigned();
-            $table->integer('estado_fk')->unsigned();
-
-            $table->foreign('municipio_fk')->references('id_municipio')->on('municipios');
-            $table->foreign('estado_fk')->references('id_estado')->on('estados');
 
             $table->rememberToken();
             $table->timestamps();

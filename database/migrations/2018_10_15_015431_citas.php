@@ -18,15 +18,7 @@ class Citas extends Migration
             $table->time('hora');
             $table->integer('telefono');
             $table->string('correo',50);
-            $table->string('calle',50);
-            $table->integer('num_int');
-            $table->integer('num_ext');
-            $table->string('colonia',50);
-            $table->integer('municipio_fk')->unsigned();
-            $table->integer('estado_fk')->unsigned();
-
-            $table->foreign('municipio_fk')->references('id_municipio')->on('municipios');
-            $table->foreign('estado_fk')->references('id_estado')->on('estados');
+            $table->string('dir',50);
 
             $table->rememberToken();
             $table->timestamps();

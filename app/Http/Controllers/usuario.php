@@ -51,8 +51,6 @@ class usuario extends Controller
 		$user->talla=$talla;
 		$user->sexo=$sexo;
 		$user->fec_nac=$fn;
-		$user->municipio_fk=3;
-		$user->estado_fk=1;
 		$user->save();
 	}
 }
