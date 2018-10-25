@@ -2,7 +2,7 @@
 @section('contenido')
 <div class="container">
 	<h2>Listado de Citas</h2>
-	<p>Estatus de las citas.</p>
+	<p>Estatus de las Citas.</p>
 	
 	<table class="table">
 		<thead>
