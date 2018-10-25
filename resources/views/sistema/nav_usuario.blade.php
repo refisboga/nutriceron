@@ -24,7 +24,7 @@
 				<ul class="nav navbar-nav">
 					<li><a href="{{url('/home')}}"><span class="glyphicon glyphicon-home"></span> Home</a></li>
 					<li><a href="{{url('/cita')}}"><span class="glyphicon glyphicon-calendar"></span> Agendar Cita</a></li>
-					<li><a href="#"><span class="glyphicon glyphicon-check"></span> Evaluaci&oacute;n</a></li>
+					<li><a href="{{url('/evaluacion')}}"><span class="glyphicon glyphicon-check"></span> Evaluaci&oacute;n</a></li>
 					<li><a href="#"><span class="glyphicon glyphicon-folder-open"></span> Expediente</a></li>
 					<li><a href="#"><span class="glyphicon glyphicon-cutlery"></span> Dietas</a></li>
 				</ul>

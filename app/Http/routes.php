@@ -32,6 +32,10 @@ Route::get('/home', function(){
 Route::get('/cita',function(){
 	return view('sistema.agendar_cita');
 });
+
+Route::get('/evaluacion',function(){
+	return view('sistema.evaluacion');
+});
 /*---------------------------------------------------------Url Admin-------------------*/
 Route::get('/admin', function(){
 	return view('sistema.nav_admin');

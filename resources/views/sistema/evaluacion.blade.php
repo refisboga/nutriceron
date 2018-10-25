@@ -1,7 +1,7 @@
 @extends('sistema.nav_usuario')
 
 @section('contenido')
-<legend>Agendar Cita</legend>
+<legend>Pre-Evaluaci&oacute;n</legend>
 
 <div class="container">
 	<form action="{{url('registrar')}}" method="POST" enctype="multipart/form-data">
