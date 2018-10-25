@@ -36,6 +36,14 @@ Route::get('/cita',function(){
 Route::get('/evaluacion',function(){
 	return view('sistema.evaluacion');
 });
+
+Route::get('/expediente',function(){
+	return view('sistema.expediente');
+});
+
+Route::get('/dietas',function(){
+	return view('sistema.dietas');
+});
 /*---------------------------------------------------------Url Admin-------------------*/
 Route::get('/admin', function(){
 	return view('sistema.nav_admin');
