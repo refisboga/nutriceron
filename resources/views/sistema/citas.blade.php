@@ -7,7 +7,7 @@
 	<table class="table">
 		<thead>
 			<tr>
-				<th>Acci&oacute;n</th><th>#Id Paciente</th><th>Nombre</th><th>Fecha</th><th>Hora</th><th>Telefono</th>
+				<th>Acci&oacute;n</th><th>#Id Paciente</th><th>Nombre</th><th>Fecha</th><th>Hora</th><th>Estatus</th>
 			</tr>
 		</thead>
 		@foreach($citas as $datos)
@@ -17,7 +17,7 @@
 					<a class="btn btn-info" role="button" href="#">Modificar</a>
 					<a class="btn btn-warning" role="button" href="#">Desactivar</a>
 				</td>
-				<td>{{$datos->id_cita}}</td><td>Pedro</td><td>{{$datos->fecha}}</td><td>{{$datos->hora}}</td><td>{{$datos->telefono}}</td>
+				<td>{{$datos->id_cita}}</td><td>Pedro Gonzalez Perez</td><td>{{$datos->fecha}}</td><td>{{$datos->hora}}</td><td></td>
 			</tr>      
 		</tbody>
 		@endforeach
