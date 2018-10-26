@@ -52,5 +52,7 @@ class usuario extends Controller
 		$user->sexo=$sexo;
 		$user->fec_nac=$fn;
 		$user->save();
+		
+		return view('/home');
 	}
 }

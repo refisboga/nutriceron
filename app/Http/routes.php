@@ -44,9 +44,11 @@ Route::get('/expediente',function(){
 Route::get('/dietas',function(){
 	return view('sistema.dietas');
 });
+
+Route::POST('/regcita','cita@registrar');
 /*---------------------------------------------------------Url Admin-------------------*/
 Route::get('/admin', function(){
 	return view('sistema.nav_admin');
 });
 
-Route::get('/citas','c_citas@consultarcitas');
+Route::get('/citas','cita@consultarcitas');

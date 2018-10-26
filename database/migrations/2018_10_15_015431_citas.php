@@ -16,7 +16,7 @@ class Citas extends Migration
             $table->increments('id_cita');
             $table->date('fecha');
             $table->time('hora');
-			$table->string('dir',50);
+			$table->string('direc',50);
 			$table->integer('cp');
 			$table->integer('tel');
             $table->string('correo',50);
