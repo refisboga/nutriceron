@@ -19,7 +19,20 @@ class cita extends Controller
 		$cal=$request->cal;
 		$hora=$request->hora;
 		
-		//Aqui la validacion javi
+		
+		/*$this->validate($request,[
+			'nom'=>['regex:/^[A-Z][A-Z,a-z, ,ñ,é,í,á,ó,ú]*$/']
+			'direc'=>['regex:/^[A-Z][A-Z,a-z, ,ñ,é,í,á,ó,ú]*$/']
+			'cp'=>'required|integer',
+			'tel'=>'required|integer',
+			'email'=>['regex:/^[A-Z,a-z,0-9,ñ,Ñ,é,í,á,ó,ú,!,#,$,%,&,+,/,=,_,-]+[@][A-Z,a-z,0-9]+[.][A-Z,a-z]+$/'],
+		    'cal'=>'required|integer[[0-9]{2}+-form-control-[0-9]{4}+]    
+			'hora'=>pattern="/^([0-1][0-9]|[2][0-3])[\:]([0-5][0-9])[\:]([0-5][0-9])$/";
+    
+			
+
+		]);*/
+		
 		
 		$cita=new citas;
 		$cita->id_cita=null;
