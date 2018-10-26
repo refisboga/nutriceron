@@ -49,8 +49,13 @@ Route::POST('/regeva','evalua@registrar');
 Route::get('/admin', function(){
 	return view('sistema.nav_admin');
 });
+Route::get('registrardoc',function(){
+	return view('sistema.reg_doctor');
+});
 
 Route::get('/citas','cita@consultarcitas');
 Route::get('/expedientes','a_expedientes@consultar_expe');
 Route::get('/pacientes','a_pacientes@consultar_pac');
 Route::get('/cuentadoc','a_doctores@consultar_doc');
+Route::get('/consultardoc','a_doctores@consultar_todos');
+Route::POST('/reg_doc','a_doctores@registrar');

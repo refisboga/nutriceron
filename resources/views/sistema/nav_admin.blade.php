@@ -33,6 +33,9 @@
 						<ul class="dropdown-menu">
 							<li><a href="{{url('/cuentadoc')}}"><span class="glyphicon glyphicon-user"></span> Cuenta</a></li>
 							<li class="divider"></li>
+							<li><a href="{{url('/registrardoc')}}"><span class="glyphicon glyphicon-user"></span> Crear Nueva Cuenta</a></li>
+							<li><a href="{{url('/consultardoc')}}"><span class="glyphicon glyphicon-user"></span> Consultar Cuentas</a></li>
+							<li class="divider"></li>
 							<li><a href="{{url('/')}}"><span class="glyphicon glyphicon-off"></span> Cerrar Sesi&oacute;n</a></li>
 						</ul>
 					</li>
