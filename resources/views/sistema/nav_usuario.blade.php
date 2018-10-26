@@ -33,7 +33,7 @@
 						<ul class="dropdown-menu">
 							<li><a href="{{url('/cuenta')}}"><span class="glyphicon glyphicon-user"></span> Cuenta</a></li>
 							<li class="divider"></li>
-							<li><a href="#"><span class="glyphicon glyphicon-off"></span> Cerrar Sesi&oacute;n</a></li>
+							<li><a href="{{url('/')}}"><span class="glyphicon glyphicon-off"></span> Cerrar Sesi&oacute;n</a></li>
 						</ul>
 					</li>
 				</ul>
