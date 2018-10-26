@@ -17,7 +17,8 @@
 					<a class="btn btn-info" role="button" href="#">Modificar</a>
 					<a class="btn btn-warning" role="button" href="#">Desactivar</a>
 				</td>
-				<td>{{$datos->id_cita}}</td><td>Pedro</td><td>{{$datos->fecha}}</td><td>{{$datos->hora}}</td><td>{{$datos->telefono}}</td>
+				<td>{{$datos->id_cita}}</td><td>Pedro</td><td>{{$datos->fecha}}</td><td>{{$datos->hora}}</td>
+				<td>{{$datos->tel}}</td>
 			</tr>      
 		</tbody>
 		@endforeach

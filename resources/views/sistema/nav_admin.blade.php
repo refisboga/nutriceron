@@ -25,15 +25,15 @@
 					<li><a href="{{url('/admin')}}"><span class="glyphicon glyphicon-home"></span> Home</a></li>
 					<li><a href="{{url('/citas')}}"><span class="glyphicon glyphicon-calendar"></span> Agenda</a></li>
 					<li><a href="{{url('/expedientes')}}"><span class="glyphicon glyphicon-folder-open"></span> Expedientes</a></li>
-					<li><a href="#"><span class="glyphicon glyphicon-user"></span> Pacientes</a></li>
+					<li><a href="{{url('/pacientes')}}"><span class="glyphicon glyphicon-user"></span> Pacientes</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-envelope"></span> CORREO</a>
 					<li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown">PERFIL <span class="glyphicon glyphicon-chevron-down"></span></a>
 						<ul class="dropdown-menu">
-							<li><a href="{{url('/consultar')}}"><span class="glyphicon glyphicon-user"></span> Cuenta</a></li>
+							<li><a href="{{url('/cuentadoc')}}"><span class="glyphicon glyphicon-user"></span> Cuenta</a></li>
 							<li class="divider"></li>
-							<li><a href="#"><span class="glyphicon glyphicon-off"></span> Cerrar Sesi&oacute;n</a></li>
+							<li><a href="{{url('/')}}"><span class="glyphicon glyphicon-off"></span> Cerrar Sesi&oacute;n</a></li>
 						</ul>
 					</li>
 				</ul>

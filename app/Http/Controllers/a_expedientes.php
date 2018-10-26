@@ -11,6 +11,6 @@ class a_expedientes extends Controller
 {	
 	public function consultar_expe(){
 		$c = expedientes::all();
-		return view('sistema.citas')->with('citas',$c);
+		return view('sistema.a_expedientes')->with('expe',$c);
 	}
 }

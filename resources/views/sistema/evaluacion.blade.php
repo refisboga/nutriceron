@@ -2,7 +2,7 @@
 
 @section('contenido')
 <legend>Evaluaci&oacute;n Diagn&oacute;stica</legend>
-
+<p>Solo Ingresa tus datos, en los campos "Habilitados".</p>
 <div class="container">
 	<form action="{{url('regeva')}}" method="POST" enctype="multipart/form-data">
 	{{csrf_field()}}

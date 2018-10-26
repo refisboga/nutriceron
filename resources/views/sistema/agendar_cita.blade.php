@@ -2,6 +2,7 @@
 
 @section('contenido')
 <legend>Agendar Cita</legend>
+<p>Solo Ingresa tus datos, en los campos "Habilitados".</p>
 
 <div class="container">
 	<form action="{{url('regcita')}}" method="POST" enctype="multipart/form-data">
