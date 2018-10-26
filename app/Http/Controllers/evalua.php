@@ -23,7 +23,24 @@ class evalua extends Controller
 		$tra=$request->tra;
 		$desctra=$request->desctra;
 		
-		//Aqui la validacion javi
+		
+		/*$this->validate($request,[
+		    'cal'=>'required|integer[[0-9]{2}+-form-control-[0-9]{4}+]    
+			'hora'=>pattern="/^([0-1][0-9]|[2][0-3])[\:]([0-5][0-9])[\:]([0-5][0-9])$/";
+			'tipo'=>['regex:/^[A-Z][A-Z,a-z, ,ñ,é,í,á,ó,ú]*$/']
+			'ale1'=>['regex:/^[A-Z][A-Z,a-z, ,ñ,é,í,á,ó,ú]*$/'],
+			'ale2'=>['regex:/^[A-Z][A-Z,a-z, ,ñ,é,í,á,ó,ú]*$/'],
+			'enf1'=>['regex:/^[A-Z][A-Z,a-z, ,ñ,é,í,á,ó,ú]*$/'],
+			'enf2'=>['regex:/^[A-Z][A-Z,a-z, ,ñ,é,í,á,ó,ú]*$/'],
+			'tc'=>['regex:/^[A-Z,a-z,0-9,ñ,Ñ,é,í,á,ó,ú,!,#,$,%,&,+,/,=,_,-]+[@][A-Z,a-z,0-9]+[.][A-Z,a-z]+$/'],
+			'desccir'=>['regex:/^[A-Z,a-z,0-9,ñ,Ñ,é,í,á,ó,ú,!,#,$,%,&,+,/,=,_,-]+[@][A-Z,a-z,0-9]+[.][A-Z,a-z]+$/'],
+			'tra'=>'required|integer',
+			'desctra'=>'required|integer',
+		
+		]);*/
+		
+		
+
 		
 		$evalua=new expedientes;
 		$evalua->id_exp=null;
