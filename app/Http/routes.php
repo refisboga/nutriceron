@@ -51,3 +51,4 @@ Route::get('/admin', function(){
 });
 
 Route::get('/citas','cita@consultarcitas');
+Route::get('expedientes','a_expedientes@consultar_expe');
