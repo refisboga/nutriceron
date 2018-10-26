@@ -37,15 +37,14 @@ Route::get('/evaluacion',function(){
 	return view('sistema.evaluacion');
 });
 
-Route::get('/expediente',function(){
-	return view('sistema.expediente');
-});
-
 Route::get('/dietas',function(){
 	return view('sistema.dietas');
 });
 
+Route::get('/cuenta','u_cuenta@consultar');
+Route::get('/expediente', 'u_expediente@consulta_cita');
 Route::POST('/regcita','cita@registrar');
+Route::POST('/regeva','evalua@registrar');
 /*---------------------------------------------------------Url Admin-------------------*/
 Route::get('/admin', function(){
 	return view('sistema.nav_admin');

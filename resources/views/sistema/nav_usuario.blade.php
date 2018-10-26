@@ -31,7 +31,7 @@
 				<ul class="nav navbar-nav navbar-right">
 					<li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown">PERFIL <span class="glyphicon glyphicon-chevron-down"></span></a>
 						<ul class="dropdown-menu">
-							<li><a href="{{url('/consultar')}}"><span class="glyphicon glyphicon-user"></span> Cuenta</a></li>
+							<li><a href="{{url('/cuenta')}}"><span class="glyphicon glyphicon-user"></span> Cuenta</a></li>
 							<li class="divider"></li>
 							<li><a href="#"><span class="glyphicon glyphicon-off"></span> Cerrar Sesi&oacute;n</a></li>
 						</ul>

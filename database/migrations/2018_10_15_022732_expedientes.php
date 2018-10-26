@@ -24,7 +24,7 @@ class Expedientes extends Migration
             $table->char('cirugia',2);
             $table->string('tipo_cirugia',30);
             $table->char('tratamiento',2);
-            $table->text('desc_tratamienot');
+            $table->text('desc_tratamiento');
             $table->integer('pac_fk')->unsigned();
             $table->integer('doc_fk')->unsigned();
 

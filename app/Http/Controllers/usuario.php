@@ -53,6 +53,6 @@ class usuario extends Controller
 		$user->fec_nac=$fn;
 		$user->save();
 		
-		return view('/home');
+		return view('sistema.nav_usuario');
 	}
 }

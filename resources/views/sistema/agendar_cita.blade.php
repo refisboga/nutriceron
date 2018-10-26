@@ -14,7 +14,7 @@
 	
 		<div class="input-group">
 			<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-			<input type="text" name="nom" placeholder="Nombre" class="form-control">
+			<input type="text" name="nom" placeholder="Nombre" class="form-control" required>
 		</div>
 		
 		<div class="input-group">
@@ -35,12 +35,12 @@
 		
 		<div class="input-group">
 			<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-			<input type="text" name="cal" placeholder="2018-10-23" class="form-control">
+			<input type="text" name="cal" placeholder="2018-10-23" class="form-control" required>
 		</div>
 		
 		<div class="input-group">
 			<span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
-			<input type="text" name="hora" placeholder="14:30" class="form-control">
+			<input type="text" name="hora" placeholder="14:30" class="form-control" required>
 		</div>
 		
 		<div>

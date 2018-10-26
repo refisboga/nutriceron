@@ -55,7 +55,7 @@
 		
 		<div class="input-group">
 			<span class="input-group-addon"><i class="glyphicon glyphicon-gift"></i></span>
-			<input type="text" name="dia" placeholder="Dia" class="form-control" pattern="[0-9]{2}+ title="Ejemplo: 03" required >
+			<input type="text" name="dia" placeholder="Dia" class="form-control" pattern="[0-9]{2}+" title="Ejemplo: 03" required >
 			<select name="mes" class="form-control" required>
 				<option value="" disabled selected>Mes</option>
 				<option value="01">Enero</option>
