@@ -6,12 +6,11 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\expedientes;
-use App\citas;
 
 class u_expediente extends Controller
 {
-    public function consulta_cita(){
-		$c = citas::all();
-		return view('sistema.expediente')->with('citas',$c);
+    public function consultar_expediente(){
+		$e = expedientes::all();
+		return view('sistema.expediente')->with('expe',$e);
 	}
 }

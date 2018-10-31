@@ -1,7 +1,7 @@
 @extends('sistema.nav_admin')
 
 @section('contenido')
-<legend>Reg&iacute;strate</legend>
+<legend>Reg&iacute;strar nuevo Doctor</legend>
 
 <div class="container">
 	<form action="{{url('/reg_doc')}}" method="POST" enctype="multipart/form-data">

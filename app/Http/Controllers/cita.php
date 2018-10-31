@@ -44,7 +44,12 @@ class cita extends Controller
 		$cita->correo=$correo;
 		$cita->save();
 		
-		return view('/home');
+		return view('sistema.nav_usuario');
+	}
+	
+	public function detalle_cita(){
+		$c = citas::all();
+		return view('sistema.detalle_cita')->with('citas',$c);
 	}
 	
 	public function consultarcitas(){

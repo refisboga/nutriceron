@@ -1,7 +1,7 @@
 @extends('sistema.nav_usuario')
 
 @section('contenido')
-<legend>Evaluaci&oacute;n Diagn&oacute;stica</legend>
+<h2>Evaluaci&oacute;n Diagn&oacute;stica</h2>
 <p>Solo Ingresa tus datos, en los campos "Habilitados".</p>
 <div class="container">
 	<form action="{{url('regeva')}}" method="POST" enctype="multipart/form-data">

@@ -1,7 +1,7 @@
 @extends('sistema.nav_usuario')
 
 @section('contenido')
-<legend>Agendar Cita</legend>
+<h2>Agendar Cita</h2>
 <p>Solo Ingresa tus datos, en los campos "Habilitados".</p>
 
 <div class="container">

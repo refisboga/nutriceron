@@ -14,4 +14,10 @@ class u_cuenta extends Controller
 		$usuario=pacientes::all();
 		return view('sistema.cuenta')->with('usuario',$usuario);
 	}
+	
+	public function herramientas(){
+		//$usuario=pacientes::where('id_pac','=','MAX(id_pac)')->get();
+		$usuario=pacientes::all();
+		return view('sistema.modificar_perfil')->with('usuario',$usuario);
+	}
 }
