@@ -1,6 +1,6 @@
 @extends('sistema.nav_admin')
 @section('contenido')
-<div class="container" id="contenido">
+<div class="container" id="cont">
 	<h2>Listado de Citas</h2>
 	<p>Estatus de las Citas.</p>
 	

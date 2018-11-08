@@ -1,6 +1,6 @@
 @extends('sistema.nav_admin')
 @section('contenido')
-<div class="container">
+<div class="container" id="cont">
 	<h2>Men&uacute;s Registrados</h2>
 	<p>Datos del men&uacute;.</p>
 	<table class="table">

@@ -1,6 +1,6 @@
 @extends('sistema.nav_admin')
 @section('contenido')
-<div class="container">
+<div class="container" id="cont">
 	<h2>Perfil</h2>
 	<p>Datos del Doctor.</p>
 	<table class="table">

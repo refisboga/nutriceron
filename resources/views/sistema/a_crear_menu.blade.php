@@ -3,7 +3,7 @@
 @section('contenido')
 <h2>Crear Men&uacute;</h2>
 <p>Aqu&iacute; puedes crear diversos men&uacute;s.</p>
-<div class="container">
+<div class="container" id="cont">
 	<form action="{{url('regmenu')}}" method="POST" enctype="multipart/form-data">
 	{{csrf_field()}}
 		
