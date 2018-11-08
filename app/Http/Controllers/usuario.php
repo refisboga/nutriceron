@@ -52,7 +52,11 @@ class usuario extends Controller
 		$user->sexo=$sexo;
 		$user->fec_nac=$fn;
 		$user->save();
+		$proceso="Alta de Usuario";
+		$mensaje="Registro de Usuario Exitoso";
 		
-		return view('sistema.nav_usuario');
+		return view('sistema.mensaje')
+		->with('proceso',$proceso)
+		->with('mensaje',$mensaje);
 	}
 }

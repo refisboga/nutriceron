@@ -58,7 +58,11 @@ class evalua extends Controller
 		$evalua->pac_fk=3;
 		$evalua->doc_fk=1;
 		$evalua->save();
+		$proceso="Alta de Evaluación";
+		$mensaje="El Registro de Evaluación fué Exitoso";
 		
-		return view('sistema.nav_usuario');
+		return view('sistema.mensaje')
+		->with('proceso',$proceso)
+		->with('mensaje',$mensaje);
 	}
 }

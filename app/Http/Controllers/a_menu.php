@@ -20,8 +20,12 @@ class a_menu extends Controller
 		$m->descr=$desc;
 		$m->menu=$menu;
 		$m->save();
+		$proceso="Alta de Menu";
+		$mensaje="El Registro del Menu fué Exitoso";
 		
-		return view('sistema.nav_admin');
+		return view('sistema.mensaje')
+		->with('proceso',$proceso)
+		->with('mensaje',$mensaje);
 	}
 	
 	public function consmenu_a(){

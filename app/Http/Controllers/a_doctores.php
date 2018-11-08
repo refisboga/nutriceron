@@ -36,8 +36,12 @@ class a_doctores extends Controller
 		$doc->pass=$pass;
 		$doc->tel=$tel;
 		$doc->save();
+		$proceso="Alta de Doctor";
+		$mensaje="El Registro del Doctor fué Exitoso";
 		
-		return view('sistema.nav_admin');
+		return view('sistema.mensaje')
+		->with('proceso',$proceso)
+		->with('mensaje',$mensaje);
 	}
 	
 	public function consultar_doc(){

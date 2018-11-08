@@ -43,8 +43,12 @@ class cita extends Controller
 		$cita->tel=$tel;
 		$cita->correo=$correo;
 		$cita->save();
+		$proceso="Alta de Cita";
+		$mensaje="El Registro de la Cita fué Exitoso";
 		
-		return view('sistema.nav_usuario');
+		return view('sistema.mensaje')
+		->with('proceso',$proceso)
+		->with('mensaje',$mensaje);
 	}
 	
 	public function detalle_cita(){
