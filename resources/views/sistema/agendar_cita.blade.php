@@ -35,8 +35,8 @@
 		</div>
 		
 		<div class="input-group">
-			<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-			<input type="text" name="cal" placeholder="2018-10-23" class="form-control" required>
+			<span class="input-group-addon"><i class="glyphicon glyphicon-gift"></i></span>
+			<input type="date" name="fecha">
 		</div>
 		
 		<div class="input-group">

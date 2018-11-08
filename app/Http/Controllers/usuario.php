@@ -20,10 +20,7 @@ class usuario extends Controller
 		$peso=$request->peso;
 		$talla=$request->talla;
 		$sexo=$request->sexo;
-		$dia=$request->dia;
-		$mes=$request->mes;
-		$anio=$request->anio;
-		$fn=$anio.$mes.$dia;
+		$fecha=$request->fecha;
 		
 		/*$this->validate($request,[
 			'nom'=>['regex:/^[A-Z][A-Z,a-z, ,ñ,é,í,á,ó,ú]*$/'],
@@ -50,13 +47,14 @@ class usuario extends Controller
 		$user->peso=$peso;
 		$user->talla=$talla;
 		$user->sexo=$sexo;
-		$user->fec_nac=$fn;
+		$user->fec_nac=$fecha;
 		$user->save();
 		$proceso="Alta de Usuario";
 		$mensaje="Registro de Usuario Exitoso";
 		
 		return view('sistema.mensaje')
 		->with('proceso',$proceso)
-		->with('mensaje',$mensaje);
+		->with('mensaje',$mensaje)
+		->with($fecha);;
 	}
 }

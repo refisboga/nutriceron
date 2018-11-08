@@ -55,24 +55,9 @@
 		
 		<div class="input-group">
 			<span class="input-group-addon"><i class="glyphicon glyphicon-gift"></i></span>
-			<input type="text" name="dia" placeholder="Dia" class="form-control" pattern="[0-9]{2}+" title="Ejemplo: 03" required >
-			<select name="mes" class="form-control" required>
-				<option value="" disabled selected>Mes</option>
-				<option value="01">Enero</option>
-				<option value="02">Febrero</option>
-				<option value="03">Marzo</option>
-				<option value="04">Abril</option>
-				<option value="05">Mayo</option>
-				<option value="06">Junio</option>
-				<option value="07">Julio</option>
-				<option value="08">Agosto</option>
-				<option value="09">Septiembre</option>
-				<option value="10">Octubre</option>
-				<option value="11">Noviembre</option>
-				<option value="12">Diciembre</option>
-			</select>
-			<input type="text" name="anio" placeholder="Año" class="form-control" pattern="[0-9]{4}+" title="Ejemplo: 2001" required >
+			<input type="date" name="fecha">
 		</div>
+		<br>
 		
 		<div>
 			<button type="reset" class="btn btn-danger">CANCELAR <span class="glyphicon glyphicon-remove"></span></button>
