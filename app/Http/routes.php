@@ -48,6 +48,9 @@ Route::POST('/regcita','cita@registrar');
 Route::get('/detalle_cita','cita@detalle_cita');
 Route::POST('/regeva','evalua@registrar');
 Route::get('/cons_menu','a_menu@consmenu');
+Route::get('/modif/{id}','usuario@modif');
+Route::POST('/modificaru','usuario@modificar');
+Route::get('/eliminarcita/{id}','usuario@eliminar_fis');
 /*---------------------------------------------------------Url Admin-------------------*/
 Route::get('/admin', function(){
 	return view('sistema.nav_admin');

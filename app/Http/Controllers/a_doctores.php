@@ -18,14 +18,14 @@ class a_doctores extends Controller
 		$correo=$request->email;
 		$pass=$request->pass;
 		
-		/*$this->validate($request,[
-			'nom'=>['regex:/^[A-Z][A-Z,a-z, ,ñ,é,í,á,ó,ú]*$/'],
-			'ap'=>['regex:/^[A-Z][A-Z,a-z, ,ñ,é,í,á,ó,ú]*$/'],
-			'am'=>['regex:/^[A-Z][A-Z,a-z, ,ñ,é,í,á,ó,ú]*$/'],
-			'email'=>['regex:/^[A-Z,a-z,0-9,ñ,Ñ,é,í,á,ó,ú,!,#,$,%,&,+,/,=,_,-]+[@][A-Z,a-z,0-9]+[.][A-Z,a-z]+$/'],
-			'pass'=>['regex:/^[a-z,A-Z,0-9,[,],{,},.,;,:,_,+,*,!,#,$,%,&,/]*$/'],
-			'tel'=>'required|integer'
-		]);*/
+		$this->validate($request,[
+			'nom'=>'required|',['regex:/^[A-Z][A-Z,a-z, ,ñ,é,í,á,ó,ú]*$/'],
+			'ap'=>'required|',['regex:/^[A-Z][A-Z,a-z, ,ñ,é,í,á,ó,ú]*$/'],
+			'am'=>'required|',['regex:/^[A-Z][A-Z,a-z, ,ñ,é,í,á,ó,ú]*$/'],
+			'tel'=>'required|',['regex:/^[0-9]+{10}'],
+			'email'=>'required|email',
+			'pass'=>'required|',['regex:/^[A-Z,a-z,0-9,ñ,é,í,á,ó,ú]*$/']
+		]);
 		
 		$doc=new doctores;
 		$doc->id_doc=null;

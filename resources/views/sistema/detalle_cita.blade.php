@@ -2,7 +2,7 @@
 
 @section('contenido')
 
-<legend>Listado de Citas</legend>
+<h2>Listado de Citas</h2>
 	<div class="container">
 		<p>Estatus de actualizaciones.</p>
 		
@@ -18,9 +18,9 @@
 					<td>
 						<a class="btn btn-success" role="button" href="#">DESCARGAR</a>
 						<a class="btn btn-warning" role="button" href="#">MODIFICAR</a>
-						<a class="btn btn-danger" role="button" href="#">ELIMINAR</a>
+						<a class="btn btn-danger" role="button" href="{{URL::action('usuario@eliminar_fis',['id'=>$datos->id_cita])}}">ELIMINAR</a>
 					</td>
-					<td>{{$datos->id_cita}}</td><td>Pedro Gonzalez Perez</td><td>{{$datos->fecha}}</td><td>{{$datos->hora}}</td><td></td>
+					<td>{{$datos->id_cita}}</td><td></td><td>{{$datos->fecha}}</td><td>{{$datos->hora}}</td><td></td>
 				</tr>      
 			</tbody>
 			@endforeach

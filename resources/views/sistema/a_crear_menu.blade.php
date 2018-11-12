@@ -7,9 +7,13 @@
 	<form action="{{url('regmenu')}}" method="POST" enctype="multipart/form-data">
 	{{csrf_field()}}
 		
+		@if($errors->first('tipo')) 
+			<i> {{$errors->first('tipo')}}</i> 
+			<br>
+		@endif
 		<div class="input-group">
 			<span class="input-group-addon"><i class="glyphicon glyphicon-tint"></i></span>
-			<select name="tipo" class="form-control" required>
+			<select name="tipo" class="form-control" value="{{old('tipo')}}" required>
 				<option value="" disabled selected>Tipo de Comida</option>
 				<option value="Entrada">Entrada</option>
 				<option value="Sopa">Sopa</option>
@@ -19,14 +23,22 @@
 			</select>
 		</div>		
 		
+		@if($errors->first('desc')) 
+			<i> {{$errors->first('desc')}}</i> 
+			<br>
+		@endif
 		<div class="input-group">
 			<span class="input-group-addon"><i class="glyphicon glyphicon-leaf"></i></span>
-			<input type="text" name="desc" placeholder="Nombre del Menú" class="form-control">
+			<input type="text" name="desc" pattern="[a-zA-Z0-9]*" placeholder="Nombre del Menú" class="form-control" value="{{old('desc')}}" required>
 		</div>
 		
+		@if($errors->first('menu')) 
+			<i> {{$errors->first('menu')}}</i> 
+			<br>
+		@endif
 		<div class="form-group">
 			<label for="descripcion">Descripci&oacute;n:</label>
-			<textarea class="form-control" rows="12" maxlength="300" id="comment" placeholder="Redacta el menú aquí..." name="menu"></textarea>
+			<textarea class="form-control" rows="12" maxlength="300" id="comment" placeholder="Redacta el menú aquí..." name="menu" value="{{old('menu')}}" required></textarea>
 			<p>300 caracteres como m&aacute;ximo.</p>
 		</div>
 		

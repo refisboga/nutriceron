@@ -1,7 +1,7 @@
 @extends('sistema.nav_usuario')
 @section('contenido')
 <div class="container">
-	<h2>Men&uacute;s Registrados</h2>
+	<h2>Men&uacute;s Actuales</h2>
 	<p>Datos del men&uacute;.</p>
 	<table class="table">
 		<thead>

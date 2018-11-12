@@ -2,7 +2,7 @@
 
 @section('contenido')
 	
-	<legend>Listado de Evaluaciones</legend>
+	<h2>Listado del Expediente</h2
 	<div class="container">
 		<p>Estatus de actualizaciones.</p>
 		
@@ -18,7 +18,6 @@
 				<tr class="info">
 					<td>
 						<a class="btn btn-success" role="button" href="#">DESCARGAR</a>
-						<a class="btn btn-danger" role="button" href="#">ELIMINAR</a>
 					</td>
 					<td>{{$datos->pac_fk}}</td><td>Pedro Gonzalez Perez</td><td>{{$datos->fecha}}</td>
 					<td>{{$datos->hora}}</td><td>{{$datos->tipo_sangre}}</td><td></td>
