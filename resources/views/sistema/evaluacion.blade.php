@@ -59,7 +59,7 @@
 		@endif
 		<div class="input-group">
 			<span class="input-group-addon"><i class="glyphicon glyphicon-leaf"></i></span>
-			<input type="text" name="ale1" placeholder="Ingresa alguna alergia que tengas" class="form-control" value="{{old('ale1')}}">
+			<input type="text" name="ale1" pattern="[a-z,A-Z]*" placeholder="Ingresa alguna alergia que tengas" class="form-control" value="{{old('ale1')}}">
 		</div>
 		
 		@if($errors->first('ale2')) 
@@ -68,7 +68,7 @@
 		@endif
 		<div class="input-group">
 			<span class="input-group-addon"><i class="glyphicon glyphicon-leaf"></i></span>
-			<input type="text" name="ale2" placeholder="Describe alguna otra de tus alergias" class="form-control" value="{{old('ale2')}}">
+			<input type="text" name="ale2" pattern="[a-z,A-Z]*" placeholder="Describe alguna otra de tus alergias" class="form-control" value="{{old('ale2')}}">
 		</div>
 		
 		@if($errors->first('enf1')) 
@@ -77,7 +77,7 @@
 		@endif
 		<div class="input-group">
 			<span class="input-group-addon"><i class="glyphicon glyphicon-leaf"></i></span>
-			<input type="text" name="enf1" placeholder="Ingresa alguna enfermedad que tengas" class="form-control" value="{{old('enf1')}}">
+			<input type="text" name="enf1" pattern="[a-z,A-Z]*" placeholder="Ingresa alguna enfermedad que tengas" class="form-control" value="{{old('enf1')}}">
 		</div>
 		
 		@if($errors->first('enf2')) 
@@ -86,7 +86,7 @@
 		@endif
 		<div class="input-group">
 			<span class="input-group-addon"><i class="glyphicon glyphicon-leaf"></i></span>
-			<input type="text" name="enf2" placeholder="Describe alguna otra enfermedad" class="form-control" value="{{old('enf2')}}">
+			<input type="text" name="enf2" pattern="[a-z,A-Z]*" placeholder="Describe alguna otra enfermedad" class="form-control" value="{{old('enf2')}}">
 		</div>
 		
 		@if($errors->first('tc')) 
@@ -108,7 +108,7 @@
 		@endif
 		<div class="input-group">
 			<span class="input-group-addon"><i class="glyphicon glyphicon-leaf"></i></span>
-			<input type="text" name="desccir" placeholder="Si haz tenido cirugias, describe la." class="form-control" value="{{old('desccir')}}">
+			<input type="text" name="desccir" pattern="[a-z,A-Z]*" placeholder="Si haz tenido cirugias, describe la." class="form-control" value="{{old('desccir')}}">
 		</div>
 		
 		@if($errors->first('tra')) 
@@ -130,7 +130,7 @@
 		@endif
 		<div class="input-group">
 			<span class="input-group-addon"><i class="glyphicon glyphicon-leaf"></i></span>
-			<input type="text" name="desctra" placeholder="Si estas en tratamiento, describe lo." class="form-control" value="{{old('desctra')}}">
+			<input type="text" name="desctra" pattern="[a-z,A-Z]*" placeholder="Si estas en tratamiento, describe lo." class="form-control" value="{{old('desctra')}}">
 		</div>
 		
 		<div>

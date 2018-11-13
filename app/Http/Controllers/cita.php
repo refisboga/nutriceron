@@ -18,7 +18,6 @@ class cita extends Controller
 		$fecha=$request->fecha;
 		$hora=$request->hora;
 		
-		
 		/*$this->validate($request,[
 			'nom'=>'required|',['regex:/^[A-Z][A-Z,a-z, ,ñ,é,í,á,ó,ú]*$/'],
 			'derec'=>'required|',['regex:/^[A-Z][A-Z,a-z, ,.,ñ,é,í,á,ó,ú]*$/'],
@@ -28,7 +27,6 @@ class cita extends Controller
 			'fecha'=>'required|date',
 			'hora'=>'required|',['regex:/^[0-9]{2}+[:][0-9]{2}+$/']
 		]);*/
-		
 		
 		$cita=new citas;
 		$cita->id_cita=null;

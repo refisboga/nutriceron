@@ -22,7 +22,7 @@ class usuario extends Controller
 		$sexo=$request->sexo;
 		$fecha=$request->fecha;
 		
-		$this->validate($request,[
+		/*$this->validate($request,[
 			'nom'=>'required|',['regex:/^[A-Z][A-Z,a-z, ,ñ,é,í,á,ó,ú]*$/'],
 			'ap'=>'required|',['regex:/^[A-Z][A-Z,a-z, ,ñ,é,í,á,ó,ú]*$/'],
 			'am'=>'required|',['regex:/^[A-Z][A-Z,a-z, ,ñ,é,í,á,ó,ú]*$/'],
@@ -32,7 +32,7 @@ class usuario extends Controller
 			'peso'=>'required|',['regex:/^[0-9]+{2}[.][0-9]+{2}$/'],
 			'talla'=>'required|',['regex:/^[0-9]+{2}[.][0-9]+{2}$/'],
 			'fecha'=>'required|date'
-		]);
+		]);*/
 		
 		$user=new pacientes;
 		$user->id_pac=null;
@@ -78,15 +78,6 @@ class usuario extends Controller
 		$user=pacientes::find($id);
 		$user->id_pac=$request->id;
 		$user->nombre=$request->nom;
-		/*$user->ap_pat=$ap;
-		$user->ap_mat=$am;
-		$user->correo=$correo;
-		$user->pass=$pass;
-		$user->telefono=$tel;
-		$user->peso=$peso;
-		$user->talla=$talla;
-		$user->sexo=$sexo;
-		$user->fec_nac=$fecha;*/
 		$user->save();
 		$proceso="Modificación de Usuario";
 		$mensaje="Modificación de Usuario Exitoso";

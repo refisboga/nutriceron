@@ -23,23 +23,17 @@ class evalua extends Controller
 		$desctra=$request->desctra;
 		
 		
-		$this->validate($request,[
-		    'cal'=>'required|date',,   
-			'hora'=>pattern=´'/^([0-1][0-9]|[2][0-3])[\:]([0-5][0-9])[\:]([0-5][0-9])$/',
-			'tipo'=>['regex:/^[A-Z][A-Z,a-z, ,ñ,é,í,á,ó,ú]*$/'],
-			'ale1'=>['regex:/^[A-Z][A-Z,a-z, ,ñ,é,í,á,ó,ú]*$/'],
-			'ale2'=>['regex:/^[A-Z][A-Z,a-z, ,ñ,é,í,á,ó,ú]*$/'],
-			'enf1'=>['regex:/^[A-Z][A-Z,a-z, ,ñ,é,í,á,ó,ú]*$/'],
-			'enf2'=>['regex:/^[A-Z][A-Z,a-z, ,ñ,é,í,á,ó,ú]*$/'],
-			'tc'=>'required|',['regex:/^[0-9]{2}$/'],
-			'desccir'=>['regex:/^[A-Z][A-Z,a-z, ,ñ,é,í,á,ó,ú]*$/'],
-			'tra'=>'required|',['regex:/^[0-9]{2}$/'],
-			'desctra'=>['regex:/^[A-Z][A-Z,a-z, ,ñ,é,í,á,ó,ú]*$/']
-		
-		]);
-		
-		
-
+		/*$this->validate($request,[
+		    'cal'=>'required|date',   
+			'hora'=>'required|',['regex:/^[0-9]{2}+[:][0-9]{2}+$/'],
+			'tipo'=>['regex:/^[A-Z,+,-]*$/'],
+			'ale1'=>['regex:/^[A-Z,a-z, ,ñ,é,í,á,ó,ú]*$/'],
+			'ale2'=>['regex:/^[A-Z,a-z, ,ñ,é,í,á,ó,ú]*$/'],
+			'enf1'=>['regex:/^[A-Z,a-z, ,ñ,é,í,á,ó,ú]*$/'],
+			'enf2'=>['regex:/^[A-Z,a-z, ,ñ,é,í,á,ó,ú]*$/'],
+			'desccir'=>['regex:/^[A-Z,a-z, ,ñ,é,í,á,ó,ú]*$/'],
+			'desctra'=>['regex:/^[A-Z,a-z, ,ñ,é,í,á,ó,ú]*$/']
+		]);*/
 		
 		$evalua=new expedientes;
 		$evalua->id_exp=null;
