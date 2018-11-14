@@ -1,7 +1,7 @@
 @extends('sistema.nav_admin')
 
 @section('contenido')
-<legend>Reg&iacute;strar nuevo Doctor</legend>
+<h2>Reg&iacute;strar nuevo Doctor</h2>
 
 <div class="container">
 	<form action="{{url('/reg_doc')}}" method="POST" enctype="multipart/form-data">
@@ -58,7 +58,7 @@
 		@endif
 		<div class="input-group">
 			<span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
-			<input type="text" name="tel" placeholder="Telefono" class="form-control" pattern="[0-9]+" title="Ejemplo: 7225206712" value="{{old('tel')}}" required >
+			<input type="text" name="tel" placeholder="Telefono" class="form-control" pattern="[0-9]+" maxlength="10" title="Ejemplo: 7225206712" value="{{old('tel')}}" required >
 		</div>
 		
 		<div>
