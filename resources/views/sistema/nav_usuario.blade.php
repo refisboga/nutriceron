@@ -69,8 +69,8 @@
                     <ul class="dropdown-menu dropdown-user">
                         <li><a href="{{url('/cuenta')}}"><i class="fa fa-user fa-fw"></i> Perfil</a>
                         </li>
-                        <li><a href="{{url('/herramientas')}}"><i class="fa fa-gear fa-fw"></i> Herramientas</a>
-                        </li>
+                        <!--<li><a href="{{url('/herramientas')}}"><i class="fa fa-gear fa-fw"></i> Herramientas</a>
+                        </li>-->
                         <li class="divider"></li>
                         <li><a href="{{url('/')}}"><i class="fa fa-sign-out fa-fw"></i> Cerrar Sesi&oacute;n</a>
                         </li>

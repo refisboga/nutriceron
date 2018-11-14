@@ -17,22 +17,35 @@ class usuario extends Controller
 		$correo=$request->email;
 		$pass=$request->pass;
 		$tel=$request->tel;
-		$peso=$request->peso;
-		$talla=$request->talla;
+		$kg=$request->kg;
+		$gr=$request->gr;
+		$metros=$request->metros;
+		$cm=$request->cm;
 		$sexo=$request->sexo;
 		$fecha=$request->fecha;
 		
-		/*$this->validate($request,[
-			'nom'=>'required|',['regex:/^[A-Z][A-Z,a-z, ,ñ,é,í,á,ó,ú]*$/'],
-			'ap'=>'required|',['regex:/^[A-Z][A-Z,a-z, ,ñ,é,í,á,ó,ú]*$/'],
-			'am'=>'required|',['regex:/^[A-Z][A-Z,a-z, ,ñ,é,í,á,ó,ú]*$/'],
+		$this->validate($request,[
+			'nom'=>['regex:/^[A-Z][A-Z,a-z, ,ñ,é,í,á,ó,ú]*$/'],
+			'ap'=>['regex:/^[A-Z][A-Z,a-z, ,ñ,é,í,á,ó,ú]*$/'],
+			'am'=>['regex:/^[A-Z][A-Z,a-z, ,ñ,é,í,á,ó,ú]*$/'],
 			'email'=>'required|email',
-			'pass'=>'required|',['regex:/^[A-Z,a-z,0-9,ñ,é,í,á,ó,ú]*$/'],,
-			'tel'=>'required|',['regex:/^[0-9]+{10}'],
-			'peso'=>'required|',['regex:/^[0-9]+{2}[.][0-9]+{2}$/'],
-			'talla'=>'required|',['regex:/^[0-9]+{2}[.][0-9]+{2}$/'],
+			'pass'=>['regex:/^[A-Z,a-z,0-9]*$/'],
+			'tel'=>['regex:/^[0-9]+$/'],
+			'kg'=>['regex:/^[0-9]+$/'],
+			'gr'=>['regex:/^[0-9]+$/'],
+			'metros'=>['regex:/^[0-9]+$/'],
+			'cm'=>['regex:/^[0-9]+$/'],
 			'fecha'=>'required|date'
-		]);*/
+		]);
+		
+		if($cm==0){
+			$cm="00";
+		}
+		$talla=$metros.$cm;
+		if($gr==0){
+			$gr="000";
+		}
+		$peso=$kg.$gr;
 		
 		$user=new pacientes;
 		$user->id_pac=null;
@@ -47,8 +60,8 @@ class usuario extends Controller
 		$user->sexo=$sexo;
 		$user->fec_nac=$fecha;
 		$user->save();
-		$proceso="Alta de Usuario";
-		$mensaje="Registro de Usuario Exitoso";
+		$proceso="Alta del usuario: $nom.";
+		$mensaje="El registro del usuario fué exitoso";
 		
 		return view('sistema.mensaje')
 		->with('proceso',$proceso)
@@ -63,24 +76,48 @@ class usuario extends Controller
 	}
 	
 	public function modificar(Request $request){
-		$id=$request->id;
 		$nom=$request->nom;
 		$ap=$request->ap;
 		$am=$request->am;
 		$correo=$request->email;
 		$pass=$request->pass;
 		$tel=$request->tel;
-		$peso=$request->peso;
-		$talla=$request->talla;
+		$kg=$request->kg;
+		$gr=$request->gr;
+		$metros=$request->metros;
+		$cm=$request->cm;
 		$sexo=$request->sexo;
-		$fecha=$request->fecha;		
+		$fecha=$request->fecha;
+		
+		$this->validate($request,[
+			'nom'=>['regex:/^[A-Z][A-Z,a-z, ,ñ,é,í,á,ó,ú]*$/'],
+			'ap'=>['regex:/^[A-Z][A-Z,a-z, ,ñ,é,í,á,ó,ú]*$/'],
+			'am'=>['regex:/^[A-Z][A-Z,a-z, ,ñ,é,í,á,ó,ú]*$/'],
+			'email'=>'required|email',
+			'pass'=>['regex:/^[A-Z,a-z,0-9]*$/'],
+			'tel'=>['regex:/^[0-9]+$/'],
+			'kg'=>['regex:/^[0-9]+$/'],
+			'gr'=>['regex:/^[0-9]+$/'],
+			'metros'=>['regex:/^[0-9]+$/'],
+			'cm'=>['regex:/^[0-9]+$/'],
+			'fecha'=>'required|date'
+		]);
+		
+		if($cm==0){
+			$cm="00";
+		}
+		$talla=$metros.$cm;
+		if($gr==0){
+			$gr="000";
+		}
+		$peso=$kg.$gr;
 		
 		$user=pacientes::find($id);
 		$user->id_pac=$request->id;
 		$user->nombre=$request->nom;
 		$user->save();
-		$proceso="Modificación de Usuario";
-		$mensaje="Modificación de Usuario Exitoso";
+		$proceso="Modificación del usuario: $nom.";
+		$mensaje="La modificación del usuario fué exitosa.";
 		
 		return view('sistema.mensaje')
 		->with('proceso',$proceso)

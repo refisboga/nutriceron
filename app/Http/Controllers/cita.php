@@ -46,12 +46,12 @@ class cita extends Controller
 	}
 	
 	public function detalle_cita(){
-		$c = citas::all();
+		$c = citas::withTrashed()->get();
 		return view('sistema.detalle_cita')->with('citas',$c);
 	}
 	
 	public function consultarcitas(){
-		$c = citas::all();
+		$c = citas::withTrashed()->get();
 		return view('sistema.citas')->with('citas',$c);
 	}
 }

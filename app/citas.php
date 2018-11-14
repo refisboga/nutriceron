@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class citas extends Model
 {
-    //use SoftDeletes;
+    use SoftDeletes;
 	protected $primaryKey='id_cita';
 	protected $fillable=['id_cita','fecha','hora','direc',
                          'cp','tel','correo'];

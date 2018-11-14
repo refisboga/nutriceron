@@ -61,22 +61,62 @@
 			<input type="text" name="tel" placeholder="Telefono" class="form-control" pattern="[0-9]+" maxlength="10" title="Ejemplo: 7225206712" value="{{old('tel')}}" required >
 		</div>
 		
-		@if($errors->first('peso')) 
-			<i> {{$errors->first('peso')}}</i> 
+		@if($errors->first('kg')) 
+			<i> {{$errors->first('kg')}}</i> 
+			<br>
+		@endif
+		@if($errors->first('gr')) 
+			<i> {{$errors->first('gr')}}</i> 
 			<br>
 		@endif
 		<div class="input-group">
-			<span class="input-group-addon"><i class="glyphicon glyphicon-scale"></i></span>
-			<input type="text" name="peso" placeholder="Peso" class="form-control" pattern="[0-9]+[.][0-9]+" title="Ejemplo: 56.400" value="{{old('peso')}}" required >
+			<span class="input-group-addon"><i class="glyphicon glyphicon-tint"></i></span>
+			<select name="kg" class="form-control" value="{{old('kg')}}" required>
+				<option value="" disabled selected>Kilogramos</option>
+				<option disabled></option>
+				<?php
+					for($i=30; $i<=150;$i++){
+				?>
+				<option value="<?php echo $i;?>"><?php echo $i;?> kg.</option>
+				<?php }?>
+			</select>
+			<select name="gr" class="form-control" value="{{old('gr')}}" required>
+				<option value="" disabled selected>Gramos</option>
+				<option disabled></option>
+				<?php
+					for($i=0;$i<=900;$i=$i+100){
+				?>
+				<option value="<?php echo $i;?>"><?php echo $i;?> gr.</option>
+				<?php }?>
+			</select>
 		</div>
 		
-		@if($errors->first('talla')) 
-			<i> {{$errors->first('talla')}}</i> 
+		@if($errors->first('metros')) 
+			<i> {{$errors->first('metros')}}</i> 
+			<br>
+		@endif
+		@if($errors->first('cm')) 
+			<i> {{$errors->first('cm')}}</i> 
 			<br>
 		@endif
 		<div class="input-group">
-			<span class="input-group-addon"><i class="glyphicon glyphicon-stats"></i></span>
-			<input type="text" name="talla" placeholder="Talla" class="form-control" pattern="[0-9]+[.][0-9]+" title="Ejemplo: 1.67" value="{{old('talla')}}" required >
+			<span class="input-group-addon"><i class="glyphicon glyphicon-tint"></i></span>
+			<select name="metros" class="form-control" value="{{old('metros')}}" required>
+				<option value="" disabled selected>Metros</option>
+				<option disabled></option>
+				<option value="0">0 mts.</option>
+				<option value="1">1 mts.</option>
+				<option value="2">2 mts.</option>
+			</select>
+			<select name="cm" class="form-control" value="{{old('cm')}}" required>
+				<option value="" disabled selected>Cent&iacute;metros</option>
+				<option disabled></option>
+				<?php
+					for($i=99; $i>=0;$i--){
+				?>
+				<option value="<?php echo $i;?>"><?php echo $i;?> cm.</option>
+				<?php }?>
+			</select>
 		</div>
 		
 		<div class="input-group">
