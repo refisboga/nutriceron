@@ -77,7 +77,7 @@
                         </li>
                         <li class="divider"></li>
                         <li>
-							<a href="{{url('/')}}"><i class="fa fa-sign-out fa-fw"></i> Cerrar Sesi&oacute;n</a>
+							<a href="{{url('/cerrarsesion')}}"><i class="fa fa-sign-out fa-fw"></i> Cerrar Sesi&oacute;n</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->

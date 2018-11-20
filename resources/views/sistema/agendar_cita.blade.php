@@ -14,7 +14,7 @@
 		@endif
 		<div class="input-group">
 			<span class="input-group-addon"><i class="glyphicon glyphicon-list-alt"></i></span>
-			<input type="text" name="id" placeholder="ID" class="form-control" value="2" disabled>
+			<input type="text" name="id" style="width: 25%" placeholder="ID" class="form-control" value="2" disabled>
 		</div>
 		
 		@if($errors->first('nom')) 
@@ -23,21 +23,25 @@
 		@endif
 		<div class="input-group">
 			<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-			<input type="text" name="nom" placeholder="Nombre" pattern="[A-Z][A-Z,a-z, ,á,é,í,ó,ú,Ñ,ñ]*" class="form-control" value="{{old('nom')}}" required>
+			<input type="text" name="nom" style="width: 25%" placeholder="Nombre" pattern="[A-Z][A-Z,a-z, ,á,é,í,ó,ú,Ñ,ñ]*" class="form-control" value="{{old('nom')}}" required>
 		</div>
 		
 		@if($errors->first('direc')) 
 			<i> {{$errors->first('direc')}}</i> 
 			<br>
 		@endif
+		<div class="input-group">
+			<span class="input-group-addon"><i class="glyphicon glyphicon-map-marker"></i></span>
+			<input type="text" name="direc" style="width: 25%" placeholder="Dirección" class="form-control" value="Av. Quintana Roo esq. Hidalgo" disabled>
+		</div>
+		
 		@if($errors->first('cp')) 
 			<i> {{$errors->first('cp')}}</i> 
 			<br>
 		@endif
 		<div class="input-group">
 			<span class="input-group-addon"><i class="glyphicon glyphicon-map-marker"></i></span>
-			<input type="text" name="direc" placeholder="Dirección" class="form-control" value="Av. Quintana Roo esq. Hidalgo" disabled>
-			<input type="text" name="cp" placeholder="CP" class="form-control" value="50143" disabled>
+			<input type="text" name="cp" style="width: 10%" placeholder="CP" class="form-control" value="50143" disabled>
 		</div>
 		
 		@if($errors->first('tel')) 
@@ -46,7 +50,7 @@
 		@endif
 		<div class="input-group">
 			<span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
-			<input type="text" name="tel" placeholder="Telefono" class="form-control" value="7225104562" disabled>
+			<input type="text" name="tel" style="width: 25%" placeholder="Telefono" class="form-control" value="7225104562" disabled>
 		</div>
 		
 		@if($errors->first('correo')) 
@@ -55,7 +59,7 @@
 		@endif
 		<div class="input-group">
 			<span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-			<input type="text" name="correo" placeholder="Correo" class="form-control" value="citas@nutriceron.com" disabled>
+			<input type="text" name="correo" style="width: 25%" placeholder="Correo" class="form-control" value="citas@nutriceron.com" disabled>
 		</div>
 		
 		@if($errors->first('fecha')) 
@@ -64,7 +68,7 @@
 		@endif
 		<div class="input-group">
 			<span class="input-group-addon"><i class="glyphicon glyphicon-gift"></i></span>
-			<input type="date" name="fecha" value="{{old('fecha')}}" required>
+			<input type="date" name="fecha" style="width: 25%" class="form-control" value="{{old('fecha')}}" required>
 		</div>
 		
 		@if($errors->first('hora')) 
@@ -73,8 +77,9 @@
 		@endif
 		<div class="input-group">
 			<span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
-			<input type="text" name="hora" placeholder="14:30" pattern="[0-9]+[:][0-9]+" class="form-control" value="{{old('hora')}}" required>
+			<input type="text" name="hora" style="width: 25%" placeholder="14:30" pattern="[0-9]+[:][0-9]+" class="form-control" value="{{old('hora')}}" required>
 		</div>
+		<br>
 		
 		<div>
 			<button type="reset" class="btn btn-danger">CANCELAR <span class="glyphicon glyphicon-remove"></span></button>

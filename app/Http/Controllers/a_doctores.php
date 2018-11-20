@@ -35,22 +35,50 @@ class a_doctores extends Controller
 		$doc->correo=$correo;
 		$doc->pass=$pass;
 		$doc->tel=$tel;
+		$doc->tipo="admin";
 		$doc->save();
-		$proceso="Alta de Doctor";
-		$mensaje="El Registro del Doctor fué Exitoso";
+		$proceso="CREASTE AL NUEVO DOCTOR: $nom";
+		$mensaje="El registro del Doctor fué exitoso";
 		
 		return view('sistema.mensaje')
 		->with('proceso',$proceso)
 		->with('mensaje',$mensaje);
 	}
 	
-	public function consultar_doc(){
-		$d =doctores::all();
+	public function desactivar_doctor($id){
+		doctores::find($id)->delete();
+		$proceso="DESACTIVASTE EL DOCTOR";
+		$mensaje="El Doctor, ha sido desactivado correctamente.";	
+		return view('sistema.a_mensaje')
+		->with('proceso',$proceso)
+		->with('mensaje',$mensaje);
+	}
+	
+	public function restaurar_doctor($id){
+		doctores::withTrashed()->where('id_doc',$id)->restore();
+		$proceso = "RESTAURACION DEL DOCTOR";	
+		$mensaje="El registro del Doctor, fue restaurado correctamente.";
+		return view('sistema.a_mensaje')
+		->with('proceso',$proceso)
+		->with('mensaje',$mensaje);
+	}
+	
+	public function efisicam($idm){
+		maestros::withTrashed()->where('idm',$idm)->forceDelete();
+		$proceso = "ELIMINACION FISICA DEL DOCTOR";	
+		$mensaje="El registro del Doctor, ha sido eliminado correctamente";
+		return view('sistema.a_mensaje')
+		->with('proceso',$proceso)
+		->with('mensaje',$mensaje);
+    }
+	
+	public function consultar_perfil(){
+		$d =doctores::withTrashed()->get();
 		return view('sistema.a_cuenta')->with('doc',$d);
 	}
 	
 	public function consultar_todos(){
-		$d =doctores::all();
+		$d =doctores::withTrashed()->get();
 		return view('sistema.a_consultar_doc')->with('doc',$d);
 	}
 }

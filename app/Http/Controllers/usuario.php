@@ -19,8 +19,7 @@ class usuario extends Controller
 		$tel=$request->tel;
 		$kg=$request->kg;
 		$gr=$request->gr;
-		$metros=$request->metros;
-		$cm=$request->cm;
+		$talla=$request->talla;
 		$sexo=$request->sexo;
 		$fecha=$request->fecha;
 		
@@ -33,19 +32,14 @@ class usuario extends Controller
 			'tel'=>['regex:/^[0-9]+$/'],
 			'kg'=>['regex:/^[0-9]+$/'],
 			'gr'=>['regex:/^[0-9]+$/'],
-			'metros'=>['regex:/^[0-9]+$/'],
-			'cm'=>['regex:/^[0-9]+$/'],
+			'talla'=>['regex:/^[1|2]+[.][0-9]+$/'],
 			'fecha'=>'required|date'
 		]);
 		
-		if($cm==0){
-			$cm="00";
-		}
-		$talla=$metros.$cm;
 		if($gr==0){
 			$gr="000";
 		}
-		$peso=$kg.$gr;
+		$peso=$kg.".".$gr;
 		
 		$user=new pacientes;
 		$user->id_pac=null;
@@ -59,6 +53,7 @@ class usuario extends Controller
 		$user->talla=$talla;
 		$user->sexo=$sexo;
 		$user->fec_nac=$fecha;
+		$user->tipo="usuario";
 		$user->save();
 		$proceso="Alta del usuario: $nom.";
 		$mensaje="El registro del usuario fué exitoso";
@@ -126,8 +121,8 @@ class usuario extends Controller
 	
 	public function eliminar_fis($id){
 		citas::find($id)->delete();
-		$proceso = "ELIMINASTE TU CITA";	
-		$mensaje="El registro de la cita, ha sido eliminado correctamente";
+		$proceso = "DESACTIVASTE TU CITA";	
+		$mensaje="La cita, ha sido desactivada correctamente.";
 		return view('sistema.mensaje')
 		->with('proceso',$proceso)
 		->with('mensaje',$mensaje);

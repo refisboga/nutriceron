@@ -25,10 +25,6 @@ Route::get('/login', function(){
 });
 Route::POST('/checklogin','usuario@login');
 /*---------------------------------------------------------Url Usuario----------------*/
-Route::get('/home', function(){
-	return view('sistema.nav_usuario');
-});
-
 Route::get('/cita',function(){
 	return view('sistema.agendar_cita');
 });
@@ -66,8 +62,16 @@ Route::get('crearmenu',function(){
 Route::get('/citas','cita@consultarcitas');
 Route::get('/expedientes','a_expedientes@consultar_expe');
 Route::get('/pacientes','a_pacientes@consultar_pac');
-Route::get('/cuentadoc','a_doctores@consultar_doc');
+Route::get('/cuentadoc','a_doctores@consultar_perfil');
 Route::get('/consultardoc','a_doctores@consultar_todos');
 Route::POST('/reg_doc','a_doctores@registrar');
 Route::POST('/regmenu','a_menu@registrar');
 Route::get('/consmenu','a_menu@consmenu_a');
+Route::get('/desactivardoc/{id}','a_doctores@desactivar_doctor');
+
+/*---------------------------------------------------------Url Login-------------------*/
+Route::POST('/validarlogin','clogin@validar');
+Route::get('/home','clogin@login')->name('home');
+Route::get('/admin','clogin@loginadmin')->name('admin');
+Route::get('/cerrarsesion','clogin@cerrarsesion');
+Route::get('/','clogin@index')->name('index');

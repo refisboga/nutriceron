@@ -72,7 +72,7 @@
                         <!--<li><a href="{{url('/herramientas')}}"><i class="fa fa-gear fa-fw"></i> Herramientas</a>
                         </li>-->
                         <li class="divider"></li>
-                        <li><a href="{{url('/')}}"><i class="fa fa-sign-out fa-fw"></i> Cerrar Sesi&oacute;n</a>
+                        <li><a href="{{url('/cerrarsesion')}}"><i class="fa fa-sign-out fa-fw"></i> Cerrar Sesi&oacute;n</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->

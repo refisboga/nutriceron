@@ -12,10 +12,9 @@
 		@foreach($menu as $datos)
 		<tbody>
 			<tr class="info">
-				<!--<td>
-					<a class="btn btn-info" role="button" href="#">MODIFICAR</a>
-					<a class="btn btn-warning" role="button" href="#">DESACTIVAR</a>
-				</td>-->
+				<td>
+					<a class="btn btn-success" role="button" href="#">DESCARGAR</a>
+				</td>
 				<td>{{$datos->id_menu}}</td><td>{{$datos->tipo_comida}}<td>{{$datos->descr}}</td><td>{{$datos->menu}}</td>
 			</tr>      
 		</tbody>

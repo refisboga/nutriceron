@@ -14,7 +14,6 @@
 			<tr class="info">
 				<td>
 					<a class="btn btn-info" role="button" href="#">MODIFICAR</a>
-					<a class="btn btn-warning" role="button" href="#">DESACTIVAR</a>
 				</td>
 				<td>{{$datos->id_doc}}</td><td>{{$datos->nombre}} {{$datos->ap_pat}} {{$datos->ap_mat}}</td>
 				<td>{{$datos->tel}}</td><td>{{$datos->correo}}</td><td>{{$datos->pass}}</td>
