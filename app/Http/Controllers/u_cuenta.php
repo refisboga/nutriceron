@@ -11,7 +11,7 @@ class u_cuenta extends Controller
 {
     public function consultar(){
 		//$usuario=pacientes::where('id_pac','=','MAX(id_pac)')->get();
-		$usuario=pacientes::all();
+		$usuario=pacientes::withTrashed()->get();
 		return view('sistema.cuenta')->with('usuario',$usuario);
 	}
 	

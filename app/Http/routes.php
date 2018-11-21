@@ -23,7 +23,6 @@ Route::POST('/registrar','usuario@registrar');
 Route::get('/login', function(){
     return view('sistema.login');
 });
-Route::POST('/checklogin','usuario@login');
 /*---------------------------------------------------------Url Usuario----------------*/
 Route::get('/cita',function(){
 	return view('sistema.agendar_cita');
@@ -39,14 +38,16 @@ Route::get('/dietas',function(){
 
 Route::get('/cuenta','u_cuenta@consultar');
 Route::get('/herramientas','u_cuenta@herramientas');
-Route::get('/expediente', 'u_expediente@consultar_expediente');
+Route::get('/expediente', 'expediente@consultar_expediente');
 Route::POST('/regcita','cita@registrar');
 Route::get('/detalle_cita','cita@detalle_cita');
 Route::POST('/regeva','evalua@registrar');
 Route::get('/cons_menu','a_menu@consmenu');
 Route::get('/modif/{id}','usuario@modif');
 Route::POST('/modificaru','usuario@modificar');
-Route::get('/eliminarcita/{id}','usuario@eliminar_fis');
+Route::get('/desactivarcita/{id}','cita@desactivar_cita');
+Route::get('/restaurarcita/{id}','cita@restaurar_cita');
+Route::get('/eliminarcita/{id}','cita@eliminar_cita');
 /*---------------------------------------------------------Url Admin-------------------*/
 Route::get('/admin', function(){
 	return view('sistema.nav_admin');
@@ -70,8 +71,11 @@ Route::get('/consmenu','a_menu@consmenu_a');
 Route::get('/desactivardoc/{id}','a_doctores@desactivar_doctor');
 
 /*---------------------------------------------------------Url Login-------------------*/
-Route::POST('/validarlogin','clogin@validar');
+Route::POST('/validarlogin','clogin@validar_login');
 Route::get('/home','clogin@login')->name('home');
 Route::get('/admin','clogin@loginadmin')->name('admin');
 Route::get('/cerrarsesion','clogin@cerrarsesion');
 Route::get('/','clogin@index')->name('index');
+Route::get('/loginempty','clogin@login_empty')->name('loginempty');
+Route::get('/logindesact','clogin@login_desact')->name('logindesact');
+Route::get('/loginnoruta','clogin@login_rutanovalida')->name('loginnoruta');

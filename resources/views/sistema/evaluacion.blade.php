@@ -13,7 +13,7 @@
 		@endif
 		<div class="input-group">
 			<span class="input-group-addon"><i class="glyphicon glyphicon-list-alt"></i></span>
-			<input type="text" name="id" style="width: 25%" placeholder="ID" class="form-control" value="3" value="{{old('id')}}" disabled>
+			<input type="text" name="id" style="width: 11%" placeholder="ID" class="form-control" value="{{Session::get('sesionid')}}" disabled>
 		</div>
 		
 		@if($errors->first('cal')) 
@@ -22,7 +22,7 @@
 		@endif
 		<div class="input-group">
 			<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-			<input type="text" name="cal" style="width: 25%" placeholder="2018-10-23" class="form-control" value="<?php echo date("Y-m-d");?>" disabled>
+			<input type="text" name="cal" style="width: 11%" placeholder="2018-10-23" class="form-control" value="<?php echo date("Y-m-d");?>" disabled>
 		</div>
 		
 		@if($errors->first('hora')) 
@@ -31,7 +31,7 @@
 		@endif
 		<div class="input-group">
 			<span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
-			<input type="text" name="hora" style="width: 25%" placeholder="14:30" class="form-control" value="<?php echo date("H:i");?>" disabled>
+			<input type="text" name="hora" style="width: 11%" placeholder="14:30" class="form-control" value="<?php $h=date("H")+6; echo "$h".":".date("i");?>" disabled>
 		</div>
 		
 		@if($errors->first('tipo')) 
@@ -40,7 +40,7 @@
 		@endif
 		<div class="input-group">
 			<span class="input-group-addon"><i class="glyphicon glyphicon-tint"></i></span>
-			<select name="tipo" style="width: 25%" class="form-control" value="{{old('tipo')}}" required>
+			<select name="tipo" style="width: 15%" class="form-control" value="{{old('tipo')}}" required>
 				<option value="" disabled selected>Tipo de Sangre</option>
 				<option value="A-">A-</option>
 				<option value="A+">A+</option>
@@ -59,7 +59,7 @@
 		@endif
 		<div class="input-group">
 			<span class="input-group-addon"><i class="glyphicon glyphicon-leaf"></i></span>
-			<input type="text" name="ale1" style="width: 50%" pattern="[a-z,A-Z]*" placeholder="Ingresa alguna alergia que tengas" class="form-control" value="{{old('ale1')}}">
+			<input type="text" name="ale1" style="width: 50%" pattern="[a-z,A-Z, ]*" placeholder="Ingresa alguna alergia que tengas" class="form-control" value="{{old('ale1')}}">
 		</div>
 		
 		@if($errors->first('ale2')) 
@@ -68,7 +68,7 @@
 		@endif
 		<div class="input-group">
 			<span class="input-group-addon"><i class="glyphicon glyphicon-leaf"></i></span>
-			<input type="text" name="ale2" style="width: 50%" pattern="[a-z,A-Z]*" placeholder="Describe alguna otra de tus alergias" class="form-control" value="{{old('ale2')}}">
+			<input type="text" name="ale2" style="width: 50%" pattern="[a-z,A-Z, ]*" placeholder="Describe alguna otra de tus alergias" class="form-control" value="{{old('ale2')}}">
 		</div>
 		
 		@if($errors->first('enf1')) 
@@ -77,7 +77,7 @@
 		@endif
 		<div class="input-group">
 			<span class="input-group-addon"><i class="glyphicon glyphicon-leaf"></i></span>
-			<input type="text" name="enf1" style="width: 50%" pattern="[a-z,A-Z]*" placeholder="Ingresa alguna enfermedad que tengas" class="form-control" value="{{old('enf1')}}">
+			<input type="text" name="enf1" style="width: 50%" pattern="[a-z,A-Z, ]*" placeholder="Ingresa alguna enfermedad que tengas" class="form-control" value="{{old('enf1')}}">
 		</div>
 		
 		@if($errors->first('enf2')) 
@@ -86,7 +86,7 @@
 		@endif
 		<div class="input-group">
 			<span class="input-group-addon"><i class="glyphicon glyphicon-leaf"></i></span>
-			<input type="text" name="enf2" style="width: 50%" pattern="[a-z,A-Z]*" placeholder="Describe alguna otra enfermedad" class="form-control" value="{{old('enf2')}}">
+			<input type="text" name="enf2" style="width: 50%" pattern="[a-z,A-Z, ]*" placeholder="Describe alguna otra enfermedad" class="form-control" value="{{old('enf2')}}">
 		</div>
 		
 		@if($errors->first('tc')) 
@@ -96,10 +96,10 @@
 		<div class="radio">
 			<label>Haz tenido Cirugias</label>
 			<br>
-			<label><input type="radio" name="tc" checked>NO</label>
+			<label><input type="radio" name="tc" value="NO" checked>NO</label>
 		</div>
 		<div class="radio">
-			<label><input type="radio" name="tc">SI</label>
+			<label><input type="radio" name="tc"value="SI">SI</label>
 		</div>
 		
 		@if($errors->first('desccir')) 
@@ -108,7 +108,7 @@
 		@endif
 		<div class="input-group">
 			<span class="input-group-addon"><i class="glyphicon glyphicon-leaf"></i></span>
-			<input type="text" name="desccir" style="width: 50%" pattern="[a-z,A-Z]*" placeholder="En que consistió tu cirugia." class="form-control" value="{{old('desccir')}}">
+			<input type="text" name="desccir" style="width: 50%" pattern="[a-z,A-Z, ]*" placeholder="En que consistió tu cirugia." class="form-control" value="{{old('desccir')}}">
 		</div>
 		
 		@if($errors->first('tra')) 
@@ -118,10 +118,10 @@
 		<div class="radio">
 			<label>Te encuentras en Tratamiento</label>
 			<br>
-			<label><input type="radio" name="tra" checked>NO</label>
+			<label><input type="radio" name="tra" value="NO" checked>NO</label>
 		</div>
 		<div class="radio">
-			<label><input type="radio" name="tra">SI</label>
+			<label><input type="radio" name="tra" value="SI">SI</label>
 		</div>
 		
 		@if($errors->first('desctra')) 
@@ -130,7 +130,7 @@
 		@endif
 		<div class="input-group">
 			<span class="input-group-addon"><i class="glyphicon glyphicon-leaf"></i></span>
-			<input type="text" name="desctra" style="width: 50%" pattern="[a-z,A-Z]*" placeholder="En que consiste tu tratamiento." class="form-control" value="{{old('desctra')}}">
+			<input type="text" name="desctra" style="width: 50%" pattern="[a-z,A-Z, ]*" placeholder="En que consiste tu tratamiento." class="form-control" value="{{old('desctra')}}">
 		</div>
 		<br>
 		

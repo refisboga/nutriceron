@@ -14,7 +14,7 @@
 		@endif
 		<div class="input-group">
 			<span class="input-group-addon"><i class="glyphicon glyphicon-list-alt"></i></span>
-			<input type="text" name="id" style="width: 25%" placeholder="ID" class="form-control" value="2" disabled>
+			<input type="text" name="id" style="width: 10%" placeholder="ID" class="form-control" value="{{Session::get('sesionid')}}" disabled>
 		</div>
 		
 		@if($errors->first('nom')) 
@@ -23,7 +23,7 @@
 		@endif
 		<div class="input-group">
 			<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-			<input type="text" name="nom" style="width: 25%" placeholder="Nombre" pattern="[A-Z][A-Z,a-z, ,á,é,í,ó,ú,Ñ,ñ]*" class="form-control" value="{{old('nom')}}" required>
+			<input type="text" name="nom" style="width: 25%" placeholder="Nombre" pattern="[A-Z][A-Z,a-z, ,á,é,í,ó,ú,Ñ,ñ]*" class="form-control" value="{{Session::get('sesionname')}}" disabled>
 		</div>
 		
 		@if($errors->first('direc')) 

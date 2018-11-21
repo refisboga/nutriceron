@@ -5,11 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Session;
 use App\pacientes;
-use App\citas;
 
 class usuario extends Controller
 {
+	
     public function registrar(Request $request){
 		$nom=$request->nom;
 		$ap=$request->ap;
@@ -53,21 +54,19 @@ class usuario extends Controller
 		$user->talla=$talla;
 		$user->sexo=$sexo;
 		$user->fec_nac=$fecha;
-		$user->tipo="usuario";
+		$user->tipo="usu";
 		$user->save();
 		$proceso="Alta del usuario: $nom.";
 		$mensaje="El registro del usuario fué exitoso";
 		
 		return view('sistema.mensaje')
 		->with('proceso',$proceso)
-		->with('mensaje',$mensaje)
-		->with($fecha);
+		->with('mensaje',$mensaje);
 	}
 	
 	public function modif($id){
 		$res=pacientes::where('id_pac','=',$id)->get();
-		
-		return view('sistema.modificar_usuario')->with('datos',$res);
+		return view('sistema.modificar_usuario')->with('datos',$res);		
 	}
 	
 	public function modificar(Request $request){
@@ -114,24 +113,6 @@ class usuario extends Controller
 		$proceso="Modificación del usuario: $nom.";
 		$mensaje="La modificación del usuario fué exitosa.";
 		
-		return view('sistema.mensaje')
-		->with('proceso',$proceso)
-		->with('mensaje',$mensaje);
-	}
-	
-	public function eliminar_fis($id){
-		citas::find($id)->delete();
-		$proceso = "DESACTIVASTE TU CITA";	
-		$mensaje="La cita, ha sido desactivada correctamente.";
-		return view('sistema.mensaje')
-		->with('proceso',$proceso)
-		->with('mensaje',$mensaje);
-    }
-	
-	public function restaurar_cita($id){
-		citas::withTrashed()->where('id_cita',$id)->restore();
-		$proceso = "RESTAURACION DE LA CITA";	
-		$mensaje="El registro de la cita fue restaurado correctamente";
 		return view('sistema.mensaje')
 		->with('proceso',$proceso)
 		->with('mensaje',$mensaje);

@@ -5,13 +5,16 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Session;
 use App\expedientes;
 
 class evalua extends Controller
 {
     public function registrar(Request $request){
-		$cal=$request->cal;
-		$hora=$request->hora;
+		$h=date("H")+6;
+		$id=Session::get('sesionid');
+		$cal=date("Y-m-d");
+		$hora="$h".":".date("i");
 		$tipo=$request->tipo;
 		$ale1=$request->ale1;
 		$ale2=$request->ale2;
@@ -21,7 +24,6 @@ class evalua extends Controller
 		$desccir=$request->desccir;
 		$tra=$request->tra;
 		$desctra=$request->desctra;
-		
 		
 		/*$this->validate($request,[
 		    'cal'=>'required|date',   
@@ -48,11 +50,10 @@ class evalua extends Controller
 		$evalua->tipo_cirugia=$desccir;
 		$evalua->tratamiento=$tra;
 		$evalua->desc_tratamiento=$desctra;
-		$evalua->pac_fk=3;
-		$evalua->doc_fk=1;
+		$evalua->id_pac_fk=$id;
 		$evalua->save();
 		$proceso="Alta de Evaluación";
-		$mensaje="El Registro de Evaluación fué Exitoso";
+		$mensaje="El registro de la evaluación fué exitoso";
 		
 		return view('sistema.mensaje')
 		->with('proceso',$proceso)

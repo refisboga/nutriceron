@@ -1,12 +1,14 @@
 @extends('sistema.nav_login')
-@section('contenido')
 
+@section('contenido')
 <body>
+	<div class="container" align="center">
+		<div class="alert alert-danger">
+			<strong>{{$proceso}}<br></strong>{{$mensaje}}
+		</div>
+	</div>
 	<div class="container">
 		<div class="card card-container">
-			<!-- <img class="profile-img-card" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" alt="" /> -->
-			<!--<img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
-			<p id="profile-name" class="profile-name-card"></p>-->
 			<div class="containerform">
 				<form class="login" name="formularioc" action="{{url('validarlogin')}}" method="POST">
 					{!! csrf_field() !!}

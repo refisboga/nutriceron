@@ -64,7 +64,7 @@
                 <!-- /.dropdown -->
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                        <i class="fa fa-user fa-fw"></i>{{Session::get('sesionname')}} <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
                         <li><a href="{{url('/cuenta')}}"><i class="fa fa-user fa-fw"></i> Perfil</a>
@@ -110,7 +110,12 @@
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="{{url('/evaluacion')}}"><i class="fa fa-stethoscope fa-fw"></i> Evaluaci&oacute;n</a>
+                             <a href="#"><i class="fa fa-calendar-o fa-fw"></i> Evaluaci&oacute;n<span class="fa arrow"></span></a>
+							<ul class="nav nav-second-level">
+                                <li>
+                                    <a href="{{url('/evaluacion')}}">Realizar Pre-Evaluaci&oacute;n</a>
+                                </li>
+                            </ul>
                         </li>
                         <li>
                             <a href="{{url('/expediente')}}"><i class="fa fa-edit fa-fw"></i> Expediente</a>

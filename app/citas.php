@@ -10,6 +10,6 @@ class citas extends Model
     use SoftDeletes;
 	protected $primaryKey='id_cita';
 	protected $fillable=['id_cita','fecha','hora','direc',
-                         'cp','tel','correo'];
+                         'cp','tel','correo','id_pac_fk'];
 	protected $date=['deleted_at'];
 }
