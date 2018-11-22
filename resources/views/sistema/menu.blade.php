@@ -6,7 +6,7 @@
 	<table class="table">
 		<thead>
 			<tr>
-				<th>#Id</th><th>Tipo</th><th>Nombre del Men&uacute;</th><th>Descripci&oacute;n</th>
+				<th>Acci&oacute;n</th><th>#Id</th><th>Tipo</th><th>Nombre del Men&uacute;</th><th>Descripci&oacute;n</th>
 				</tr>
 		</thead>
 		@foreach($menu as $datos)

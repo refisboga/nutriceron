@@ -10,7 +10,7 @@ use App\expedientes;
 class a_expedientes extends Controller
 {	
 	public function consultar_expe(){
-		$c = expedientes::all();
+		$c=expedientes::withTrashed()->get();
 		return view('sistema.a_expedientes')->with('expe',$c);
 	}
 }

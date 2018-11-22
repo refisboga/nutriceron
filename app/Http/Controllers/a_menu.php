@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Session;
 use App\menus;
 
 class a_menu extends Controller
@@ -34,13 +35,19 @@ class a_menu extends Controller
 		->with('mensaje',$mensaje);
 	}
 	
-	public function consmenu_a(){
-		$m=menus::all();
+	public function a_consultar_menu(){
+		$m=menus::withTrashed()->get();
 		return view('sistema.a_consultar_menu')->with('menu',$m);
 	}
 	
-	public function consmenu(){
-		$m=menus::all();
-		return view('sistema.menu')->with('menu',$m);
+	public function menu_disponible(){
+		$m=menus::withTrashed()->get();
+		if(count($m)==0){
+			$proceso="Consultar Menus Disponibles";
+			$mensaje="Necesitas contactar a tu Nutriólogo para que te asigne un menu.";
+			return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);
+		}else{
+			return view('sistema.menu')->with('menu',$m);
+		}
 	}
 }

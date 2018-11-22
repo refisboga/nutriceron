@@ -89,7 +89,7 @@
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
-                        <li class="sidebar-search">
+                        <!--<li class="sidebar-search">
                             <div class="input-group custom-search-form">
                                 <input type="text" class="form-control" placeholder="Buscar...">
                                 <span class="input-group-btn">
@@ -98,19 +98,37 @@
                                 </button>
                             </span>
                             </div>
-                            <!-- /input-group -->
-                        </li>
+                        
+                        </li>-->
                         <li>
                             <a href="{{url('/admin')}}"><i class="fa fa-home fa-fw"></i> Home</a>
                         </li>
-                        <li>
-                            <a href="{{url('/citas')}}"><i class="fa fa-calendar-o fa-fw"></i> Agenda</a>
+						<li>
+                            <a href="#"><i class="fa fa-calendar-o fa-fw"></i> Agenda<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="{{url('/citas')}}">Consultar Citas Activas</a>
+                                </li>
+								<li>
+                                    <a href="{{url('/citashist')}}">Consultar Historial de Citas</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
                         </li>
                         <li>
                             <a href="{{url('/expedientes')}}"><i class="fa fa-edit fa-fw"></i> Expedientes</a>
                         </li>
 						<li>
-                            <a href="{{url('/pacientes')}}"><i class="fa fa-edit fa-fw"></i> Pacientes</a>
+                            <a href="#"><i class="fa fa-calendar-o fa-fw"></i> Pacientes<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="{{url('/pacientes')}}">Consultar Pacientes Activos</a>
+                                </li>
+								<li>
+                                    <a href="{{url('/pacientesdesac')}}">Consultar Pacientes Desactivados</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
                         </li>
 						<li>
                             <a href="#"><i class="fa fa-calendar-o fa-fw"></i> Dieta<span class="fa arrow"></span></a>

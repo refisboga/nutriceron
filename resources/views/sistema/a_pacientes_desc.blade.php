@@ -14,8 +14,8 @@
 		<tbody>
 			<tr class="info">
 				<td>
-					<a class="btn btn-info" role="button" href="#">MODIFICAR</a>
-					<a class="btn btn-warning" role="button" href="#">DESACTIVAR</a>
+					<a class="btn btn-success" role="button" href="#">RESTAURAR</a>
+					<a class="btn btn-danger" role="button" href="#">ELIMINAR</a>
 				</td>
 				<td>{{$datos->id_pac}}</td><td>{{$datos->nombre}} {{$datos->ap_pat}} {{$datos->ap_mat}}</td><td>{{$datos->correo}}</td>
 				<td>{{$datos->pass}}</td><td>{{$datos->telefono}}</td><td>{{$datos->peso}}</td><td>{{$datos->talla}}</td>

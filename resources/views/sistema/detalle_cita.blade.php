@@ -20,7 +20,6 @@
 							<a class="btn btn-danger" role="button" href="{{URL::action('cita@desactivar_cita',['id'=>$datos->id_cita])}}">DESACTIVAR</a>
 						@else
 							<a class="btn btn-success" role="button" href="{{URL::action('cita@restaurar_cita',['id'=>$datos->id_cita])}}">RESTAURAR</a>
-							<a class="btn btn-danger" role="button" href="{{URL::action('cita@eliminar_cita',['id'=>$datos->id_cita])}}">ELIMINAR</a>
 						@endif
 					</td>
 					@if($datos->deleted_at =="")

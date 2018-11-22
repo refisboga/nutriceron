@@ -36,18 +36,17 @@ Route::get('/dietas',function(){
 	return view('sistema.dietas');
 });
 
-Route::get('/cuenta','u_cuenta@consultar');
+Route::get('/cuenta','cuenta_usuario@consultar_perfil');
 Route::get('/herramientas','u_cuenta@herramientas');
 Route::get('/expediente', 'expediente@consultar_expediente');
 Route::POST('/regcita','cita@registrar');
 Route::get('/detalle_cita','cita@detalle_cita');
 Route::POST('/regeva','evalua@registrar');
-Route::get('/cons_menu','a_menu@consmenu');
+Route::get('/cons_menu','a_menu@menu_disponible');
 Route::get('/modif/{id}','usuario@modif');
 Route::POST('/modificaru','usuario@modificar');
 Route::get('/desactivarcita/{id}','cita@desactivar_cita');
 Route::get('/restaurarcita/{id}','cita@restaurar_cita');
-Route::get('/eliminarcita/{id}','cita@eliminar_cita');
 /*---------------------------------------------------------Url Admin-------------------*/
 Route::get('/admin', function(){
 	return view('sistema.nav_admin');
@@ -60,16 +59,20 @@ Route::get('registrardoc',function(){
 Route::get('crearmenu',function(){
 	return view('sistema.a_crear_menu');
 });
-Route::get('/citas','cita@consultarcitas');
+Route::get('/citas','cita@a_consultar_citas');
+Route::get('/citashist','cita@a_consultar_hist_citas');
 Route::get('/expedientes','a_expedientes@consultar_expe');
-Route::get('/pacientes','a_pacientes@consultar_pac');
+Route::get('/pacientes','a_pacientes@consultar_pacientes_act');
+Route::get('/pacientesdesac','a_pacientes@consultar_pacientes_desact');
 Route::get('/cuentadoc','a_doctores@consultar_perfil');
 Route::get('/consultardoc','a_doctores@consultar_todos');
 Route::POST('/reg_doc','a_doctores@registrar');
 Route::POST('/regmenu','a_menu@registrar');
-Route::get('/consmenu','a_menu@consmenu_a');
+Route::get('/consmenu','a_menu@a_consultar_menu');
 Route::get('/desactivardoc/{id}','a_doctores@desactivar_doctor');
-
+Route::get('/desactivarcita/{id}','cita@a_desactivar_cita');
+Route::get('/restaurarcita/{id}','cita@a_restaurar_cita');
+Route::get('/eliminarcita/{id}','cita@a_eliminar_cita');
 /*---------------------------------------------------------Url Login-------------------*/
 Route::POST('/validarlogin','clogin@validar_login');
 Route::get('/home','clogin@login')->name('home');

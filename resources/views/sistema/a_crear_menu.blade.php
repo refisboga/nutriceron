@@ -13,7 +13,7 @@
 		@endif
 		<div class="input-group">
 			<span class="input-group-addon"><i class="glyphicon glyphicon-tint"></i></span>
-			<select name="tipo" class="form-control" value="{{old('tipo')}}" required>
+			<select name="tipo" class="form-control" style="width: 15%" value="{{old('tipo')}}" required>
 				<option value="" disabled selected>Tipo de Comida</option>
 				<option value="Entrada">Entrada</option>
 				<option value="Sopa">Sopa</option>
@@ -29,7 +29,7 @@
 		@endif
 		<div class="input-group">
 			<span class="input-group-addon"><i class="glyphicon glyphicon-leaf"></i></span>
-			<input type="text" name="desc" pattern="[a-zA-Z0-9]*" placeholder="Nombre del Menú" class="form-control" value="{{old('desc')}}" required>
+			<input type="text" name="desc" style="width: 35%" pattern="[a-zA-Z0-9]*" placeholder="Nombre del Menú" class="form-control" value="{{old('desc')}}" required>
 		</div>
 		
 		@if($errors->first('menu')) 
@@ -38,7 +38,7 @@
 		@endif
 		<div class="form-group">
 			<label for="descripcion">Descripci&oacute;n:</label>
-			<textarea class="form-control" rows="12" maxlength="300" id="comment" placeholder="Redacta el menú aquí..." name="menu" value="{{old('menu')}}" required></textarea>
+			<textarea class="form-control" style="width: 40%" rows="12" maxlength="300" id="comment" placeholder="Redacta el menú aquí..." name="menu" value="{{old('menu')}}" required></textarea>
 			<p>300 caracteres como m&aacute;ximo.</p>
 		</div>
 		

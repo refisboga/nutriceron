@@ -40,8 +40,8 @@ class cita extends Controller
 		$cita->correo=$correo;
 		$cita->id_pac_fk=$id;
 		$cita->save();
-		$proceso="Alta de Cita";
-		$mensaje="El Registro de la Cita fué Exitoso";
+		$proceso="REGISTRAR CITA";
+		$mensaje="El Registro de la Cita fué exitoso";
 		
 		return view('sistema.mensaje')
 		->with('proceso',$proceso)
@@ -51,7 +51,7 @@ class cita extends Controller
 	public function detalle_cita(){
 		$c=citas::withTrashed()->where('id_pac_fk','=',Session::get('sesionid'))->get();
 		if(count($c)==0){
-			$proceso="Detalles de la Cita";
+			$proceso="CONSULTAR CITAS";
 			$mensaje="Aun NO agendas alguna cita.";
 			return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);
 		}else{
@@ -77,17 +77,44 @@ class cita extends Controller
 		->with('mensaje',$mensaje);
 	}
 	
-	public function eliminar_cita($id){
-		citas::withTrashed()->where('id_cita','=',$id)->forceDelete();
-		$proceso = "ELIMINACION FISICA DE LA CITA";	
-		$mensaje="El registro de la cita, ha sido eliminado correctamente";
-		return view('sistema.mensaje')
+	public function a_desactivar_cita($id){
+		citas::find($id)->delete();
+		$proceso = "DESACTIVASTE LA CITA DEL PACIENTE";	
+		$mensaje="La cita, ha sido desactivada correctamente.";
+		return view('sistema.a_mensaje')
 		->with('proceso',$proceso)
 		->with('mensaje',$mensaje);
     }
 	
-	public function consultarcitas(){
-		$c = citas::withTrashed()->get();
-		return view('sistema.citas')->with('citas',$c);
+	public function a_restaurar_cita($id){
+		citas::withTrashed()->where('id_cita','=',$id)->restore();
+		$proceso = "RESTAURACION DE LA CITA";	
+		$mensaje="El registro de la cita, fue restaurado correctamente";
+		return view('sistema.a_mensaje')
+		->with('proceso',$proceso)
+		->with('mensaje',$mensaje);
+	}
+	
+	public function a_eliminar_cita($id){
+		citas::withTrashed()->where('id_cita','=',$id)->forceDelete();
+		$proceso = "ELIMINACION FISICA DE LA CITA";	
+		$mensaje="El registro de la cita, ha sido eliminado correctamente";
+		return view('sistema.a_mensaje')
+		->with('proceso',$proceso)
+		->with('mensaje',$mensaje);
+    }
+	
+	public function a_consultar_citas(){
+		$r=\DB::select("SELECT c.id_cita, c.fecha, c.hora, c.deleted_at as estatus_cita, p.nombre, p.ap_pat, p.ap_mat, p.correo, p.telefono, p.deleted_at
+						FROM citas AS c
+						INNER JOIN pacientes AS p ON id_pac_fk=p.id_pac ORDER BY c.fecha, c.hora ASC");
+		return view('sistema.a_consultar_citas')->with('citas',$r);		
+	}
+	
+	public function a_consultar_hist_citas(){
+		$r=\DB::select("SELECT c.id_cita, c.fecha, c.hora, c.deleted_at as estatus_cita, p.nombre, p.ap_pat, p.ap_mat, p.correo, p.telefono, p.deleted_at
+						FROM citas AS c
+						INNER JOIN pacientes AS p ON id_pac_fk=p.id_pac ORDER BY c.fecha, c.hora ASC");
+		return view('sistema.a_historial_citas')->with('citas',$r);
 	}
 }
