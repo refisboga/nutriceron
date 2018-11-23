@@ -64,16 +64,16 @@
                 <!-- /.dropdown -->
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                        <i class="fa fa-user fa-fw"></i> {{Session::get('sesionname')}} <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
                         <li>
-							<a href="{{url('/cuentadoc')}}"><i class="fa fa-user fa-fw"></i> Perfil</a>
+							<a href="{{url('/cuentadoc')}}"><i class="fa fa-user-md fa-fw"></i> Mi Perfil</a>
                         </li>
                         <li class="divider"></li>
 						<li>
-							<a href="{{url('/registrardoc')}}"><i class="fa fa-user fa-fw"></i> Crear Cuenta</a>
-							<a href="{{url('/consultardoc')}}"><i class="fa fa-user fa-fw"></i> Consultar Cuentas</a>
+							<a href="{{url('/registrardoc')}}"><i class="fa fa-stethoscope fa-fw"></i> Crear Cuenta Doctor</a>
+							<a href="{{url('/consultardoc')}}"><i class="fa fa-search fa-fw"></i> Consultar Doctores</a>
                         </li>
                         <li class="divider"></li>
                         <li>
@@ -98,46 +98,54 @@
                                 </button>
                             </span>
                             </div>
-                        
                         </li>-->
                         <li>
                             <a href="{{url('/admin')}}"><i class="fa fa-home fa-fw"></i> Home</a>
                         </li>
 						<li>
-                            <a href="#"><i class="fa fa-calendar-o fa-fw"></i> Agenda<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-calendar-o fa-fw"></i> Agenda de Citas<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="{{url('/citas')}}">Consultar Citas Activas</a>
+                                    <a href="{{url('/citas')}}"><i class="fa fa-search fa-fw"></i> Consultar Citas</a>
                                 </li>
 								<li>
-                                    <a href="{{url('/citashist')}}">Consultar Historial de Citas</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
-                        <li>
-                            <a href="{{url('/expedientes')}}"><i class="fa fa-edit fa-fw"></i> Expedientes</a>
-                        </li>
-						<li>
-                            <a href="#"><i class="fa fa-calendar-o fa-fw"></i> Pacientes<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="{{url('/pacientes')}}">Consultar Pacientes Activos</a>
-                                </li>
-								<li>
-                                    <a href="{{url('/pacientesdesac')}}">Consultar Pacientes Desactivados</a>
+                                    <a href="{{url('/citashist')}}"><i class="fa fa-folder-open-o fa-fw"></i> Consultar Historial</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
 						<li>
-                            <a href="#"><i class="fa fa-calendar-o fa-fw"></i> Dieta<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-copy fa-fw"></i> Expedientes<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="{{url('/crearmenu')}}">Crear Men&uacute;</a>
+                                    <a href="{{url('/expedientes')}}"><i class="fa fa-search fa-fw"></i> Consultar Expedientes</a>
                                 </li>
 								<li>
-                                    <a href="{{url('/consmenu')}}">Consultar Men&uacute;</a>
+                                    <a href="{{url('/expedienteshisto')}}"><i class="fa fa-folder-open-o fa-fw"></i> Consultar Historial</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+						<li>
+                            <a href="#"><i class="fa fa-users fa-fw"></i> Pacientes<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="{{url('/pacientes')}}"><i class="fa fa-search fa-fw"></i> Consultar Pacientes</a>
+                                </li>
+								<li>
+                                    <a href="{{url('/pacientesdesac')}}"><i class="fa fa-folder-open-o fa-fw"></i> Consultar Historial</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+						<li>
+                            <a href="#"><i class="fa fa-spoon fa-fw"></i> Dieta<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="{{url('/crearmenu')}}"><i class="fa fa-edit fa-fw"></i>Crear Men&uacute;</a>
+                                </li>
+								<li>
+                                    <a href="{{url('/consmenu')}}"><i class="fa fa-search fa-fw"></i> Consultar Men&uacute;</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->

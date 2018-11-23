@@ -34,6 +34,15 @@
 			<input type="text" name="am" style="width: 25%" placeholder="Apellido Materno" class="form-control" pattern="[A-Z][A-Z,a-z, ,á,é,í,ó,ú,Ñ,ñ]*" title="Ejemplo: Ramírez" value="{{old('am')}}" required >
 		</div>
 		
+		@if($errors->first('cedu')) 
+			<i> {{$errors->first('cedu')}}</i> 
+			<br>
+		@endif
+		<div class="input-group">
+			<span class="input-group-addon"><i class="glyphicon glyphicon-barcode"></i></span>
+			<input type="text" name="cedu" style="width: 25%" placeholder="Cédula Profesional" class="form-control" pattern="[0-9]+" maxlength="10" title="Ejemplo: 7225206712" value="{{old('tel')}}" required >
+		</div>
+		
 		@if($errors->first('email')) 
 			<i> {{$errors->first('email')}}</i> 
 			<br>

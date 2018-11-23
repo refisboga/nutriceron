@@ -105,16 +105,36 @@ class cita extends Controller
     }
 	
 	public function a_consultar_citas(){
-		$r=\DB::select("SELECT c.id_cita, c.fecha, c.hora, c.deleted_at as estatus_cita, p.nombre, p.ap_pat, p.ap_mat, p.correo, p.telefono, p.deleted_at
-						FROM citas AS c
-						INNER JOIN pacientes AS p ON id_pac_fk=p.id_pac ORDER BY c.fecha, c.hora ASC");
-		return view('sistema.a_consultar_citas')->with('citas',$r);		
+		$only=citas::onlyTrashed()->get();
+		$res=\DB::select("SELECT * FROM citas;");
+		if(count($only)!=count($res)){
+			$r=\DB::select("SELECT c.id_cita, c.fecha, c.hora, c.deleted_at as estatus_cita, p.nombre, p.ap_pat, p.ap_mat, p.correo, p.telefono, p.deleted_at
+							FROM citas AS c
+							INNER JOIN pacientes AS p ON id_pac_fk=p.id_pac ORDER BY c.fecha, c.hora ASC");
+			return view('sistema.a_consultar_citas')->with('citas',$r);
+		}else{
+			$proceso = "CONSULTA DE CITAS ACTIVAS";	
+			$mensaje="NO existen registros de Citas activas.";
+			return view('sistema.a_mensaje')
+			->with('proceso',$proceso)
+			->with('mensaje',$mensaje);
+		}		
 	}
 	
 	public function a_consultar_hist_citas(){
-		$r=\DB::select("SELECT c.id_cita, c.fecha, c.hora, c.deleted_at as estatus_cita, p.nombre, p.ap_pat, p.ap_mat, p.correo, p.telefono, p.deleted_at
+		$c=citas::onlyTrashed()->get();
+		if(count($c)!=0){
+			$r=\DB::select("SELECT c.id_cita, c.fecha, c.hora, c.deleted_at as estatus_cita, p.nombre, p.ap_pat, p.ap_mat, p.correo, p.telefono, p.deleted_at
 						FROM citas AS c
-						INNER JOIN pacientes AS p ON id_pac_fk=p.id_pac ORDER BY c.fecha, c.hora ASC");
-		return view('sistema.a_historial_citas')->with('citas',$r);
+						INNER JOIN pacientes AS p ON id_pac_fk=p.id_pac ORDER BY c.fecha DESC");
+			return view('sistema.a_historial_citas')->with('citas',$r);
+		}else{
+			$proceso = "CONSULTA HISTORIAL DE CITAS";	
+			$mensaje="NO existen registros de Citas en el historial.";
+			return view('sistema.a_mensaje')
+			->with('proceso',$proceso)
+			->with('mensaje',$mensaje);
+		}
+		
 	}
 }
