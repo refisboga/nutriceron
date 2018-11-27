@@ -20,6 +20,9 @@ class Citas extends Migration
 			$table->integer('cp');
 			$table->integer('tel');
             $table->string('correo',50);
+			$table->integer('id_pac_fk')->unsigned();
+
+            $table->foreign('id_pac_fk')->references('id_pac')->on('pacientes');
 
             $table->rememberToken();
             $table->timestamps();

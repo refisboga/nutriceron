@@ -42,7 +42,51 @@ class a_doctores extends Controller
 		$doc->tipo="admin";
 		$doc->save();
 		$proceso="REGISTRO DEL NUEVO DOCTOR: $nom";
-		$mensaje="El registro del Doctor fué exitoso";
+		$mensaje="El registro del Doctor fué exitoso.";
+		
+		return view('sistema.a_mensaje')
+		->with('proceso',$proceso)
+		->with('mensaje',$mensaje);
+	}
+	
+	public function v_modificar_doc($id){
+		$d=doctores::withTrashed()->where('id_doc','=',$id)->get();
+		return view('sistema.a_modificar_doc')->with('doc',$d);
+	}
+	
+	public function modificar_doc(Request $request){
+		$id=$request->id;
+		$nom=$request->nom;
+		$ap=$request->ap;
+		$am=$request->am;
+		$tel=$request->tel;
+		$correo=$request->email;
+		$pass=$request->pass;
+		$cedu=$request->cedu;
+		
+		$this->validate($request,[
+			'nom'=>'required|',['regex:/^[A-Z][A-Z,a-z, ,ñ,é,í,á,ó,ú]*$/'],
+			'ap'=>'required|',['regex:/^[A-Z][A-Z,a-z, ,ñ,é,í,á,ó,ú]*$/'],
+			'am'=>'required|',['regex:/^[A-Z][A-Z,a-z, ,ñ,é,í,á,ó,ú]*$/'],
+			'cedu'=>'required|',['regex:/^[0-9]+{10}'],
+			'tel'=>'required|',['regex:/^[0-9]+{10}'],
+			'email'=>'required|email',
+			'pass'=>'required|',['regex:/^[A-Z,a-z,0-9,ñ,é,í,á,ó,ú]*$/']
+		]);
+		
+		$doc=doctores::find($id);
+		$doc->id_doc=$id;
+		$doc->nombre=$nom;
+		$doc->ap_pat=$ap;
+		$doc->ap_mat=$am;
+		$doc->tel=$tel;
+		$doc->correo=$correo;
+		$doc->pass=$pass;
+		$doc->cedula=$cedu;
+		$doc->tipo="admin";
+		$doc->save();
+		$proceso="MODIFICACIÓN DEL PERFIL";
+		$mensaje="La Modificación del Perfil del Doctor fué exitoso";
 		
 		return view('sistema.a_mensaje')
 		->with('proceso',$proceso)

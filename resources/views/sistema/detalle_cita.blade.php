@@ -15,11 +15,11 @@
 			<tbody>
 				<tr class="info">
 					<td>
-						<a class="btn btn-warning" role="button" href="#">MODIFICAR</a>
+						<a class="btn btn-warning" role="button" href="#">Modificar</a>
 						@if($datos->deleted_at=="")
-							<a class="btn btn-danger" role="button" href="{{URL::action('cita@desactivar_cita',['id'=>$datos->id_cita])}}">DESACTIVAR</a>
+							<a class="btn btn-danger" role="button" href="{{URL::action('cita@desactivar_cita',['id'=>$datos->id_cita])}}">Desactivar</a>
 						@else
-							<a class="btn btn-success" role="button" href="{{URL::action('cita@restaurar_cita',['id'=>$datos->id_cita])}}">RESTAURAR</a>
+							<a class="btn btn-success" role="button" href="{{URL::action('cita@restaurar_cita',['id'=>$datos->id_cita])}}">Restaurar</a>
 						@endif
 					</td>
 					@if($datos->deleted_at =="")

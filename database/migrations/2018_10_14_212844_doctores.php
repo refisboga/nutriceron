@@ -20,6 +20,8 @@ class Doctores extends Migration
             $table->integer('tel');
             $table->string('correo',50);
             $table->string('pass',50);
+			$table->integer('cedula');
+            $table->string('tipo',20);
 
             $table->rememberToken();
             $table->timestamps();

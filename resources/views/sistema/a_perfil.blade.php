@@ -14,7 +14,7 @@
 			<tr class="info">
 				<td>
 					@if($datos->deleted_at=="")
-					<a class="btn btn-warning" role="button" href="#">Modificar</a>
+					<a class="btn btn-warning" role="button" href="{{URL::action('a_doctores@v_modificar_doc',['id'=>$datos->id_doc])}}">Modificar</a>
 					<a class="btn btn-danger" role="button" href="{{URL::action('a_doctores@desactivar_doctor',['id'=>$datos->id_doc])}}">Desactivar</a>
 					@else
 					<a class="btn btn-success" role="button" href="{{URL::action('a_doctores@restaurar_doctor',['id'=>$datos->id_doc])}}">Restaurar</a>

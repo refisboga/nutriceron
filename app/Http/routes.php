@@ -45,8 +45,8 @@ Route::POST('/regeva','evalua@registrar');
 Route::get('/cons_menu','a_menu@menu_disponible');
 Route::get('/modif/{id}','usuario@modif');
 Route::POST('/modificaru','usuario@modificar');
-Route::get('/desactivarcita/{id}','cita@desactivar_cita');
-Route::get('/restaurarcita/{id}','cita@restaurar_cita');
+Route::get('/desactivarcitap/{id}','cita@desactivar_cita');
+Route::get('/restaurarcitap/{id}','cita@restaurar_cita');
 /*---------------------------------------------------------Url Admin-------------------*/
 Route::get('/admin', function(){
 	return view('sistema.nav_admin');
@@ -69,6 +69,8 @@ Route::get('/expedienteelim/{id}','a_expedientes@eliminar_expe');
 Route::get('/pacientes','a_pacientes@consultar_pacientes_act');
 Route::get('/pacientesdesac','a_pacientes@consultar_pacientes_desact');
 Route::get('/cuentadoc','a_doctores@consultar_perfil');
+Route::get('/modificard/{id}','a_doctores@v_modificar_doc');
+Route::POST('/modificardoc','a_doctores@modificar_doc');
 Route::get('/consultardoc','a_doctores@consultar_doctores');
 Route::POST('/reg_doc','a_doctores@registrar');
 Route::POST('/regmenu','a_menu@registrar');
@@ -79,6 +81,8 @@ Route::get('/eliminardoc/{id}','a_doctores@eliminar_doctor');
 Route::get('/desactivarcita/{id}','cita@a_desactivar_cita');
 Route::get('/restaurarcita/{id}','cita@a_restaurar_cita');
 Route::get('/eliminarcita/{id}','cita@a_eliminar_cita');
+Route::get('/modificarc/{id}','cita@v_modificar_cita');
+Route::get('/modificarcita/{id}','cita@a_modificar_cita');
 Route::get('/desactivarpac/{id}','a_pacientes@desactivar_pac');
 Route::get('/restaurarpac/{id}','a_pacientes@restaurar_pac');
 Route::get('/eliminarpac/{id}','a_pacientes@eliminar_pac');

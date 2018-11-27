@@ -48,6 +48,63 @@ class cita extends Controller
 		->with('mensaje',$mensaje);
 	}
 	
+	public function v_modificar_cita($id){
+		$only=citas::onlyTrashed()->get();
+		$res=\DB::select("SELECT * FROM citas;");
+		if(count($only)!=count($res)){
+			$cita=\DB::select("SELECT c.id_cita, c.fecha, c.hora, c.direc, c.cp, c.tel, c.correo, c.id_pac_fk, c.deleted_at AS deleted_cita,
+p.id_pac, p.nombre, p.ap_pat, p.ap_mat, p.deleted_at AS deleted_pac
+FROM citas AS c
+INNER JOIN pacientes AS p ON p.id_pac=c.id_pac_fk
+WHERE c.id_cita=$id");
+			return view('sistema.v_modificar_cita')->with('cita',$cita);
+		}else{
+			$proceso="MODIFICAR CITA";	
+			$mensaje="NO existen registros de Citas.";
+			return view('sistema.a_mensaje')
+			->with('proceso',$proceso)
+			->with('mensaje',$mensaje);
+		}
+	}
+	
+	public function a_modificar_cita(Request $request){
+		$id=$request->id;
+		$nom=$request->nom;
+		$direc="Av. Quintana Roo esq. Hidalgo";
+		$cp=50143;
+		$tel=7225104562;
+		$correo="citas@nutriceron.com";
+		$fecha=$request->fecha;
+		$hora=$request->hora;
+		
+		/*$this->validate($request,[
+			'nom'=>'required|',['regex:/^[A-Z][A-Z,a-z, ,ñ,é,í,á,ó,ú]*$/'],
+			'derec'=>'required|',['regex:/^[A-Z][A-Z,a-z, ,.,ñ,é,í,á,ó,ú]*$/'],
+			'cp'=>'required|',['regex:/^[0-9]{5}$/'],
+			'tel'=>'required|',['regex:/^[0-9]{10}$/'],
+			'email'=>'required|email',
+			'fecha'=>'required|date',
+			'hora'=>'required|',['regex:/^[0-9]{2}+[:][0-9]{2}+$/']
+		]);*/
+		
+		$cita=new citas;
+		$cita->id_cita=null;
+		$cita->fecha=$fecha;
+		$cita->hora=$hora;
+		$cita->direc=$direc;
+		$cita->cp=$cp;
+		$cita->tel=$tel;
+		$cita->correo=$correo;
+		$cita->id_pac_fk=$id;
+		$cita->save();
+		$proceso="REGISTRAR CITA";
+		$mensaje="El Registro de la Cita fué exitoso";
+		
+		return view('sistema.mensaje')
+		->with('proceso',$proceso)
+		->with('mensaje',$mensaje);
+	}
+	
 	public function detalle_cita(){
 		$c=citas::withTrashed()->where('id_pac_fk','=',Session::get('sesionid'))->get();
 		if(count($c)==0){

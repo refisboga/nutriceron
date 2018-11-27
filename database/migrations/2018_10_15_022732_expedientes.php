@@ -17,19 +17,17 @@ class Expedientes extends Migration
             $table->date('fecha');
             $table->time('hora');
             $table->char('tipo_sangre',3);
-            $table->string('alergia1',30);
-            $table->string('alergia2',30);
-            $table->string('enfermedad1',30);
-            $table->string('enfermedad2',30);
+			$table->text('alergia1');
+			$table->text('alergia2');
+			$table->text('enfermedad1');
+			$table->text('enfermedad2');
             $table->char('cirugia',2);
-            $table->string('tipo_cirugia',30);
+			$table->text('tipo_cirugia');
             $table->char('tratamiento',2);
             $table->text('desc_tratamiento');
             $table->integer('pac_fk')->unsigned();
-            $table->integer('doc_fk')->unsigned();
 
             $table->foreign('pac_fk')->references('id_pac')->on('pacientes');
-            $table->foreign('doc_fk')->references('id_doc')->on('doctores');
 
             $table->rememberToken();
             $table->timestamps();

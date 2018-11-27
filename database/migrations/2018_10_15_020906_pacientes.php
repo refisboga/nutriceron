@@ -20,14 +20,15 @@ class Pacientes extends Migration
             $table->string('correo',50);
             $table->string('pass',50);
             $table->integer('telefono');
-            $table->double('peso',3,3);
-            $table->double('talla',2,2);
+            $table->string('peso',20);
+            $table->string('talla',20);
             $table->char('sexo',1);
             $table->date('fec_nac');
+			$table->string('tipo',20);
             $table->string('calle',50);
             $table->integer('num_int');
             $table->integer('num_ext');
-            $table->string('colonia');
+            $table->string('colonia',50);
 
             $table->rememberToken();
             $table->timestamps();

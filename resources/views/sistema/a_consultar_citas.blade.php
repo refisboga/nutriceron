@@ -14,7 +14,7 @@
 		<tbody>
 			<tr class="info">
 				<td>
-					<a class="btn btn-warning" role="button" href="#">MODIFICAR</a>
+					<a class="btn btn-warning" role="button" href="{{URL::action('cita@v_modificar_cita',['id'=>$datos->id_cita])}}">MODIFICAR</a>
 					<a class="btn btn-danger" role="button" href="{{URL::action('cita@a_desactivar_cita',['id'=>$datos->id_cita])}}">DESACTIVAR</a>					
 				</td>
 				<td>Cita Activa</td>
