@@ -118,7 +118,12 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="{{url('/expediente')}}"><i class="fa fa-edit fa-fw"></i> Expediente</a>
+                            <a href="#"><i class="fa fa-edit fa-fw"></i> Expediente<span class="fa arrow"></span></a>
+							<ul class="nav nav-second-level">
+                                <li>
+                                    <a href="{{url('/expediente')}}">Historial de Pre-Evaluaci&oacute;n</a>
+                                </li>
+                            </ul>
                         </li>
 						<li>
                             <a href="#"><i class="fa fa-calendar-o fa-fw"></i> Dietas<span class="fa arrow"></span></a>

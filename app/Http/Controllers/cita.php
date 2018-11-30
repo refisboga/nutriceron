@@ -53,10 +53,10 @@ class cita extends Controller
 		$res=\DB::select("SELECT * FROM citas;");
 		if(count($only)!=count($res)){
 			$cita=\DB::select("SELECT c.id_cita, c.fecha, c.hora, c.direc, c.cp, c.tel, c.correo, c.id_pac_fk, c.deleted_at AS deleted_cita,
-p.id_pac, p.nombre, p.ap_pat, p.ap_mat, p.deleted_at AS deleted_pac
-FROM citas AS c
-INNER JOIN pacientes AS p ON p.id_pac=c.id_pac_fk
-WHERE c.id_cita=$id");
+								p.id_pac, p.nombre, p.ap_pat, p.ap_mat, p.deleted_at AS deleted_pac
+								FROM citas AS c
+								INNER JOIN pacientes AS p ON p.id_pac=c.id_pac_fk
+								WHERE c.id_cita=$id");
 			return view('sistema.v_modificar_cita')->with('cita',$cita);
 		}else{
 			$proceso="MODIFICAR CITA";	
@@ -68,12 +68,13 @@ WHERE c.id_cita=$id");
 	}
 	
 	public function a_modificar_cita(Request $request){
-		$id=$request->id;
+		$idc=$request->idc;
+		$idp=$request->idp;
 		$nom=$request->nom;
-		$direc="Av. Quintana Roo esq. Hidalgo";
-		$cp=50143;
-		$tel=7225104562;
-		$correo="citas@nutriceron.com";
+		$direc=$request->direc;
+		$cp=$request->cp;
+		$tel=$request->tel;
+		$correo=$request->correo;
 		$fecha=$request->fecha;
 		$hora=$request->hora;
 		
@@ -87,18 +88,18 @@ WHERE c.id_cita=$id");
 			'hora'=>'required|',['regex:/^[0-9]{2}+[:][0-9]{2}+$/']
 		]);*/
 		
-		$cita=new citas;
-		$cita->id_cita=null;
+		$cita=citas::find($idc);
+		$cita->id_cita=$idc;
 		$cita->fecha=$fecha;
 		$cita->hora=$hora;
 		$cita->direc=$direc;
 		$cita->cp=$cp;
 		$cita->tel=$tel;
 		$cita->correo=$correo;
-		$cita->id_pac_fk=$id;
+		$cita->id_pac_fk=$idp;
 		$cita->save();
-		$proceso="REGISTRAR CITA";
-		$mensaje="El Registro de la Cita fué exitoso";
+		$proceso="MODIFICACION DE LA CITA";
+		$mensaje="La Modificacion de la Cita fué exitosa.";
 		
 		return view('sistema.mensaje')
 		->with('proceso',$proceso)

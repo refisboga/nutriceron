@@ -1,11 +1,11 @@
-@extends('sistema.nav_usuario')
+@extends('sistema.nav_admin')
 
 @section('contenido')
 <h2>Agendar Cita</h2>
 <p>Solo Ingresa tus datos, en los campos "Habilitados".</p>
 
 <div class="container">
-	<form action="{{url('regcita')}}" method="POST" enctype="multipart/form-data">
+	<form action="{{url('/modificarci')}}" method="POST" enctype="multipart/form-data">
 	{{csrf_field()}}
 		
 		@foreach($cita as $datos)
@@ -15,7 +15,16 @@
 		@endif
 		<div class="input-group">
 			<span class="input-group-addon"><i class="glyphicon glyphicon-list-alt"></i></span>
-			<input type="text" name="id" style="width: 10%" placeholder="ID" class="form-control" value="{{$datos->id_cita}}" disabled>
+			<input type="text" name="idc" style="width: 10%" placeholder="ID" class="form-control" value="{{$datos->id_cita}}" disabled>
+		</div>
+		
+		@if($errors->first('id')) 
+			<i> {{$errors->first('id')}}</i> 
+			<br>
+		@endif
+		<div class="input-group">
+			<span class="input-group-addon"><i class="glyphicon glyphicon-list-alt"></i></span>
+			<input type="text" name="idp" style="width: 10%" placeholder="ID" class="form-control" value="{{$datos->id_pac}}" disabled>
 		</div>
 		
 		@if($errors->first('nom')) 
@@ -78,7 +87,7 @@
 		@endif
 		<div class="input-group">
 			<span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
-			<input type="text" name="hora" style="width: 25%" placeholder="14:30" pattern="[0-9]+[:][0-9]+" class="form-control" value="{{$datos->hora}}" required>
+			<input type="text" name="hora" style="width: 25%" placeholder="14:30" pattern="[0-9]+[:][0-9]+[:][0-9]+" class="form-control" value="{{$datos->hora}}" required>
 		</div>
 		<br>
 		@endforeach

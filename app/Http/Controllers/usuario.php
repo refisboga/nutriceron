@@ -118,4 +118,22 @@ class usuario extends Controller
 		->with('proceso',$proceso)
 		->with('mensaje',$mensaje);
 	}
+	
+	public function u_desactivar_pac($id){
+		pacientes::find($id)->delete();
+		$proceso = "DESACTIVASTE TU CUENTA";	
+		$mensaje="El Paciente, ha sido desactivado correctamente.";
+		return view('sistema.mensaje')
+		->with('proceso',$proceso)
+		->with('mensaje',$mensaje);
+    }
+	
+	public function u_restaurar_pac($id){
+		pacientes::withTrashed()->where('id_pac','=',$id)->restore();
+		$proceso = "RESTAURACION DE LA CUENTA";	
+		$mensaje="El registro del Paciente, fue restaurado correctamente";
+		return view('sistema.mensaje')
+		->with('proceso',$proceso)
+		->with('mensaje',$mensaje);
+	}
 }

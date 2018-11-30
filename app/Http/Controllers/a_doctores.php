@@ -75,14 +75,14 @@ class a_doctores extends Controller
 		]);
 		
 		$doc=doctores::find($id);
-		$doc->id_doc=$id;
-		$doc->nombre=$nom;
-		$doc->ap_pat=$ap;
-		$doc->ap_mat=$am;
-		$doc->tel=$tel;
-		$doc->correo=$correo;
-		$doc->pass=$pass;
-		$doc->cedula=$cedu;
+		$doc->id_doc=$request->id;
+		$doc->nombre=$request->nom;
+		$doc->ap_pat=$request->ap;
+		$doc->ap_mat=$request->am;
+		$doc->tel=$request->tel;
+		$doc->correo=$request->email;
+		$doc->pass=$request->pass;
+		$doc->cedula=$request->cedu;
 		$doc->tipo="admin";
 		$doc->save();
 		$proceso="MODIFICACIÓN DEL PERFIL";

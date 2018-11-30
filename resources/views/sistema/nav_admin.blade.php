@@ -145,7 +145,10 @@
                                     <a href="{{url('/crearmenu')}}"><i class="fa fa-edit fa-fw"></i>Crear Men&uacute;</a>
                                 </li>
 								<li>
-                                    <a href="{{url('/consmenu')}}"><i class="fa fa-search fa-fw"></i> Consultar Men&uacute;</a>
+                                    <a href="{{url('/consmenu')}}"><i class="fa fa-search fa-fw"></i> Consultar Men&uacute;s</a>
+                                </li>
+								<li>
+                                    <a href="{{url('/consmenuhist')}}"><i class="fa fa-search fa-fw"></i> Consultar Historial</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->

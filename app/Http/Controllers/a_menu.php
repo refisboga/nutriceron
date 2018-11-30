@@ -36,8 +36,32 @@ class a_menu extends Controller
 	}
 	
 	public function a_consultar_menu(){
-		$m=menus::withTrashed()->get();
-		return view('sistema.a_consultar_menu')->with('menu',$m);
+		$only=menus::onlyTrashed()->get();
+		$res=\DB::select("SELECT * FROM menus;");
+		if(count($only)!=count($res)){
+			$m=menus::withTrashed()->get();
+			return view('sistema.a_consultar_menu')->with('menu',$m);
+		}else{
+			$proceso="CONSULTA DE MENUS ACTIVOS";	
+			$mensaje="NO existen registros de Menus activos.";
+			return view('sistema.a_mensaje')
+			->with('proceso',$proceso)
+			->with('mensaje',$mensaje);
+		}
+	}
+	
+	public function a_consultar_menu_hist(){
+		$only=menus::onlyTrashed()->get();
+		if(count($only)!=0){
+			$m=menus::onlyTrashed()->get();
+			return view('sistema.a_consultar_menu_desac')->with('menu',$m);
+		}else{
+			$proceso="CONSULTA DEL HISTORIAL";	
+			$mensaje="NO existe Historial de registros de Menus.";
+			return view('sistema.a_mensaje')
+			->with('proceso',$proceso)
+			->with('mensaje',$mensaje);
+		}
 	}
 	
 	public function menu_disponible(){
@@ -50,4 +74,39 @@ class a_menu extends Controller
 			return view('sistema.menu')->with('menu',$m);
 		}
 	}
+	
+	public function a_desactivar_menu($id){
+		menus::find($id)->delete();
+		$proceso = "DESACTIVASTE EL MENU";	
+		$mensaje="El Menu, ha sido desactivada correctamente.";
+		return view('sistema.a_mensaje')
+		->with('proceso',$proceso)
+		->with('mensaje',$mensaje);
+    }
+	
+	public function a_restaurar_menu($id){
+		menus::withTrashed()->where('id_menu','=',$id)->restore();
+		$proceso = "RESTAURACION DEL MENU";	
+		$mensaje="El registro del Menú, fue restaurado correctamente";
+		return view('sistema.a_mensaje')
+		->with('proceso',$proceso)
+		->with('mensaje',$mensaje);
+	}
+	
+	public function a_eliminar_menu($id){
+		try{
+			menus::withTrashed()->where('id_menu','=',$id)->forceDelete();
+			$proceso = "ELIMINACION FISICA DEL MENU";	
+			$mensaje="El registro del Menú, ha sido eliminado correctamente.";
+			return view('sistema.a_mensaje')
+			->with('proceso',$proceso)
+			->with('mensaje',$mensaje);
+		}catch(\Illuminate\Database\QueryException $id){
+			$proceso = "ELIMINACION FISICA DEL MENU";	
+			$mensaje="El registro del Menú, NO se elimino debido a que esta siendo utilizado.";
+			return view('sistema.a_mensaje')
+			->with('proceso',$proceso)
+			->with('mensaje',$mensaje);
+		}
+    }
 }

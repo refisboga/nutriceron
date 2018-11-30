@@ -56,11 +56,19 @@ class a_pacientes extends Controller
 	}
 	
 	public function eliminar_pac($id){
-		pacientes::withTrashed()->where('id_pac','=',$id)->forceDelete();
-		$proceso = "ELIMINACION FISICA DEL PACIENTE";	
-		$mensaje="El registro del Paciente, ha sido eliminado correctamente";
-		return view('sistema.a_mensaje')
-		->with('proceso',$proceso)
-		->with('mensaje',$mensaje);
+		try{
+			pacientes::withTrashed()->where('id_pac','=',$id)->forceDelete();
+			$proceso = "ELIMINACION FISICA DEL PACIENTE";	
+			$mensaje="El registro del Paciente, ha sido eliminado correctamente";
+			return view('sistema.a_mensaje')
+			->with('proceso',$proceso)
+			->with('mensaje',$mensaje);
+		}catch(\Illuminate\Database\QueryException $id){
+			$proceso = "ELIMINACION FISICA DEL PACIENTE";	
+			$mensaje="El registro del Paciente, NO se elimino debido a que esta siendo utilizado.";
+			return view('sistema.a_mensaje')
+			->with('proceso',$proceso)
+			->with('mensaje',$mensaje);
+		}
     }
 }

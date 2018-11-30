@@ -10,18 +10,16 @@
 				</tr>
 		</thead>
 		@foreach($menu as $datos)
-		@if($datos->deleted_at=="")
 		<tbody>
 			<tr class="info">
 				<td>
-					<a class="btn btn-warning" role="button" href="{{URL::action('a_menu@a_v_modificar_menu',['id'=>$datos->id_menu])}}">Modificar</a>
-					<a class="btn btn-danger" role="button" href="{{URL::action('a_menu@a_desactivar_menu',['id'=>$datos->id_menu])}}">Desactivar</a>
+					<a class="btn btn-success" role="button" href="{{URL::action('a_menu@a_restaurar_menu',['id'=>$datos->id_menu])}}">Restaurar</a>
+					<a class="btn btn-danger" role="button" href="{{URL::action('a_menu@a_eliminar_menu',['id'=>$datos->id_menu])}}">Eliminar</a>
 				</td>
-				<td>Activo</td>
+				<td>Desactivo</td>
 				<td>{{$datos->id_menu}}</td><td>{{$datos->tipo_comida}}<td>{{$datos->descr}}</td><td>{{$datos->menu}}</td>
 			</tr>      
 		</tbody>
-		@endif
 		@endforeach
 	</table>
 </div>
