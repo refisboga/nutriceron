@@ -7,15 +7,13 @@
 	<form action="{{url('/modificardoc')}}" method="POST" enctype="multipart/form-data">
 	{{csrf_field()}}
 		
-		@foreach($doc as $datos)
-		
 		@if($errors->first('id')) 
 			<i> {{$errors->first('id')}}</i> 
 			<br>
 		@endif		
 		<div class="input-group">
 			<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-			<input type="text" name="id" style="width: 10%" placeholder="#Id" class="form-control" pattern="[0-9]+" title="Ejemplo: Pedro" value="{{$datos->id_doc}}" disabled>
+			<input type="text" name="id" style="width: 10%" placeholder="#Id" class="form-control" pattern="[0-9]+" title="Ejemplo: Pedro" value="{{$datos->id_doc}}" readonly>
 		</div>
 		@if($errors->first('nom')) 
 			<i> {{$errors->first('nom')}}</i> 
@@ -80,7 +78,6 @@
 			<input type="text" name="cedu" style="width: 25%" placeholder="Cedula" class="form-control" pattern="[0-9]+" maxlength="10" title="Ejemplo: 4525206712" value="{{$datos->cedula}}" required >
 		</div>
 		<br>
-		@endforeach
 		
 		<div>
 			<button type="reset" class="btn btn-danger">Cancelar <span class="glyphicon glyphicon-remove"></span></button>

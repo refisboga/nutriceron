@@ -11,10 +11,9 @@ use App\expedientes;
 class evalua extends Controller
 {
     public function registrar(Request $request){
-		$h=date("H")+6;
-		$id=Session::get('sesionid');
-		$cal=date("Y-m-d");
-		$hora="$h".":".date("i");
+		$id=$request->id;
+		$cal=$request->cal;
+		$hora=$request->hora;
 		$tipo=$request->tipo;
 		$ale1=$request->ale1;
 		$ale2=$request->ale2;

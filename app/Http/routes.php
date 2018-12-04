@@ -49,6 +49,7 @@ Route::get('/urestaurarpac/{id}','usuario@u_restaurar_pac');
 Route::POST('/modificaru','usuario@modificar');
 Route::get('/desactivarcitap/{id}','cita@desactivar_cita');
 Route::get('/restaurarcitap/{id}','cita@restaurar_cita');
+//Route::get('/modificarcitap/{id}','cita@v_modificar_cita_p');
 /*---------------------------------------------------------Url Admin-------------------*/
 Route::get('/admin', function(){
 	return view('sistema.nav_admin');

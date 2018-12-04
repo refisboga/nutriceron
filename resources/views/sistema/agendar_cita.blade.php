@@ -14,7 +14,7 @@
 		@endif
 		<div class="input-group">
 			<span class="input-group-addon"><i class="glyphicon glyphicon-list-alt"></i></span>
-			<input type="text" name="id" style="width: 10%" placeholder="ID" class="form-control" value="{{Session::get('sesionid')}}" disabled>
+			<input type="text" name="id" style="width: 10%" placeholder="ID" class="form-control" value="{{Session::get('sesionid')}}" readonly>
 		</div>
 		
 		@if($errors->first('nom')) 
@@ -23,7 +23,7 @@
 		@endif
 		<div class="input-group">
 			<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-			<input type="text" name="nom" style="width: 25%" placeholder="Nombre" pattern="[A-Z][A-Z,a-z, ,á,é,í,ó,ú,Ñ,ñ]*" class="form-control" value="{{Session::get('sesionname')}}" disabled>
+			<input type="text" name="nom" style="width: 25%" placeholder="Nombre" pattern="[A-Z][A-Z,a-z, ,á,é,í,ó,ú,Ñ,ñ]*" class="form-control" value="{{Session::get('sesionname')}}" readonly>
 		</div>
 		
 		@if($errors->first('direc')) 
@@ -32,7 +32,7 @@
 		@endif
 		<div class="input-group">
 			<span class="input-group-addon"><i class="glyphicon glyphicon-map-marker"></i></span>
-			<input type="text" name="direc" style="width: 25%" placeholder="Dirección" class="form-control" value="Av. Quintana Roo esq. Hidalgo" disabled>
+			<input type="text" name="direc" style="width: 25%" placeholder="Dirección" class="form-control" value="Av. Quintana Roo esq. Hidalgo" readonly>
 		</div>
 		
 		@if($errors->first('cp')) 
@@ -41,7 +41,7 @@
 		@endif
 		<div class="input-group">
 			<span class="input-group-addon"><i class="glyphicon glyphicon-map-marker"></i></span>
-			<input type="text" name="cp" style="width: 10%" placeholder="CP" class="form-control" value="50143" disabled>
+			<input type="text" name="cp" style="width: 10%" placeholder="CP" class="form-control" value="50143" readonly>
 		</div>
 		
 		@if($errors->first('tel')) 
@@ -50,7 +50,7 @@
 		@endif
 		<div class="input-group">
 			<span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
-			<input type="text" name="tel" style="width: 25%" placeholder="Telefono" class="form-control" value="7225104562" disabled>
+			<input type="text" name="tel" style="width: 25%" placeholder="Telefono" class="form-control" value="7225104562" readonly>
 		</div>
 		
 		@if($errors->first('correo')) 
@@ -59,7 +59,7 @@
 		@endif
 		<div class="input-group">
 			<span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-			<input type="text" name="correo" style="width: 25%" placeholder="Correo" class="form-control" value="citas@nutriceron.com" disabled>
+			<input type="text" name="correo" style="width: 25%" placeholder="Correo" class="form-control" value="citas@nutriceron.com" readonly>
 		</div>
 		
 		@if($errors->first('fecha')) 

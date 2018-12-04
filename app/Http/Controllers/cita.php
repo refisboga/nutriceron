@@ -13,10 +13,10 @@ class cita extends Controller
     public function registrar(Request $request){
 		$id=$request->id;
 		$nom=$request->nom;
-		$direc="Av. Quintana Roo esq. Hidalgo";
-		$cp=50143;
-		$tel=7225104562;
-		$correo="citas@nutriceron.com";
+		$direc=$request->direc;
+		$cp=$request->cp;
+		$tel=$request->tel;
+		$correo=$request->correo;
 		$fecha=$request->fecha;
 		$hora=$request->hora;
 		
@@ -101,7 +101,7 @@ class cita extends Controller
 		$proceso="MODIFICACION DE LA CITA";
 		$mensaje="La Modificacion de la Cita fué exitosa.";
 		
-		return view('sistema.mensaje')
+		return view('sistema.a_mensaje')
 		->with('proceso',$proceso)
 		->with('mensaje',$mensaje);
 	}

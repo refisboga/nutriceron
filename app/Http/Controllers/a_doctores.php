@@ -50,8 +50,8 @@ class a_doctores extends Controller
 	}
 	
 	public function v_modificar_doc($id){
-		$d=doctores::withTrashed()->where('id_doc','=',$id)->get();
-		return view('sistema.a_modificar_doc')->with('doc',$d);
+		$d=doctores::where('id_doc','=',$id)->get();
+		return view('sistema.a_modificar_doc')->with('datos',$d[0]);
 	}
 	
 	public function modificar_doc(Request $request){

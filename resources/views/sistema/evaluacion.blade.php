@@ -13,7 +13,7 @@
 		@endif
 		<div class="input-group">
 			<span class="input-group-addon"><i class="glyphicon glyphicon-list-alt"></i></span>
-			<input type="text" name="id" style="width: 11%" placeholder="ID" class="form-control" value="{{Session::get('sesionid')}}" disabled>
+			<input type="text" name="id" style="width: 11%" placeholder="ID" class="form-control" value="{{Session::get('sesionid')}}" readonly>
 		</div>
 		
 		@if($errors->first('cal')) 
@@ -22,7 +22,7 @@
 		@endif
 		<div class="input-group">
 			<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-			<input type="text" name="cal" style="width: 11%" placeholder="2018-10-23" class="form-control" value="<?php echo date("Y-m-d");?>" disabled>
+			<input type="text" name="cal" style="width: 11%" placeholder="2018-10-23" class="form-control" value="<?php echo date("Y-m-d");?>" readonly>
 		</div>
 		
 		@if($errors->first('hora')) 
@@ -31,7 +31,7 @@
 		@endif
 		<div class="input-group">
 			<span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
-			<input type="text" name="hora" style="width: 11%" placeholder="14:30" class="form-control" value="<?php $h=date("H")+6; echo "$h".":".date("i");?>" disabled>
+			<input type="text" name="hora" style="width: 11%" placeholder="14:30" class="form-control" value="<?php $h=date("H")+6; echo "$h".":".date("i");?>" readonly>
 		</div>
 		
 		@if($errors->first('tipo')) 

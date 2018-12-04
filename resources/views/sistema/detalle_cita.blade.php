@@ -8,14 +8,14 @@
 			<table class="table">
 			<thead>
 				<tr>
-					<th>Acci&oacute;n</th><th>Estatus</th><th>#Id Cita</th><th>#Id Paciente</th><th>Nombre</th><th>Fecha</th><th>Hora</th>
+					<th>Acci&oacute;n</th><th>Estatus</th><th>#Id Cita</th><th>Nombre</th><th>Fecha</th><th>Hora</th>
 				</tr>
 			</thead>
 			@foreach($citas as $datos)
 			<tbody>
 				<tr class="info">
 					<td>
-						<a class="btn btn-warning" role="button" href="#">Modificar</a>
+						<a class="btn btn-warning" role="button" href="{{URL::action('cita@desactivar_cita',['id'=>$datos->id_cita])}}">Modificar</a>
 						@if($datos->deleted_at=="")
 							<a class="btn btn-danger" role="button" href="{{URL::action('cita@desactivar_cita',['id'=>$datos->id_cita])}}">Desactivar</a>
 						@else
@@ -27,7 +27,7 @@
 					@else
 						<td>Cita Desactivada</td>
 					@endif
-					<td>{{$datos->id_cita}}</td><td>{{Session::get('sesionid')}}</td><td>{{Session::get('sesionname')}} {{Session::get('sesionlastname')}}</td><td>{{$datos->fecha}}</td><td>{{$datos->hora}}</td>
+					<td>{{$datos->id_cita}}</td><td>{{Session::get('sesionname')}} {{Session::get('sesionlastname')}}</td><td>{{$datos->fecha}}</td><td>{{$datos->hora}}</td>
 					<td></td><td></td><td></td>
 				</tr>      
 			</tbody>
