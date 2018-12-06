@@ -12,7 +12,18 @@ class a_doctores extends Controller
 {
     public function registrar(Request $request){
 		
-		$nom=$request->nom;
+		if(Session::get('sesiontipo')=="usu"){
+			if(Session::get('sesionid')==""){
+				return redirect()->route('logindesact');
+			}else{
+				return redirect()->route('loginnoruta');
+			}
+		}else{
+			if(Session::get('sesiontipo')=="admin"){
+				if(Session::get('sesionid')==""){
+					return redirect()->route('logindesact');
+				}else{
+					$nom=$request->nom;
 		$ap=$request->ap;
 		$am=$request->am;
 		$cedu=$request->cedu;
@@ -47,102 +58,227 @@ class a_doctores extends Controller
 		return view('sistema.a_mensaje')
 		->with('proceso',$proceso)
 		->with('mensaje',$mensaje);
+				}
+			}else{
+				return redirect()->route('loginempty');
+			}
+		}
 	}
 	
 	public function v_modificar_doc($id){
-		$d=doctores::where('id_doc','=',$id)->get();
+		if(Session::get('sesiontipo')=="usu"){
+			if(Session::get('sesionid')==""){
+				return redirect()->route('logindesact');
+			}else{
+				return redirect()->route('loginnoruta');
+			}
+		}else{
+			if(Session::get('sesiontipo')=="admin"){
+				if(Session::get('sesionid')==""){
+					return redirect()->route('logindesact');
+				}else{
+					//return redirect()->route('loginnoruta');
+					$d=doctores::where('id_doc','=',$id)->get();
 		return view('sistema.a_modificar_doc')->with('datos',$d[0]);
+				}
+			}else{
+				return redirect()->route('loginempty');
+			}
+		}
+		
 	}
 	
 	public function modificar_doc(Request $request){
-		$id=$request->id;
-		$nom=$request->nom;
-		$ap=$request->ap;
-		$am=$request->am;
-		$tel=$request->tel;
-		$correo=$request->email;
-		$pass=$request->pass;
-		$cedu=$request->cedu;
-		
-		$this->validate($request,[
-			'nom'=>'required|',['regex:/^[A-Z][A-Z,a-z, ,ñ,é,í,á,ó,ú]*$/'],
-			'ap'=>'required|',['regex:/^[A-Z][A-Z,a-z, ,ñ,é,í,á,ó,ú]*$/'],
-			'am'=>'required|',['regex:/^[A-Z][A-Z,a-z, ,ñ,é,í,á,ó,ú]*$/'],
-			'cedu'=>'required|',['regex:/^[0-9]+{10}'],
-			'tel'=>'required|',['regex:/^[0-9]+{10}'],
-			'email'=>'required|email',
-			'pass'=>'required|',['regex:/^[A-Z,a-z,0-9,ñ,é,í,á,ó,ú]*$/']
-		]);
-		
-		$doc=doctores::find($id);
-		$doc->id_doc=$request->id;
-		$doc->nombre=$request->nom;
-		$doc->ap_pat=$request->ap;
-		$doc->ap_mat=$request->am;
-		$doc->tel=$request->tel;
-		$doc->correo=$request->email;
-		$doc->pass=$request->pass;
-		$doc->cedula=$request->cedu;
-		$doc->tipo="admin";
-		$doc->save();
-		$proceso="MODIFICACIÓN DEL PERFIL";
-		$mensaje="La Modificación del Perfil del Doctor fué exitoso";
-		
-		return view('sistema.a_mensaje')
-		->with('proceso',$proceso)
-		->with('mensaje',$mensaje);
+		if(Session::get('sesiontipo')=="usu"){
+			if(Session::get('sesionid')==""){
+				return redirect()->route('logindesact');
+			}else{
+				return redirect()->route('loginnoruta');
+			}
+		}else{
+			if(Session::get('sesiontipo')=="admin"){
+				if(Session::get('sesionid')==""){
+					return redirect()->route('logindesact');
+				}else{
+					//return redirect()->route('loginnoruta');
+					$id=$request->id;
+					$nom=$request->nom;
+					$ap=$request->ap;
+					$am=$request->am;
+					$tel=$request->tel;
+					$correo=$request->email;
+					$pass=$request->pass;
+					$cedu=$request->cedu;
+					
+					$this->validate($request,[
+						'nom'=>'required|',['regex:/^[A-Z][A-Z,a-z, ,ñ,é,í,á,ó,ú]*$/'],
+						'ap'=>'required|',['regex:/^[A-Z][A-Z,a-z, ,ñ,é,í,á,ó,ú]*$/'],
+						'am'=>'required|',['regex:/^[A-Z][A-Z,a-z, ,ñ,é,í,á,ó,ú]*$/'],
+						'cedu'=>'required|',['regex:/^[0-9]+{10}'],
+						'tel'=>'required|',['regex:/^[0-9]+{10}'],
+						'email'=>'required|email',
+						'pass'=>'required|',['regex:/^[A-Z,a-z,0-9,ñ,é,í,á,ó,ú]*$/']
+					]);
+					
+					$doc=doctores::find($id);
+					$doc->id_doc=$request->id;
+					$doc->nombre=$request->nom;
+					$doc->ap_pat=$request->ap;
+					$doc->ap_mat=$request->am;
+					$doc->tel=$request->tel;
+					$doc->correo=$request->email;
+					$doc->pass=$request->pass;
+					$doc->cedula=$request->cedu;
+					$doc->tipo="admin";
+					$doc->save();
+					$proceso="MODIFICACIÓN DEL PERFIL";
+					$mensaje="La Modificación del Perfil del Doctor fué exitoso";
+					
+					return view('sistema.a_mensaje')
+					->with('proceso',$proceso)
+					->with('mensaje',$mensaje);
+				}
+			}else{
+				return redirect()->route('loginempty');
+			}
+		}
 	}
 	
 	public function desactivar_doctor($id){
-		doctores::find($id)->delete();
-		$proceso="DESACTIVASTE EL DOCTOR";
-		$mensaje="El Doctor, ha sido desactivado correctamente.";	
-		return view('sistema.a_mensaje')
-		->with('proceso',$proceso)
-		->with('mensaje',$mensaje);
+		if(Session::get('sesiontipo')=="usu"){
+			if(Session::get('sesionid')==""){
+				return redirect()->route('logindesact');
+			}else{
+				return redirect()->route('loginnoruta');
+			}
+		}else{
+			if(Session::get('sesiontipo')=="admin"){
+				if(Session::get('sesionid')==""){
+					return redirect()->route('logindesact');
+				}else{
+					//return redirect()->route('loginnoruta');
+					doctores::find($id)->delete();
+					$proceso="DESACTIVASTE EL DOCTOR";
+					$mensaje="El Doctor, ha sido desactivado correctamente.";	
+					return view('sistema.a_mensaje')
+					->with('proceso',$proceso)
+					->with('mensaje',$mensaje);
+				}
+			}else{
+				return redirect()->route('loginempty');
+			}
+		}
 	}
 	
 	public function restaurar_doctor($id){
-		doctores::withTrashed()->where('id_doc','=',$id)->restore();
-		$proceso = "RESTAURACION DEL DOCTOR";	
-		$mensaje="El registro del Doctor, fue restaurado correctamente.";
-		return view('sistema.a_mensaje')
-		->with('proceso',$proceso)
-		->with('mensaje',$mensaje);
+		if(Session::get('sesiontipo')=="usu"){
+			if(Session::get('sesionid')==""){
+				return redirect()->route('logindesact');
+			}else{
+				return redirect()->route('loginnoruta');
+			}
+		}else{
+			if(Session::get('sesiontipo')=="admin"){
+				if(Session::get('sesionid')==""){
+					return redirect()->route('logindesact');
+				}else{
+					//return redirect()->route('loginnoruta');
+					doctores::withTrashed()->where('id_doc','=',$id)->restore();
+					$proceso = "RESTAURACION DEL DOCTOR";	
+					$mensaje="El registro del Doctor, fue restaurado correctamente.";
+					return view('sistema.a_mensaje')
+					->with('proceso',$proceso)
+					->with('mensaje',$mensaje);
+				}
+			}else{
+				return redirect()->route('loginempty');
+			}
+		}
 	}
 	
 	public function eliminar_doctor($id){
-		doctores::withTrashed()->where('id_doc','=',$id)->forceDelete();
-		$proceso = "ELIMINACION FISICA DEL DOCTOR";	
-		$mensaje="El registro del Doctor, ha sido eliminado correctamente";
-		return view('sistema.a_mensaje')
-		->with('proceso',$proceso)
-		->with('mensaje',$mensaje);
+		if(Session::get('sesiontipo')=="usu"){
+			if(Session::get('sesionid')==""){
+				return redirect()->route('logindesact');
+			}else{
+				return redirect()->route('loginnoruta');
+			}
+		}else{
+			if(Session::get('sesiontipo')=="admin"){
+				if(Session::get('sesionid')==""){
+					return redirect()->route('logindesact');
+				}else{
+					//return redirect()->route('loginnoruta');
+					doctores::withTrashed()->where('id_doc','=',$id)->forceDelete();
+					$proceso = "ELIMINACION FISICA DEL DOCTOR";	
+					$mensaje="El registro del Doctor, ha sido eliminado correctamente";
+					return view('sistema.a_mensaje')
+					->with('proceso',$proceso)
+					->with('mensaje',$mensaje);
+				}
+			}else{
+				return redirect()->route('loginempty');
+			}
+		}
     }
 	
 	public function consultar_perfil(){
-		$d =doctores::withTrashed()->where('id_doc','=',Session::get('sesionid'))->get();
-		if(count($d)==1){
-			return view('sistema.a_perfil')->with('doc',$d);
+		if(Session::get('sesiontipo')=="usu"){
+			if(Session::get('sesionid')==""){
+				return redirect()->route('logindesact');
+			}else{
+				//return redirect()->route('loginnoruta');
+			}
 		}else{
-			$proceso = "CONSULTAR PERFIL";	
-			$mensaje="Error al consultar el perfil.";
-			return view('sistema.a_mensaje')
-			->with('proceso',$proceso)
-			->with('mensaje',$mensaje);
+			if(Session::get('sesiontipo')=="admin"){
+				if(Session::get('sesionid')==""){
+					return redirect()->route('logindesact');
+				}else{
+					//return redirect()->route('loginnoruta');
+					$d =doctores::withTrashed()->where('id_doc','=',Session::get('sesionid'))->get();
+					if(count($d)==1){
+						return view('sistema.a_perfil')->with('doc',$d);
+					}else{
+						$proceso = "CONSULTAR PERFIL";	
+						$mensaje="Error al consultar el perfil.";
+						return view('sistema.a_mensaje')
+						->with('proceso',$proceso)
+						->with('mensaje',$mensaje);
+					}
+				}
+			}else{
+				return redirect()->route('loginempty');
+			}
 		}
 	}
 	
 	public function consultar_doctores(){
-		$d=doctores::withTrashed()->get();
-		if(count($d)>0){
-			return view('sistema.a_consultar_doc')->with('doc',$d);
+		if(Session::get('sesiontipo')=="usu"){
+			if(Session::get('sesionid')==""){
+				return redirect()->route('logindesact');
+			}else{
+				return redirect()->route('loginnoruta');
+			}
 		}else{
-			$proceso="CONSULTAR DOCTORES";	
-			$mensaje="Error al consultar los perfiles de los doctores.";
-			return view('sistema.a_mensaje')
-			->with('proceso',$proceso)
-			->with('mensaje',$mensaje);
+			if(Session::get('sesiontipo')=="admin"){
+				if(Session::get('sesionid')==""){
+					return redirect()->route('logindesact');
+				}else{
+					//return redirect()->route('loginnoruta');
+					$d=doctores::withTrashed()->get();
+					if(count($d)>0){
+						return view('sistema.a_consultar_doc')->with('doc',$d);
+					}else{
+						$proceso="CONSULTAR DOCTORES";	
+						$mensaje="Error al consultar los perfiles de los doctores.";
+						return view('sistema.a_mensaje')
+						->with('proceso',$proceso)
+						->with('mensaje',$mensaje);
+					}
+				}
+			}else{
+				return redirect()->route('loginempty');
+			}
 		}
 	}
 }

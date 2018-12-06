@@ -24,19 +24,19 @@ class clogin extends Controller
 	}
 	
 	public function login_empty(){
-		$proceso="Intento de inicio de sesión";
-		$mensaje="No se encuentra registrado el usuario.";
+		$proceso="INTENTO DE INICIO DE SESION";
+		$mensaje="NO se encuentra registrado el usuario o aun NO inicia sesion.";
 		return view('sistema.mensaje_login')->with('proceso',$proceso)->with('mensaje',$mensaje);
 	}
 	
 	public function login_desact(){
-		$proceso="Intento de inicio de sesión";
+		$proceso="INTENTO DE INICIO DE SESION";
 		$mensaje="El usuario esta desactivado, comuniquese con el administrador.";
 		return view('sistema.mensaje_login')->with('proceso',$proceso)->with('mensaje',$mensaje);
 	}
 	
 	public function login_rutanovalida(){
-		$proceso="Ruta NO válida";
+		$proceso="RUTA NO VALIDA";
 		$mensaje="Inicie sesión para continuar.";
 		return view('sistema.mensaje_login')->with('proceso',$proceso)->with('mensaje',$mensaje);
 	}
@@ -100,7 +100,7 @@ class clogin extends Controller
 				//return redirect()->route('loginnoruta');
 			}
 		}else{
-			if(Session::get('sesiontipo')=="admin" || Session::get('sesiontipo')=="usu"){
+			if(Session::get('sesiontipo')=="admin"){
 				if(Session::get('sesionid')==""){
 					return redirect()->route('logindesact');
 				}else{
