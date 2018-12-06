@@ -1,11 +1,11 @@
-@extends('sistema.nav_usuario')
+@extends('sistema.nav_admin')
 
 @section('contenido')
 <h2>Modificar Paciente</h2>
 
 <div class="centrar">
 	<div class="container">
-		<form action="{{url('modificaru')}}" method="POST" enctype="multipart/form-data">
+		<form action="{{url('amodificarpaciente')}}" method="POST" enctype="multipart/form-data">
 		{{csrf_field()}}
 		
 			@if($errors->first('id')) 

@@ -71,4 +71,49 @@ class a_pacientes extends Controller
 			->with('mensaje',$mensaje);
 		}
     }
+	
+	public function a_v_modificar_pac($id){
+		$r=\DB::select("SELECT * FROM pacientes WHERE id_pac=$id;");
+		return view('sistema.a_modificar_pac')->with('datos',$r[0]);
+	}
+	
+	public function a_modificar_pac(Request $request){
+		$id=$request->id;
+		$nom=$request->nom;
+		$ap=$request->ap;
+		$am=$request->am;
+		$correo=$request->email;
+		$pass=$request->pass;
+		$tel=$request->tel;
+		$sexo=$request->sexo;
+		$fecha=$request->fecha;
+		
+		$this->validate($request,[
+			'nom'=>['regex:/^[A-Z][A-Z,a-z, ,ñ,é,í,á,ó,ú]*$/'],
+			'ap'=>['regex:/^[A-Z][A-Z,a-z, ,ñ,é,í,á,ó,ú]*$/'],
+			'am'=>['regex:/^[A-Z][A-Z,a-z, ,ñ,é,í,á,ó,ú]*$/'],
+			'email'=>'required|email',
+			'pass'=>['regex:/^[A-Z,a-z,0-9]*$/'],
+			'tel'=>['regex:/^[0-9]+$/'],
+			'fecha'=>'required|date'
+		]);
+		
+		$user=pacientes::find($id);
+		$user->nombre=$nom;
+		$user->ap_pat=$ap;
+		$user->ap_mat=$am;
+		$user->correo=$correo;
+		$user->pass=$pass;
+		$user->telefono=$tel;
+		$user->sexo=$sexo;
+		$user->fec_nac=$fecha;
+		$user->tipo="usu";
+		$user->save();
+		$proceso="MODIFICACION DEL USUARIO";
+		$mensaje="La modificación del usuario fué exitosa.";
+		
+		return view('sistema.a_mensaje')
+		->with('proceso',$proceso)
+		->with('mensaje',$mensaje);
+	}
 }

@@ -15,8 +15,8 @@
 		<tbody>
 			<tr class="info">
 				<td>
-					<a class="btn btn-warning" role="button" href="#">MODIFICAR</a>
-					<a class="btn btn-danger" role="button" href="{{URL::action('a_pacientes@desactivar_pac',['id'=>$datos->id_pac])}}">DESACTIVAR</a>
+					<a class="btn btn-warning" role="button" href="{{URL::action('a_pacientes@a_v_modificar_pac',['id'=>$datos->id_pac])}}">Modificar</a>
+					<a class="btn btn-danger" role="button" href="{{URL::action('a_pacientes@desactivar_pac',['id'=>$datos->id_pac])}}">Desactivar</a>
 				</td>
 				<td>Activo</td>
 				<td>{{$datos->id_pac}}</td><td>{{$datos->nombre}} {{$datos->ap_pat}} {{$datos->ap_mat}}</td><td>{{$datos->correo}}</td>

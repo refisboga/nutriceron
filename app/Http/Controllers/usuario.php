@@ -66,21 +66,18 @@ class usuario extends Controller
 	}
 	
 	public function modif($id){
-		$res=pacientes::where('id_pac','=',$id)->get();
-		return view('sistema.modificar_usuario')->with('datos',$res);		
+		$r=pacientes::where('id_pac','=',$id)->get();
+		return view('sistema.modificar_usuario')->with('datos',$r[0]);		
 	}
 	
 	public function modificar(Request $request){
+		$id=$request->id;
 		$nom=$request->nom;
 		$ap=$request->ap;
 		$am=$request->am;
 		$correo=$request->email;
 		$pass=$request->pass;
 		$tel=$request->tel;
-		$kg=$request->kg;
-		$gr=$request->gr;
-		$metros=$request->metros;
-		$cm=$request->cm;
 		$sexo=$request->sexo;
 		$fecha=$request->fecha;
 		
@@ -91,28 +88,21 @@ class usuario extends Controller
 			'email'=>'required|email',
 			'pass'=>['regex:/^[A-Z,a-z,0-9]*$/'],
 			'tel'=>['regex:/^[0-9]+$/'],
-			'kg'=>['regex:/^[0-9]+$/'],
-			'gr'=>['regex:/^[0-9]+$/'],
-			'metros'=>['regex:/^[0-9]+$/'],
-			'cm'=>['regex:/^[0-9]+$/'],
 			'fecha'=>'required|date'
 		]);
 		
-		if($cm==0){
-			$cm="00";
-		}
-		$talla=$metros.$cm;
-		if($gr==0){
-			$gr="000";
-		}
-		$peso=$kg.$gr;
-		
 		$user=pacientes::find($id);
-		$user->id_pac=$request->id;
-		$user->nombre=$request->nom;
+		$user->nombre=$nom;
+		$user->ap_pat=$ap;
+		$user->ap_mat=$am;
+		$user->correo=$correo;
+		$user->pass=$pass;
+		$user->telefono=$tel;
+		$user->sexo=$sexo;
+		$user->fec_nac=$fecha;
 		$user->save();
-		$proceso="Modificación del usuario: $nom.";
-		$mensaje="La modificación del usuario fué exitosa.";
+		$proceso="MODIFICACION DEL USUARIO";
+		$mensaje="La Modificación del Usuario fué exitosa.";
 		
 		return view('sistema.mensaje')
 		->with('proceso',$proceso)

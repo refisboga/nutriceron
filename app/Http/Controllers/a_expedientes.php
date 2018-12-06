@@ -66,4 +66,60 @@ class a_expedientes extends Controller
 		->with('proceso',$proceso)
 		->with('mensaje',$mensaje);
     }
+	
+	public function a_v_expe($id){
+		$e=\DB::select("SELECT e.id_exp, e.fecha, e.hora, e.tipo_sangre, e.alergia1, e.alergia2, e.enfermedad1, e.enfermedad2, e.cirugia, e.tipo_cirugia, 
+						e.tratamiento, e.desc_tratamiento, e.id_pac_fk, e.deleted_at, p.nombre, p.ap_pat, p.ap_mat, p.deleted_at AS delet_pac
+						FROM expedientes AS e
+						INNER JOIN pacientes AS p ON e.id_pac_fk=p.id_pac
+						WHERE id_exp=$id");
+		return view('sistema.a_modificar_expediente')->with('datos',$e[0]);
+	}
+	
+	public function a_modificar_eva(Request $request){
+		$id=$request->id;
+		$cal=$request->cal;
+		$hora=$request->hora;
+		$tipo=$request->tipo;
+		$ale1=$request->ale1;
+		$ale2=$request->ale2;
+		$enf1=$request->enf1;
+		$enf2=$request->enf2;
+		$tc=$request->tc;
+		$desccir=$request->desccir;
+		$tra=$request->tra;
+		$desctra=$request->desctra;
+		
+		/*$this->validate($request,[
+		    'cal'=>'required|date',   
+			'hora'=>'required|',['regex:/^[0-9]{2}+[:][0-9]{2}+$/'],
+			'tipo'=>['regex:/^[A-Z,+,-]*$/'],
+			'ale1'=>['regex:/^[A-Z,a-z, ,ñ,é,í,á,ó,ú]*$/'],
+			'ale2'=>['regex:/^[A-Z,a-z, ,ñ,é,í,á,ó,ú]*$/'],
+			'enf1'=>['regex:/^[A-Z,a-z, ,ñ,é,í,á,ó,ú]*$/'],
+			'enf2'=>['regex:/^[A-Z,a-z, ,ñ,é,í,á,ó,ú]*$/'],
+			'desccir'=>['regex:/^[A-Z,a-z, ,ñ,é,í,á,ó,ú]*$/'],
+			'desctra'=>['regex:/^[A-Z,a-z, ,ñ,é,í,á,ó,ú]*$/']
+		]);*/
+		
+		$evalua=expedientes::find($id);
+		$evalua->fecha=$cal;
+		$evalua->hora=$hora;
+		$evalua->tipo_sangre=$tipo;
+		$evalua->alergia1=$ale1;
+		$evalua->alergia2=$ale2;
+		$evalua->enfermedad1=$enf1;
+		$evalua->enfermedad2=$enf2;
+		$evalua->cirugia=$tc;
+		$evalua->tipo_cirugia=$desccir;
+		$evalua->tratamiento=$tra;
+		$evalua->desc_tratamiento=$desctra;
+		$evalua->save();
+		$proceso="MODIFICACION DE LA EVALUACION DIAGNOSTICA";
+		$mensaje="La Modificacion de la evaluación fué exitosa.";
+		
+		return view('sistema.a_mensaje')
+		->with('proceso',$proceso)
+		->with('mensaje',$mensaje);
+	}
 }

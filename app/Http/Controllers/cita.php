@@ -195,4 +195,46 @@ class cita extends Controller
 		}
 		
 	}
+	
+	public function v_modificar_citap($id){
+		$r=\DB::select("SELECT * FROM citas WHERE id_cita=$id;");
+		return view('sistema.modificar_cita')->with('datos',$r[0]);
+	}
+	
+	public function modificar_citap(Request $request){
+		$id=$request->id;
+		$idp=$request->idp;
+		$direc=$request->direc;
+		$cp=$request->cp;
+		$tel=$request->tel;
+		$correo=$request->correo;
+		$fecha=$request->fecha;
+		$hora=$request->hora;
+		
+		/*$this->validate($request,[
+			'nom'=>'required|',['regex:/^[A-Z][A-Z,a-z, ,ñ,é,í,á,ó,ú]*$/'],
+			'derec'=>'required|',['regex:/^[A-Z][A-Z,a-z, ,.,ñ,é,í,á,ó,ú]*$/'],
+			'cp'=>'required|',['regex:/^[0-9]{5}$/'],
+			'tel'=>'required|',['regex:/^[0-9]{10}$/'],
+			'email'=>'required|email',
+			'fecha'=>'required|date',
+			'hora'=>'required|',['regex:/^[0-9]{2}+[:][0-9]{2}+$/']
+		]);*/
+		
+		$cita=citas::find($id);
+		$cita->fecha=$fecha;
+		$cita->hora=$hora;
+		$cita->direc=$direc;
+		$cita->cp=$cp;
+		$cita->tel=$tel;
+		$cita->correo=$correo;
+		$cita->id_pac_fk=$idp;
+		$cita->save();
+		$proceso="MODIFICAION DE LA CITA";
+		$mensaje="La Modificación de la Cita fué exitosa.";
+		
+		return view('sistema.mensaje')
+		->with('proceso',$proceso)
+		->with('mensaje',$mensaje);
+	}
 }

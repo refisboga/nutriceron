@@ -15,7 +15,7 @@
 			<tbody>
 				<tr class="info">
 					<td>
-						<a class="btn btn-warning" role="button" href="{{URL::action('cita@desactivar_cita',['id'=>$datos->id_cita])}}">Modificar</a>
+						<a class="btn btn-warning" role="button" href="{{URL::action('cita@v_modificar_citap',['id'=>$datos->id_cita])}}">Modificar</a>
 						@if($datos->deleted_at=="")
 							<a class="btn btn-danger" role="button" href="{{URL::action('cita@desactivar_cita',['id'=>$datos->id_cita])}}">Desactivar</a>
 						@else

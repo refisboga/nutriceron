@@ -100,7 +100,7 @@ class clogin extends Controller
 				//return redirect()->route('loginnoruta');
 			}
 		}else{
-			if(Session::get('sesiontipo')=="admin"){
+			if(Session::get('sesiontipo')=="admin" || Session::get('sesiontipo')=="usu"){
 				if(Session::get('sesionid')==""){
 					return redirect()->route('logindesact');
 				}else{

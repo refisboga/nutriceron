@@ -109,4 +109,34 @@ class a_menu extends Controller
 			->with('mensaje',$mensaje);
 		}
     }
+	
+	public function a_v_modificar_menu($id){
+		$r=\DB::select("SELECT * FROM menus WHERE id_menu=$id;");
+		return view('sistema.a_modificar_menu')->with('datos',$r[0]);
+	}
+	
+	public function a_modificar_menu(Request $request){
+		$id=$request->id;
+		$tipo=$request->tipo;
+		$desc=$request->desc;
+		$menu=$request->menu;
+		
+		$this->validate($request,[
+			'tipo'=>'required|',['regex:/^[A-Z][A-Z,a-z, ,ñ,é,í,á,ó,ú]*$/'],
+			'desc'=>'required|',['regex:/^[A-Z][A-Z,a-z, ,ñ,é,í,á,ó,ú]*$/'],
+			'menu'=>'required|',['regex:/^[A-Z,a-z, ,0-9,.,,,;,:,-,_,ñ,é,í,á,ó,ú]*$/']
+		]);
+		
+		$m=menus::find($id);
+		$m->tipo_comida=$tipo;
+		$m->descr=$desc;
+		$m->menu=$menu;
+		$m->save();
+		$proceso="MODIFICACION DEL MENU";
+		$mensaje="La Modificación del Menu fué Exitoso.";
+		
+		return view('sistema.a_mensaje')
+		->with('proceso',$proceso)
+		->with('mensaje',$mensaje);
+	}
 }

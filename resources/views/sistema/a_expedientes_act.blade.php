@@ -16,7 +16,7 @@
 			<tr class="info">
 				<td>
 					@if($datos->deleted_at=="")
-					<a class="btn btn-warning" role="button" href="#">Modificar</a>
+					<a class="btn btn-warning" role="button" href="{{URL::action('a_expedientes@a_v_expe',['id'=>$datos->id_exp])}}">Modificar</a>
 					<a class="btn btn-danger" role="button" href="{{URL::action('a_expedientes@desactivar_expe',['id'=>$datos->id_exp])}}">Desactivar</a>
 					@else
 					<a class="btn btn-success" role="button" href="{{URL::action('a_expedientes@restaurar_expe',['id'=>$datos->id_exp])}}">Restaurar</a>
