@@ -25,18 +25,9 @@ Route::get('/login', function(){
     return view('sistema.login');
 });
 /*---------------------------------------------------------Url Usuario----------------*/
-Route::get('/cita',function(){
-	return view('sistema.agendar_cita');
-});
 
-Route::get('/evaluacion',function(){
-	return view('sistema.evaluacion');
-});
-
-Route::get('/dietas',function(){
-	return view('sistema.dietas');
-});
-
+Route::get('/cita','cita@cita');
+Route::get('/evaluacion','evalua@evaluacion');
 Route::get('/cuenta','cuenta_usuario@consultar_perfil');
 Route::get('/herramientas','u_cuenta@herramientas');
 Route::get('/expediente', 'expediente@consultar_expediente');
@@ -52,15 +43,9 @@ Route::get('/urestaurarpac/{id}','usuario@u_restaurar_pac');
 Route::POST('/modificaru','usuario@modificar');
 Route::get('/desactivarcitap/{id}','cita@desactivar_cita');
 Route::get('/restaurarcitap/{id}','cita@restaurar_cita');
-//Route::get('/modificarcitap/{id}','cita@v_modificar_cita_p');
-/*---------------------------------------------------------Url Admin-------------------*/
-/*Route::get('registrardoc',function(){
-	return view('sistema.reg_doctor');
-});*/
 
-/*Route::get('crearmenu',function(){
-	return view('sistema.a_crear_menu');
-});*/
+/*---------------------------------------------------------Url Admin-------------------*/
+
 Route::get('/registrardoc','a_doctores@registrardoc');
 Route::get('crearmenu','a_doctores@crearmenu');
 Route::get('/citas','cita@a_consultar_citas');

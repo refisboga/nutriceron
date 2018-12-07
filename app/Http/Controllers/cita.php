@@ -10,6 +10,9 @@ use App\citas;
 
 class cita extends Controller
 {
+	public function cita(){
+		return view('sistema.agendar_cita');
+	}
     public function registrar(Request $request){
 		$id=$request->id;
 		$nom=$request->nom;

@@ -10,6 +10,9 @@ use App\expedientes;
 
 class evalua extends Controller
 {
+	public function evaluacion(){
+		return view('sistema.evaluacion');
+	}
     public function registrar(Request $request){
 		$id=$request->id;
 		$cal=$request->cal;
