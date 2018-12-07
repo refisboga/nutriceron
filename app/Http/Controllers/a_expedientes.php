@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\expedientes;
+use Session;
 
 class a_expedientes extends Controller
 {	
