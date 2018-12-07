@@ -54,17 +54,15 @@ Route::get('/desactivarcitap/{id}','cita@desactivar_cita');
 Route::get('/restaurarcitap/{id}','cita@restaurar_cita');
 //Route::get('/modificarcitap/{id}','cita@v_modificar_cita_p');
 /*---------------------------------------------------------Url Admin-------------------*/
-Route::get('/admin', function(){
-	return view('sistema.nav_admin');
-});
-
-Route::get('registrardoc',function(){
+/*Route::get('registrardoc',function(){
 	return view('sistema.reg_doctor');
-});
+});*/
 
-Route::get('crearmenu',function(){
+/*Route::get('crearmenu',function(){
 	return view('sistema.a_crear_menu');
-});
+});*/
+Route::get('/registrardoc','a_doctores@registrardoc');
+Route::get('crearmenu','a_doctores@crearmenu');
 Route::get('/citas','cita@a_consultar_citas');
 Route::get('/citashist','cita@a_consultar_hist_citas');
 Route::get('/expedientes','a_expedientes@consultar_expedientes_act');

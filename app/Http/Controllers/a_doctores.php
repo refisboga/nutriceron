@@ -10,8 +10,50 @@ use App\doctores;
 
 class a_doctores extends Controller
 {
-    public function registrar(Request $request){
-		
+	
+	public function registrardoc(){
+		if(Session::get('sesiontipo')=="usu"){
+			if(Session::get('sesionid')==""){
+				return redirect()->route('logindesact');
+			}else{
+				return redirect()->route('loginnoruta');
+			}
+		}else{
+			if(Session::get('sesiontipo')=="admin"){
+				if(Session::get('sesionid')==""){
+					return redirect()->route('logindesact');
+				}else{
+					//return redirect()->route('loginnoruta');
+					return view('sistema.reg_doctor');
+				}
+			}else{
+				return redirect()->route('loginempty');
+			}
+		}
+	}
+	
+	public function crearmenu(){
+		if(Session::get('sesiontipo')=="usu"){
+			if(Session::get('sesionid')==""){
+				return redirect()->route('logindesact');
+			}else{
+				return redirect()->route('loginnoruta');
+			}
+		}else{
+			if(Session::get('sesiontipo')=="admin"){
+				if(Session::get('sesionid')==""){
+					return redirect()->route('logindesact');
+				}else{
+					//return redirect()->route('loginnoruta');
+					return view('sistema.a_crear_menu');
+				}
+			}else{
+				return redirect()->route('loginempty');
+			}
+		}
+	}
+	
+	public function registrar(Request $request){		
 		if(Session::get('sesiontipo')=="usu"){
 			if(Session::get('sesionid')==""){
 				return redirect()->route('logindesact');
@@ -24,40 +66,40 @@ class a_doctores extends Controller
 					return redirect()->route('logindesact');
 				}else{
 					$nom=$request->nom;
-		$ap=$request->ap;
-		$am=$request->am;
-		$cedu=$request->cedu;
-		$tel=$request->tel;
-		$correo=$request->email;
-		$pass=$request->pass;
-		
-		$this->validate($request,[
-			'nom'=>'required|',['regex:/^[A-Z][A-Z,a-z, ,ñ,é,í,á,ó,ú]*$/'],
-			'ap'=>'required|',['regex:/^[A-Z][A-Z,a-z, ,ñ,é,í,á,ó,ú]*$/'],
-			'am'=>'required|',['regex:/^[A-Z][A-Z,a-z, ,ñ,é,í,á,ó,ú]*$/'],
-			'cedu'=>'required|',['regex:/^[0-9]+{10}'],
-			'tel'=>'required|',['regex:/^[0-9]+{10}'],
-			'email'=>'required|email',
-			'pass'=>'required|',['regex:/^[A-Z,a-z,0-9,ñ,é,í,á,ó,ú]*$/']
-		]);
-		
-		$doc=new doctores;
-		$doc->id_doc=null;
-		$doc->nombre=$nom;
-		$doc->ap_pat=$ap;
-		$doc->ap_mat=$am;
-		$doc->tel=$tel;
-		$doc->correo=$correo;
-		$doc->pass=$pass;
-		$doc->cedula=$cedu;
-		$doc->tipo="admin";
-		$doc->save();
-		$proceso="REGISTRO DEL NUEVO DOCTOR: $nom";
-		$mensaje="El registro del Doctor fué exitoso.";
-		
-		return view('sistema.a_mensaje')
-		->with('proceso',$proceso)
-		->with('mensaje',$mensaje);
+					$ap=$request->ap;
+					$am=$request->am;
+					$cedu=$request->cedu;
+					$tel=$request->tel;
+					$correo=$request->email;
+					$pass=$request->pass;
+					
+					$this->validate($request,[
+						'nom'=>'required|',['regex:/^[A-Z][A-Z,a-z, ,ñ,é,í,á,ó,ú]*$/'],
+						'ap'=>'required|',['regex:/^[A-Z][A-Z,a-z, ,ñ,é,í,á,ó,ú]*$/'],
+						'am'=>'required|',['regex:/^[A-Z][A-Z,a-z, ,ñ,é,í,á,ó,ú]*$/'],
+						'cedu'=>'required|',['regex:/^[0-9]+{10}'],
+						'tel'=>'required|',['regex:/^[0-9]+{10}'],
+						'email'=>'required|email',
+						'pass'=>'required|',['regex:/^[A-Z,a-z,0-9,ñ,é,í,á,ó,ú]*$/']
+					]);
+					
+					$doc=new doctores;
+					$doc->id_doc=null;
+					$doc->nombre=$nom;
+					$doc->ap_pat=$ap;
+					$doc->ap_mat=$am;
+					$doc->tel=$tel;
+					$doc->correo=$correo;
+					$doc->pass=$pass;
+					$doc->cedula=$cedu;
+					$doc->tipo="admin";
+					$doc->save();
+					$proceso="REGISTRO DEL NUEVO DOCTOR: $nom";
+					$mensaje="El registro del Doctor fué exitoso.";
+					
+					return view('sistema.a_mensaje')
+					->with('proceso',$proceso)
+					->with('mensaje',$mensaje);
 				}
 			}else{
 				return redirect()->route('loginempty');

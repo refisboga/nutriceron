@@ -12,11 +12,45 @@ use Session;
 class clogin extends Controller
 {
     public function login(){
-		return view('sistema.home');
+		if(Session::get('sesiontipo')=="usu"){
+			if(Session::get('sesionid')==""){
+				return redirect()->route('logindesact');
+			}else{
+				//return redirect()->route('loginnoruta');
+				return view('sistema.home');
+			}
+		}else{
+			if(Session::get('sesiontipo')=="admin"){
+				if(Session::get('sesionid')==""){
+					return redirect()->route('logindesact');
+				}else{
+					return redirect()->route('loginnoruta');
+				}
+			}else{
+				return redirect()->route('loginempty');
+			}
+		}
 	}
 	
 	public function loginadmin(){
-		return view('sistema.admin');
+		if(Session::get('sesiontipo')=="usu"){
+			if(Session::get('sesionid')==""){
+				return redirect()->route('logindesact');
+			}else{
+				return redirect()->route('loginnoruta');
+			}
+		}else{
+			if(Session::get('sesiontipo')=="admin"){
+				if(Session::get('sesionid')==""){
+					return redirect()->route('logindesact');
+				}else{
+					//return redirect()->route('loginnoruta');
+					return view('sistema.admin');
+				}
+			}else{
+				return redirect()->route('loginempty');
+			}
+		}
 	}
 	
 	public function index(){
