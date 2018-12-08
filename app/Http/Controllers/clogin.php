@@ -74,7 +74,7 @@ class clogin extends Controller
 		$mensaje="Inicie sesión para continuar.";
 		return view('sistema.mensaje_login')->with('proceso',$proceso)->with('mensaje',$mensaje);
 	}
-	
+		
 	public function validar_login(Request $request){
 		$correo=$request->correo;
 		$pass=$request->pass;
