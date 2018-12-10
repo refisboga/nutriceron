@@ -49,8 +49,8 @@
 		@endif
 		<div class="input-group">
 			<span class="input-group-addon"><i class="glyphicon glyphicon-tint"></i></span>
-			<select name="tipo" style="width: 15%" class="form-control" value="{{$datos->tipo_sangre}}" required>
-				<option value="" disabled selected>Tipo de Sangre</option>
+			<select name="tipo" style="width: 15%" class="form-control" required>
+				<option value="{{$datos->tipo_sangre}}">{{$datos->tipo_sangre}}</option>
 				<option value="A-">A-</option>
 				<option value="A+">A+</option>
 				<option value="B-">B-</option>

@@ -1,7 +1,7 @@
 @extends('sistema.nav_admin')
 
 @section('contenido')
-<h2>Crear Men&uacute;</h2>
+<h2>Modificar Men&uacute;</h2>
 <p>Aqu&iacute; puedes crear diversos men&uacute;s.</p>
 <div class="container" id="cont">
 	<form action="{{url('regmenumod')}}" method="POST" enctype="multipart/form-data">
@@ -16,14 +16,19 @@
 			<input type="text" name="id" value="{{$datos->id_menu}}" style="width: 10%" pattern="[0-9]+" placeholder="ID del Menú" class="form-control" readonly>
 		</div>
 		
+		<div class="input-group">
+			<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+			<input type="text" name="nombre" value="{{$datos->nom}} {{$datos->ap}}" style="width: 35%" placeholder="ID del Menú" class="form-control" readonly>
+		</div>
+		
 		@if($errors->first('tipo')) 
 			<i> {{$errors->first('tipo')}}</i> 
 			<br>
 		@endif
 		<div class="input-group">
 			<span class="input-group-addon"><i class="glyphicon glyphicon-tint"></i></span>
-			<select name="tipo" class="form-control" style="width: 15%" value="{{$datos->tipo_comida}}" required>
-				<option value="" disabled selected>Tipo de Comida</option>
+			<select name="tipo" class="form-control" style="width: 15%" required>
+				<option value="{{$datos->comida}}">{{$datos->comida}}</option>
 				<option value="Entrada">Entrada</option>
 				<option value="Sopa">Sopa</option>
 				<option value="Guisado">Guisado</option>
@@ -47,7 +52,7 @@
 		@endif
 		<div class="form-group">
 			<label for="descripcion">Descripci&oacute;n:</label>
-			<textarea name="menu" value="{{$datos->menu}}" style="width: 40%" rows="12" maxlength="300" class="form-control" id="comment" placeholder="Redacta el menú aquí..." required></textarea>
+			<textarea name="menu" style="width: 40%" rows="12" maxlength="300" class="form-control" id="comment" placeholder="Redacta el menú aquí..." required>{{$datos->menu}}</textarea>
 			<p>300 caracteres como m&aacute;ximo.</p>
 		</div>
 		<br>

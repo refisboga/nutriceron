@@ -7,6 +7,20 @@
 	<form action="{{url('regmenu')}}" method="POST" enctype="multipart/form-data">
 	{{csrf_field()}}
 		
+		<div class="input-group">
+			<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+			<select name="mp" class="form-control" style="width: 20%" value="{{old('mp')}}" required>
+				<option value="" disabled selected>Seleccionar Usuario</option>
+				<option value="" disabled></option>
+				@foreach($p as $datos)
+					@if($datos->deleted_at=="")
+					<option value="{{$datos->id_pac}}">{{$datos->nombre}} {{$datos->ap_pat}}</option>
+					@endif
+				@endforeach
+			</select>
+		</div>	
+		<br>
+		
 		@if($errors->first('tipo')) 
 			<i> {{$errors->first('tipo')}}</i> 
 			<br>
@@ -29,7 +43,7 @@
 		@endif
 		<div class="input-group">
 			<span class="input-group-addon"><i class="glyphicon glyphicon-leaf"></i></span>
-			<input type="text" name="desc" style="width: 35%" pattern="[a-zA-Z0-9]*" placeholder="Nombre del Menú" class="form-control" value="{{old('desc')}}" required>
+			<input type="text" name="desc" style="width: 35%" pattern="[a-z,A-Z,0-9, ]*" placeholder="Nombre del Menú" class="form-control" value="{{old('desc')}}" required>
 		</div>
 		
 		@if($errors->first('menu')) 

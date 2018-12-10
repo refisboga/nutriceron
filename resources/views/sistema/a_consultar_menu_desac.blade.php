@@ -6,10 +6,11 @@
 	<table class="table">
 		<thead>
 			<tr>
-				<th>Acci&oacute;n</th><th>Estatus</th><th>#Id</th><th>Tipo</th><th>Nombre del Men&uacute;</th><th>Descripci&oacute;n</th>
+				<th>Acci&oacute;n</th><th>Estatus</th><th>#Id</th><th>Tipo</th><th>Nombre del Men&uacute;</th><th>Descripci&oacute;n</th><th>Usuario</th>
 				</tr>
 		</thead>
 		@foreach($menu as $datos)
+		@if($datos->dat!="")
 		<tbody>
 			<tr class="info">
 				<td>
@@ -17,9 +18,10 @@
 					<a class="btn btn-danger" role="button" href="{{URL::action('a_menu@a_eliminar_menu',['id'=>$datos->id_menu])}}">Eliminar</a>
 				</td>
 				<td>Desactivo</td>
-				<td>{{$datos->id_menu}}</td><td>{{$datos->tipo_comida}}<td>{{$datos->descr}}</td><td>{{$datos->menu}}</td>
+				<td>{{$datos->id_menu}}</td><td>{{$datos->comida}}<td>{{$datos->descr}}</td><td>{{$datos->menu}}</td><td>{{$datos->nom}} {{$datos->ap}}</td>
 			</tr>      
 		</tbody>
+		@endif
 		@endforeach
 	</table>
 </div>

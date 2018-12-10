@@ -26,6 +26,7 @@ class a_menu extends Controller
 					$tipo=$request->tipo;
 					$desc=$request->desc;
 					$menu=$request->menu;
+					$mp=$request->mp;
 					
 					$this->validate($request,[
 						'tipo'=>'required|',['regex:/^[A-Z][A-Z,a-z, ,ñ,é,í,á,ó,ú]*$/'],
@@ -38,12 +39,14 @@ class a_menu extends Controller
 					$m->tipo_comida=$tipo;
 					$m->descr=$desc;
 					$m->menu=$menu;
+					$m->id_pac_fk=$mp;
 					$m->save();
-					$proceso="Alta de Menu";
-					$mensaje="El Registro del Menu fué Exitoso";
+					$m=\DB::select("SELECT MAX(id_menu) AS idmax FROM menus;");
+					$proceso="ALTA DE MENU";
+					$mensaje="El Registro del Menu fué Exitoso.";
 					
 					return view('sistema.a_mensaje')
-					->with('proceso',$proceso)
+					->with('proceso',$res)
 					->with('mensaje',$mensaje);
 				}
 			}else{
@@ -68,7 +71,10 @@ class a_menu extends Controller
 					$only=menus::onlyTrashed()->get();
 					$res=\DB::select("SELECT * FROM menus;");
 					if(count($only)!=count($res)){
-						$m=menus::withTrashed()->get();
+						//$m=menus::withTrashed()->get();
+						$m=\DB::select("SELECT m.id_menu, m.tipo_comida as comida, m.descr, m.menu, m.id_pac_fk, m.deleted_at as dat,p.id_pac as idp, p.nombre as nom, p.ap_pat as ap
+									FROM menus AS m
+									INNER JOIN pacientes AS p ON m.id_pac_fk=p.id_pac;");
 						return view('sistema.a_consultar_menu')->with('menu',$m);
 					}else{
 						$proceso="CONSULTA DE MENUS ACTIVOS";	
@@ -99,7 +105,10 @@ class a_menu extends Controller
 					//return redirect()->route('loginnoruta');
 					$only=menus::onlyTrashed()->get();
 					if(count($only)!=0){
-						$m=menus::onlyTrashed()->get();
+						//$m=menus::onlyTrashed()->get();
+						$m=\DB::select("SELECT m.id_menu, m.tipo_comida as comida, m.descr, m.menu, m.id_pac_fk, m.deleted_at as dat,p.id_pac as idp, p.nombre as nom, p.ap_pat as ap
+									FROM menus AS m
+									INNER JOIN pacientes AS p ON m.id_pac_fk=p.id_pac;");
 						return view('sistema.a_consultar_menu_desac')->with('menu',$m);
 					}else{
 						$proceso="CONSULTA DEL HISTORIAL";	
@@ -121,7 +130,9 @@ class a_menu extends Controller
 				return redirect()->route('logindesact');
 			}else{
 				//return redirect()->route('loginnoruta');
-				$m=menus::withTrashed()->get();
+				//$m=menus::withTrashed()->get();
+				$id=Session::get('sesionid');
+				$m=\DB::select("SELECT * FROM menus WHERE id_pac_fk=$id");
 				if(count($m)==0){
 					$proceso="Consultar Menus Disponibles";
 					$mensaje="Necesitas contactar a tu Nutriólogo para que te asigne un menu.";
@@ -242,7 +253,10 @@ class a_menu extends Controller
 					return redirect()->route('logindesact');
 				}else{
 					//return redirect()->route('loginnoruta');
-					$r=\DB::select("SELECT * FROM menus WHERE id_menu=$id;");
+					$r=\DB::select("SELECT m.id_menu, m.tipo_comida as comida, m.descr, m.menu, m.id_pac_fk, p.id_pac as idp, p.nombre as nom, p.ap_pat as ap
+									FROM menus AS m
+									INNER JOIN pacientes AS p ON m.id_pac_fk=p.id_pac
+									WHERE m.id_menu=$id");
 					return view('sistema.a_modificar_menu')->with('datos',$r[0]);
 				}
 			}else{

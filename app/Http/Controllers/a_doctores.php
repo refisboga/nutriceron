@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use Session;
 use App\doctores;
+use App\pacientes;
 
 class a_doctores extends Controller
 {
@@ -45,7 +46,8 @@ class a_doctores extends Controller
 					return redirect()->route('logindesact');
 				}else{
 					//return redirect()->route('loginnoruta');
-					return view('sistema.a_crear_menu');
+					$p=pacientes::withTrashed()->get();
+					return view('sistema.a_crear_menu')->with('p',$p);
 				}
 			}else{
 				return redirect()->route('loginempty');
@@ -121,7 +123,7 @@ class a_doctores extends Controller
 				}else{
 					//return redirect()->route('loginnoruta');
 					$d=doctores::where('id_doc','=',$id)->get();
-		return view('sistema.a_modificar_doc')->with('datos',$d[0]);
+					return view('sistema.a_modificar_doc')->with('datos',$d[0]);
 				}
 			}else{
 				return redirect()->route('loginempty');
