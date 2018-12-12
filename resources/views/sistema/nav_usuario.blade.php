@@ -64,7 +64,7 @@
                 <!-- /.dropdown -->
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-user fa-fw"></i>{{Session::get('sesionname')}} <i class="fa fa-caret-down"></i>
+                        <img src="{{asset('archivos/'.Session::get('sesionimg'))}}" width="30" height="30" alt="Profile"> {{Session::get('sesionname')}} <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
                         <li><a href="{{url('/cuenta')}}"><i class="fa fa-user fa-fw"></i> Perfil</a>

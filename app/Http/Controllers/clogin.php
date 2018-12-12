@@ -93,6 +93,7 @@ class clogin extends Controller
 				Session::put('sesionlastname',$consulta[0]->ap_pat);
 				Session::put('sesionlastname2',$consulta[0]->ap_mat);
 				Session::put('sesiontipo',$consulta[0]->tipo);
+				Session::put('sesionimg',$consulta[0]->imagen);
 				return redirect()->route('home');
 			}
 		}else{
@@ -121,6 +122,7 @@ class clogin extends Controller
 		Session::forget('sesionname');
 		Session::forget('sesionid');
 		Session::forget('sesiontipo');
+		Session::forget('sesionimg');
 		Session::flush();
 		Session::flash('error', 'Sesión cerrada correctamente');
 		return redirect()->route('index');

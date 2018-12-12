@@ -71,6 +71,17 @@
 				<input type="text" name="tel" value="{{$datos->telefono}}" style="width: 25%" placeholder="Telefono" class="form-control" pattern="[0-9]+" maxlength="10" title="Ejemplo: 7225206712" required >
 			</div>
 			
+			<br>
+			<img src = "{{asset('archivos/'.$datos->imagen)}}" height =150 width=150>
+			@if($errors->first('img')) 
+				<i> {{$errors->first('img')}}</i> 
+				<br>
+			@endif
+			<div class="input-group">
+				<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+				<input type="file" name="img" style="width: 40%" placeholder="Foto de Perfil" class="form-control"  title="Imagen" value="{{old('img')}}" required >
+			</div>
+			
 			<div class="input-group">
 				<label>Sexo:</label><br>
 					@if($datos->sexo=='F')

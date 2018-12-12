@@ -36,9 +36,19 @@ class usuario extends Controller
 			'kg'=>['regex:/^[0-9]+$/'],
 			'gr'=>['regex:/^[0-9]+$/'],
 			'talla'=>['regex:/^[1|2]+[.][0-9]+$/'],
-			'fecha'=>'required|date'
+			'fecha'=>'required|date',
+			'img'=>'required|image|mimes:jpeg,jpg,png,gif'
 		]);
 		
+		$file=$request->file('img');
+		if($file!=""){
+			$date=date('Ymd_His_');
+			$img=$file->getClientOriginalName();
+			$img2=$date.$img;
+			\Storage::disk('local')->put($img2,\File::get($file));
+		}else{
+			$img2="default-user.png";
+		}
 		if($gr==0){
 			$gr="000";
 		}
@@ -56,6 +66,7 @@ class usuario extends Controller
 		$user->talla=$talla;
 		$user->sexo=$sexo;
 		$user->fec_nac=$fecha;
+		$user->imagen=$img2;
 		$user->tipo="usu";
 		$user->save();
 		$proceso="Alta del usuario: $nom.";
@@ -126,10 +137,22 @@ class usuario extends Controller
 					'email'=>'required|email',
 					'pass'=>['regex:/^[A-Z,a-z,0-9]*$/'],
 					'tel'=>['regex:/^[0-9]+$/'],
-					'fecha'=>'required|date'
+					'fecha'=>'required|date',
+					'img'=>'image|mimes:jpeg,jpg,png,gif'
 				]);
 				
+				$file=$request->file('img');
+				if($file!=""){
+					$date=date('Ymd_His_');
+					$img=$file->getClientOriginalName();
+					$img2=$date.$img;
+					\Storage::disk('local')->put($img2,\File::get($file));
+				}
+				
 				$user=pacientes::find($id);
+				if($file!=""){
+					$user->imagen=$img2;
+				}
 				$user->nombre=$nom;
 				$user->ap_pat=$ap;
 				$user->ap_mat=$am;

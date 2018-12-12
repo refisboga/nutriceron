@@ -62,6 +62,15 @@
 				<input type="text" name="tel" style="width: 25%" placeholder="Telefono" class="form-control" pattern="[0-9]+" maxlength="10" title="Ejemplo: 7225206712" value="{{old('tel')}}" required >
 			</div>
 			
+			@if($errors->first('img')) 
+				<i> {{$errors->first('img')}}</i> 
+				<br>
+			@endif
+			<div class="input-group">
+				<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+				<input type="file" name="img" style="width: 35%" placeholder="Foto de Perfil" class="form-control"  title="Imagen" value="{{old('img')}}" required >
+			</div>
+			
 			@if($errors->first('kg')) 
 				<i> {{$errors->first('kg')}}</i> 
 				<br>
