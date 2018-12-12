@@ -37,7 +37,7 @@ class usuario extends Controller
 			'gr'=>['regex:/^[0-9]+$/'],
 			'talla'=>['regex:/^[1|2]+[.][0-9]+$/'],
 			'fecha'=>'required|date',
-			'img'=>'required|image|mimes:jpeg,jpg,png,gif'
+			'img'=>'image|mimes:jpeg,jpg,png,gif'
 		]);
 		
 		$file=$request->file('img');
@@ -83,6 +83,7 @@ class usuario extends Controller
 			Session::put('sesionlastname',$consulta[0]->ap_pat);
 			Session::put('sesionlastname2',$consulta[0]->ap_mat);
 			Session::put('sesiontipo',$consulta[0]->tipo);
+			Session::put('sesionimg',$consulta[0]->imagen);
 			return redirect()->route('home');
 			/*return view('sistema.mensaje')
 			->with('proceso',$proceso)

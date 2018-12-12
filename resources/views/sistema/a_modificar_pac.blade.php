@@ -79,7 +79,7 @@
 			@endif
 			<div class="input-group">
 				<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-				<input type="file" name="img" style="width: 35%" placeholder="Foto de Perfil" class="form-control"  title="Imagen" value="{{old('img')}}" required >
+				<input type="file" name="img" style="width: 35%" placeholder="Foto de Perfil" class="form-control"  title="Imagen" value="{{old('img')}}">
 			</div>
 			
 			<div class="input-group">
