@@ -54,7 +54,7 @@ class clogin extends Controller
 	}
 	
 	public function index(){
-		return view('sistema.main');
+		return view('sistema.index');
 	}
 	
 	public function login_empty(){

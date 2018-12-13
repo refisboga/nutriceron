@@ -185,7 +185,7 @@
     <script src="{{asset('nav/data/morris-data.js')}}"></script>
 
     <!-- Custom Theme JavaScript -->
-    <script src="nav/dist/js/sb-admin-2.js"></script>
+    <script src="{{asset('nav/dist/js/sb-admin-2.js')}}"></script>
 
 </body>
 
