@@ -6,19 +6,18 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="description" content="Nutriceron">
 		<meta name="keywords" content="Nutriceron">
-		
 		<title>Nutriceron</title>
 		
-		<link rel="icon" href="{{asset('index/images/favicon.png')}}" type="image/png" sizes="16x16">
-		<link href="{{asset('index/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" media="all" />
+		<link rel="icon" href="index/images/favicon.png" type="image/png" sizes="16x16">
+		<link href="index/css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all" />
 		<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900" rel="stylesheet">
-		<link rel="stylesheet" href="{{asset('index/css/animate.css')}}">
+		<link rel="stylesheet" href="index/css/animate.css">
 		<!-- Resource style -->
-		<link rel="stylesheet" href="{{asset('index/css/owl.carousel.css')}}">
-		<link rel="stylesheet" href="{{asset('index/css/owl.theme.css')}}">
-		<link rel="stylesheet" href="{{asset('index/css/ionicons.min.css')}}">
+		<link rel="stylesheet" href="index/css/owl.carousel.css">
+		<link rel="stylesheet" href="index/css/owl.theme.css">
+		<link rel="stylesheet" href="index/css/ionicons.min.css">
 		<!-- Resource style -->
-		<link href="{{asset('index/css/style.css')}}" rel="stylesheet" type="text/css" media="all" />
+		<link href="index/css/style.css" rel="stylesheet" type="text/css" media="all" />
 	</head>
 	<body>
 <div class="wrapper">
@@ -28,7 +27,7 @@
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header page-scroll">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-          <a class="navbar-brand page-scroll" href="#main"><img src="{{asset('index/images/logo.png')}}" width="80" height="30" alt="iLand" /></a> </div>
+          <a class="navbar-brand page-scroll" href="#main"><img src="index/images/logo.png" width="80" height="30" alt="iLand" /></a> </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
@@ -137,7 +136,7 @@
           </div>
         </div>
         <!--<div class="col-md-4 wow fadeInDown" data-wow-delay="0.5s"> <img class="img-responsive" src="images/iPhone-app.png" alt="App" /> </div>-->
-        <div class="col-md-4 wow fadeInDown" data-wow-delay="0.5s"> <img class="img-responsive" src="{{asset('index/images/juice.png')}}" alt="App" /> </div>
+        <div class="col-md-4 wow fadeInDown" data-wow-delay="0.5s"> <img class="img-responsive" src="index/images/juice.png" alt="App" /> </div>
         <div class="col-md-4 features-left text-left">
           <div class="col-md-12 wow fadeInDown" data-wow-delay="0.6s">
             <div class="icon"> <i class="ion-ios-americanfootball-outline"></i> </div>
@@ -376,11 +375,11 @@
 <!-- Wrapper--> 
 
 <!-- Jquery and Js Plugins --> 
-<script type="text/javascript" src="{{asset('index/js/jquery-2.1.1.js')}}"></script> 
-<script type="text/javascript" src="{{asset('index/js/bootstrap.min.js')}}"></script> 
-<script type="text/javascript" src="{{asset('index/js/plugins.js')}}"></script> 
-<script type="text/javascript" src="{{asset('index/js/menu.js')}}"></script> 
-<script type="text/javascript" src="{{asset('index/js/custom.js')}}"></script> 
-<script src="{{asset('index/js/jquery.subscribe.js')}}"></script>
+<script type="text/javascript" src="index/js/jquery-2.1.1.js"></script> 
+<script type="text/javascript" src="index/js/bootstrap.min.js"></script> 
+<script type="text/javascript" src="index/js/plugins.js"></script> 
+<script type="text/javascript" src="index/js/menu.js"></script> 
+<script type="text/javascript" src="index/js/custom.js"></script> 
+<script src="index/js/jquery.subscribe.js"></script>
 </body>
 </html>
