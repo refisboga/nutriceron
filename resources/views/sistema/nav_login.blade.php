@@ -20,7 +20,7 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a href="{{url('/')}}" class="navbar-brand">Nutriceron</a>
+					<a href="http://www.nutriceron.com" class="navbar-brand">Nutriceron</a>
 				</div>
 			</div>
 		</nav>

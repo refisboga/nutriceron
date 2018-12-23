@@ -1,5 +1,3 @@
-@extends('sistema.main')
-
 @section('contenido')
 <h2>Reg&iacute;strate</h2>
 
